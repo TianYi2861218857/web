@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的递归调用</title>
+</head>
+<body>
+</body>
+<script>
+	function fact(n){
+		if (n ==1) {
+			return 1;
+		}else{
+			return n*fact(n-1);
+		}
+	}
+	alert(fact(5));
+</script>
+</html>

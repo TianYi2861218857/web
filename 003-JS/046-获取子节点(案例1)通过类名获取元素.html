@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>获取子节点(案例1)通过类名获取元素</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="box">1</li>
+		<li>2</li>
+		<li class="box">3</li>
+		<li>4</li>
+		<li class="box">5</li>
+		<li>6</li>
+		<li class="box">7</li>
+		<li>8</li>
+		<li>9</li>
+	</ul>
+	<ul id="div1">
+		<li class="box">1</li>
+		<li>2</li>
+		<li class="box">3</li>
+		<li>4</li>
+		<li class="box">5</li>
+		<li>6</li>
+		<li class="box">7</li>
+		<li>8</li>
+		<li>9</li>
+	</ul>
+</body>
+<script>
+	function getElementsByClass(oParent,oClass){
+		var oEle = oParent.children;
+		var result = [];
+		for(i=0;i<oEle.length;i++){
+			if(oEle[i].className == oClass) {
+				result.push(oEle[i]);
+			}
+		}
+		return result;
+	}
+	var oUl = document.getElementById('ul1');
+	var oBody = getElementsByClass(oUl,'box');
+	console.log(oBody)
+	var oDiv = document.getElementById('div1');
+	var oBody1 = getElementsByClass(oDiv,'box');
+	console.log(oBody1)
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>数组基本操作</title>
+</head>
+<body>
+</body>
+<script>
+	var arr = [1,2,3];
+	console.log(arr)
+	//数组末尾添加元素,并返回添加后的数组长度
+	// var arr1 = arr.push('a','b',2);
+
+	//删除末尾元素,并返回删除元素
+	// var arr1 = arr.pop();
+
+	//删除第一个元素,并返回删除元素
+	// var arr1 = arr.shift();
+
+	//数组头部添加元素,并返回添加后的数组长度
+	// var arr1 = arr.unshift('a',2);
+
+	//数组.splice(起始下标,删除个数,插入值1...)可删除,插入,替换   返回删除项的新数组,无删除就返回空数组
+	// var arr1 = arr.splice(1,2); //删除
+	// var arr1 = arr.splice(0,0,'a',5); //删除
+	// var arr1 = arr.splice(1,2,'a',5); //删除
+
+	//数组.join(字符) 用指定的字符把数组的每一项连接成字符串并返回,原数组不变
+	// var arr1 = arr.join(' ');
+
+	//数组1.concat(数组2) 把数组1和数组2合并生成一个新的数组并返回,原数组不变
+	// var arrr = [5,6];
+	// var arr1 = arr.concat(arrr); //方式1
+	// // var arr1 = arr.concat([5,6]); //方式2
+
+	//数组.slice(起始下标,结束下标) 基于当前数组创建一个新数组(包含起始数据,不包含结束数据 )并返回,原数组不变
+	// var arr1 = arr.slice(0,2);
+
+	//数组.indexOf(查找项,起始下标) 从数组头部开始向后查找,返回查找到全等匹配的数组的下标,如果没有找到返回-1
+	// var arr1 = arr.indexOf(1,0);
+
+	//数组.lastIndexOf(查找项,起始下标) 从数组未部开始向前查找,返回查找到全等匹配的数组的下标,如果没有找到返回-1
+	var arr1 = arr.lastIndexOf(1,2);
+	console.log(arr) 
+	console.log(arr1)
+</script>
+</html>

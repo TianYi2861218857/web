@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>动画-多物体运动(封装函数-提取公共代码)</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 30px;
+            margin: 100px auto;
+        }
+        #box div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 100px;
+        }
+        #box3{
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+   <div id="box">
+       <div id="box1">变宽</div>
+       <div id="box2">变高</div>
+       <div id="box3">变色</div>
+   </div>
+</body>
+<script src="js/util.js"></script>
+<script>
+    var oDiv1 = document.getElementById('box1');
+    var oDiv2 = document.getElementById('box2');
+    var oDiv3 = document.getElementById('box3');
+    // console.log(oDiv1)
+    oDiv1.onmouseover=function(){
+        animate(oDiv1,'width',400);
+    }
+    oDiv2.onmouseover=function(){
+        animate(oDiv2,'height',400);
+    }
+    oDiv3.onmouseover=function(){
+        animate(oDiv3,'opacity',100);
+    }
+    oDiv1.onmouseout=function(){
+        animate(oDiv1,'width',100);
+    }
+    oDiv2.onmouseout=function(){
+        animate(oDiv2,'height',100);
+    }
+    oDiv3.onmouseout=function(){
+        animate(oDiv3,'opacity',20);
+    }
+    //
+</script>
+</html>

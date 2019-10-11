@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>基础拖拽限制(父元素限制)</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+			margin: 100px auto;
+		}
+		#box{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			top: 100px;
+			left: 100px;
+			background-color: rgba(235,100,0);
+			border-radius: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="box"></div>
+	</div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oFather = document.getElementById('father');
+	var disX , disY;
+	oBox.onmousedown = function(ev){
+		disY = ev.clientY - oBox.offsetTop;
+		disX = ev.clientX - oBox.offsetLeft;
+		// console.log('aaa')
+		document.onmousemove = function(ev){
+			// console.log('bbb')
+			var t = ev.clientY - disY;
+			var l = ev.clientX - disX;
+			if (t<0) {
+				t= 0;
+			}else if (t>(oFather.offsetHeight-oBox.offsetHeight)) {
+				t = (oFather.offsetHeight-oBox.offsetHeight);
+			}
+			if (l<0) {
+				l= 0;
+			}else if (l>(oFather.offsetWidth-oBox.offsetWidth)) {
+				l = (oFather.offsetWidth-oBox.offsetWidth);
+			}
+			oBox.style.top = t +'px';
+			oBox.style.left = l + 'px';
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>节点操作-克隆节点(案例动态九宫格)</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#ul1{
+			position: relative;
+		}
+		#btn{
+			margin-bottom: 20px;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="克隆" id="btn">
+	<ul id="ul1">
+		<li id="box" class="son"></li>
+	</ul>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	var aDiv = document.getElementsByClassName('son');
+	var iHeight = 100;
+	var iWidth = 100;
+	var iMargin = 15;
+	var allCol = 3;
+	oBtn.onclick= function(){
+		var oDiv = aDiv[0].cloneNode();
+		oBox.appendChild(oDiv)
+		for(var i=0;i<aDiv.length;i++){
+			var iRow = parseInt(i/allCol);
+			var	iCol = i%allCol;
+			aDiv[i].style.top = iRow*(iHeight+iMargin)+'px';
+			aDiv[i].style.left = iCol*(iWidth+iMargin)+'px';
+		}
+	}
+</script>
+</html>
