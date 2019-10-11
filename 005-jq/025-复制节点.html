@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复制节点</title>
+</head>
+<body>
+	<div>我是内容
+		<span>我是span</span></div>
+	<div>我是内容</div>
+	<div>我是内容</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').on('click',function(){
+			alert('aaa')
+		})
+		//jQuery对象.clone(false|true) 复制一个节点,默认是false不会复制事件,true会复制事件
+		var oBox = $('div').clone(true);
+		oBox.appendTo($('body'))
+	});
+</script>
+</html>

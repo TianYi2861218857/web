@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>静态方法2</title>
+	
+</head>
+<body>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	var str = '   ab ba '
+	console.log(str)
+	console.log($.trim(str))
+	/*console.log($.isWindow(window))
+	console.log($.isWindow())
+	console.log($.isArray([1,23]))
+	console.log($.isArray())
+	console.log($.isFunction(function(){}))
+	console.log($.isFunction())*/
+	var obj1 ={
+		name: 'tom',
+		age: '18'
+	}
+	var obj2 ={
+		age: '22',
+		eye: 'a'
+	}
+	console.log('before::obj1',obj1)
+	console.log('before::obj2',obj2)
+
+	/* var objs = $.extend(obj1,obj2);*/
+	var objs = $.extend({},obj1,obj2);
+
+	console.log('objs',objs)
+	console.log('obj1',obj1)
+	console.log('obj2',obj2)
+</script>
+</html>

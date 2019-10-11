@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对象常见方法</title>
+	
+</head>
+<body>
+	<div class="box1">div1</div>
+	<div class="box3">div2</div>
+	<div id="box">div3</div>
+	<div>div4</div>
+	<div>div5</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	$(function(){
+		/*console.log($('div').index($('#box')))
+		$('div').each(function(index,element){
+			console.log(index,element)
+			console.log('this:',this)
+		})*/
+		console.log($('#box').data([],[]))
+	})
+</script>
+</html>
