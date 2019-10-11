@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>取余显示时间</title>
+</head>
+<body>
+</body>
+<script>
+	var iTime1 = 123456789;
+	var iDay = parseInt(iTime1/86400);
+	var iH = parseInt((iTime1%86400)/3600);
+	var iM = parseInt((iTime1%3600)/60);
+	var iS = parseInt((iTime1%3600)%60);
+	console.log(iDay+' days');
+	console.log(iH+' H');
+	console.log(iM+' M');
+	console.log(iS+' S');
+	var iTime = '毛里求斯时间：'+iH+':'+iM+':'+iS;
+	console.log(iTime)
+</script>
+</html>

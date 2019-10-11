@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+			overflow: hidden;
+			margin: 20px auto;
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			margin: 150px 0 0 150px;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oFather = document.getElementById('father');
+	var oSon = document.getElementById('son')
+	document.addEventListener('click',function(event){
+		console.log('document click')
+		event.stopPropagation();
+	},false)
+	document.addEventListener('mousedown',function(event){
+		console.log('document mousedown')
+		event.stopPropagation();
+	},false)
+	document.addEventListener('mouseup',function(event){
+		console.log('document mouseup')
+		event.stopPropagation();
+	},false)
+	document.addEventListener('mousemove',function(event){
+		console.log('document mousemove')
+		event.stopPropagation();
+	},false)
+	document.addEventListener('mousewheel',function(event){
+		console.log('document mousewheel')
+		event.stopPropagation();
+	},false)
+</script>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>表单标签基础</title>
+<!-- 	<style>
+		textarea{resize: none}
+	</style> 禁止手动拉伸多行输入框，也可直接在textarea中设置 style = "resize:none;" -->
+</head>
+<body>
+	<form action="https://www.kuazhu.com/" method="GET"><!--  method="GET"   GET会在地址栏显示提交的数据，而POS不会  -->
+		<p>
+			<label for="username01">
+				用户名：
+			</label>
+			<input type="text" name="username" value="" placeholder="请输入用户名" autocomplete="off" id="username01">
+		</p>
+		<p>
+			<label for="possword01">
+				密码：
+			</label>
+			<input type="password" name="password" value="" placeholder="请输入密码" autocomplete="off" id="possword01">
+		</p>
+		<p>
+			性别：
+			<input type="radio" name="sex" value="male">男
+			<input type="radio" name="sex" value="female">女
+			<input type="radio" name="sex" value="ThirdSex">第三性别
+			<input type="radio" name="sex" value="secrecy" checked>保密
+		</p>
+		<p>
+			爱好：
+			<input type="checkbox" name="hobby" value="sing">唱
+			<input type="checkbox" name="hobby" value="jump">跳
+			<input type="checkbox" name="hobby" value="rap">rap
+			<input type="checkbox" name="hobby" value="basketball">篮球
+		</p>
+		<p>
+			<label for="me">
+				自我介绍：
+			</label>
+			<textarea name="me" id="me" cols="25" rows="8" style = "resize:none;">  </textarea>
+		</p>
+		<p>
+			<label for="email">
+				邮箱：
+			</label>
+			<input type="email" name="email"id="email" value="@qq.com">
+		</p>
+		<p>
+			<label for="number">
+				喜好数字：
+			</label>
+			<input type="number" name="number" id="number" placeholder="请输入数字">
+		</p>
+		<p>
+			<label for="color">
+				喜好颜色：
+			</label>		
+			<input type="color" name="color" id="color">
+		</p>
+		<p>
+			<label for="data">
+				出生日期：
+			</label>
+			<input type="date" name="date" id="data" value="2000-01-01">
+		</p>
+		<p>
+			<label for="city">
+				所在城市：
+			</label>
+			<select name="city" id="city">
+				<optgroup label="直辖市">
+					<option value="bj" selected>北京</option>
+					<option value="sh">上海</option>
+					<option value="sz">深圳</option>
+					<option value="cq">重庆</option>
+				</optgroup>
+				<optgroup label="省会">
+					<option value="zz">郑州</option>
+					<option value="hz">杭州</option>
+					<option value="su">苏州</option>
+					<option value="wh">武汉</option>
+				</optgroup>
+			</select>
+		</p>
+		<p>
+			附件：
+			<input type="file" name="file">
+		</p>
+		<p>
+			<input type="image" name="image" src=".\image\cxk.jpg">
+		</p>
+		<p>
+			<input type="button" name="button1" value="空按钮">
+			<input type="submit" name="submit" value="注册">
+			<input type="reset" name="reset" value="重置">
+		</p>
+	</form>
+</body>
+</html>

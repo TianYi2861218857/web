@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>全局变量2</title>
+</head>
+<body>
+</body>
+<script>
+	//var a(变量声明的提升;此时的a是第一个)
+	console.log('a0',a)  //[1] undefined (因为变量声明的提升)
+	var a =1;
+	function fact(){
+		//var a(变量声明的提升;此时的a是第二个)
+		console.log('a1',a) //[2] undefined
+		var a=6;
+		function bo(){
+			console.log('a2',a) //[4] 6
+		}
+		bo();
+	}
+	console.log('a3',a) //[2] 1
+	fact();
+	console.log('a4',a) //[5] 1 同级找a值,不会向下一级寻找
+</script>
+</html>

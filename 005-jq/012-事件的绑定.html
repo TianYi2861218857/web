@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>事件的绑定</title>
+	<style>
+		.father{
+			width: 100px;
+			height: 100px;
+			margin: 20px auto;
+			border: 1px solid rgba(0,0,0,0.6);
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		hover
+	</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	$(function(){
+		function fn(){
+			alert('aaa')
+		}
+		$('.father').click(fn)
+		$('.father').on('click',function(){alert('on::aaa')})
+		$('.father').one('click',function(){alert('one')});
+		$('.father').hover(
+			function(){$('div').css({"background":"red"})},
+			function(){$('div').css({"background":"orange"})})
+	})
+</script>
+</html>

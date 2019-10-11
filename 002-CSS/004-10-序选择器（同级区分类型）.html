@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>序选择器（区分类型）</title>
+	<style>
+		h2:first-of-type{color: red;}
+		p:first-of-type{color: #ff8f7f;}
+		span:last-of-type{color: #7f8f3f;}
+		p:nth-of-type(3){color: #f1e311;}
+		p:only-of-type{color: #1a1bf1}
+		/*p:nth-child(2n){color: #f1e311;}*
+	</style>
+</head>
+<body>
+	<h2>我是h2</h2>
+	<p>11111</p>
+	<p>22222</p>
+	<p>33333</p>
+	<span>44444</span>
+	<p>55555</p>
+	<div>
+		<p>66666</p>
+		<span>77777</span>
+	</div>
+</body>
+</html>

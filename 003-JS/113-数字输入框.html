@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>数字输入框</title>
+</head>
+<body>
+	<div id="box">
+		请输入你的银行卡密码:
+		<input type="text" id="txt">
+	</div>
+</body>
+<script>
+	var oTxt = document.getElementById('box');
+	oTxt.onkeydown = function(ev){
+		console.log(ev.keyCode)
+		if ((ev.keyCode<48 || ev.keyCode>57) 
+			&& ev.keyCode != 8
+			&& ev.keyCode !=46
+			&& ev.keyCode != 37
+			&& ev.keyCode !=39) {
+			return false;
+			// ev.preventDefault()
+		}
+
+	}
+</script>
+</html>

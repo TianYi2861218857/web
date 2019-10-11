@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟(案例)</title>
+    <style>
+        *{
+            margin: 0;
+            height: 0;
+        }
+        body{
+            background-color: #000;
+        }
+        #timer{
+            width: 235px;
+            margin: 100px auto;
+            font-size: 60px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">
+        12:12:12
+    </div>
+</body>
+<script>
+    function to2Trs(num){
+        if (num<10) {
+            return '0'+ num;
+        }else{
+            return '' + num; 
+        }
+        /*num<10 ? num = '0' +num : num = ''+num;
+        return num;*/
+
+        // return num<10 ? '0'+num : ''+num;
+    }
+    var oTimer = document.getElementById('timer');
+    function handleTimer(){
+        var today = new Date();
+        // console.log(today)
+        // console.log(oTimer)
+        var iHour = today.getHours();
+        var iMinute = today.getMinutes();
+        var iSecond = today.getSeconds();
+        oTimer.innerHTML = to2Trs(iHour) + ':' + to2Trs(iMinute) + ':' + to2Trs(iSecond);
+    }
+    setInterval(function(){
+      handleTimer();  
+    },500)
+    handleTimer();
+    //加这个是在异步任务之前先执行一遍,防止闪动
+</script>
+</html>

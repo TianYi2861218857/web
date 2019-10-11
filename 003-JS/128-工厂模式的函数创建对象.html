@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式的函数创建对象</title>
+</head>
+<body>
+</body>
+<script>
+	function createPerson(name,age){
+		var obj = new Object();
+		obj.name = name;
+		obj.age = age;
+		obj.sayhi =function(){
+			console.log('hi...'+' I am '+this.name)
+		}
+		obj.sayage =function(){
+			console.log('I am ' +this.age+' years old')
+		}
+		return obj;
+	}
+	var arr1 = createPerson('tom','18');
+	arr1.sayhi();
+	arr1.sayage();
+	var arr2 = createPerson('leo','21');
+	console.log(arr2)
+</script>
+</html>

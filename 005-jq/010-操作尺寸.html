@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>操作尺寸</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			margin: 20px auto;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		hellow
+	</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	$(function(){
+		console.log($('div').css("border"))
+		console.log($('div').css({"background":"red"}))
+	})
+</script>
+</html>

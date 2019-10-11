@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>物体左右移动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 50px;
+			left: 100px;
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			margin: 200px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	// console.log(oBox)
+	document.onkeydown = function(ev){
+		// console.log(ev.keyCode)
+		if (ev.keyCode == 37) {
+			oBox.style.left = oBox.offsetLeft -10+'px' 
+		}else if(ev.keyCode == 39){
+			oBox.style.left = oBox.offsetLeft + 10 +'px';
+		}
+	}
+</script>
+</html>

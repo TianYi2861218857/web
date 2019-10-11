@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>局部变量1</title>
+</head>
+<body>
+</body>
+<script>
+	function f1(){	
+		console.log('a1',a) 
+		var a=6;
+		function f2(){
+			console.log('a2',a)
+			function f3(){
+				console.log('a3',a)
+			}
+			function f4(){
+				f3();
+			}
+			f4();
+		}
+		f2();
+		f3();
+	}
+	// console.log('a4',a) 
+	f1();
+	console.log('a5',a) 
+</script>
+</html>

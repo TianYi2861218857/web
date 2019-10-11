@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>防止多次点击</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50px;
+            background-color: orange;
+        }
+        #line{
+            width: 1px;
+            height: 600px;
+            position: absolute;
+            background-color: gray;
+            left: 400px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">开始动画</button>
+    <div id="box"></div>
+    <div id="line"></div>
+</body>
+<script>
+   var oBtn = document.getElementById('btn');
+   var oBox = document.getElementById('box');
+   var timer = 0;
+   oBtn.onclick=function(){
+        clearInterval(timer);
+        //每点击一次关闭上一个定时器,防止多次点击导致速度加快且最后一个定时器无法关闭
+        timer=setInterval(function(){
+            if (oBox.offsetLeft == 400) {
+                clearInterval(timer);
+            }else{
+                oBox.style.left = oBox.offsetLeft+10+'px';
+            }
+            console.log('timer',timer,'is sunning')
+        },30)
+   }
+</script>
+</html>

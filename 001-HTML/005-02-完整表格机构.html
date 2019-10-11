@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>完整表格架构</title>
+</head>
+<body>
+	<table border="0px" width="300px" height="150px" align="center" cellspacing="1px" bgcolor="black">
+		<caption>
+			<h2>人与自然</h2>
+		</caption><!-- 表头:caption,给整个表格设置标题,一定要嵌套在table标签内部才有效 -->
+		<thead><!-- 标题:thead tr th,th标签会给每一列设置标题,内容会自动加粗，居中 -->
+			<tr bgcolor="gray">
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>爱好</th>
+			</tr>
+		</thead>
+		<tbody><!-- 主体:tbody tr td,tbody用来存放页面中的主体数据, 如果不写会自动加上 -->
+			<tr bgcolor="white" align="center">
+				<td>刘萍</td>
+				<td>20</td>
+				<td>吃零食</td>
+			</tr>
+			<tr bgcolor="white" align="center">
+				<td>猪</td>
+				<td>6</td>
+				<td>睡觉</td>
+			</tr>
+		</tbody>
+		<tfoot><!-- 表尾:tfoot tr td,tfoot用来存放表格的页脚 -->
+			<tr bgcolor="white" align="center">
+				<td>*</td>
+				<td>*</td>
+				<td>*</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>运行窗口</title>
+</head>
+<body>
+	<textarea id="txt" cols="30" rows="10"></textarea>
+	<button id="btn">运行</button>
+	<a href="file:///E:/world/WEB/003-JS/065-navigator/history%E5%AF%B9%E8%B1%A1.html">测试64的后退</a>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oTxt = document.getElementById('txt');
+	oBtn.onclick=function(){
+		var val = oTxt.value;
+		var newWin = window.open();
+		newWin.document.write(val)
+	}
+</script>
+</html>

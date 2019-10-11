@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟图片版(案例)</title>
+    <style>
+        *{
+            margin: 0;
+            height: 0;
+        }
+        body{
+            background-color: #000;
+        }
+        #timer{
+            width: 304px;
+            margin: 100px auto;
+            font-size: 60px;
+            color: #fff;
+        }
+        #timer img{
+            width: 25px;
+            height: 37px;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">
+        <img src="img/0.png">
+        <img src="img/0.png">
+        :
+        <img src="img/0.png">
+        <img src="img/0.png">
+        :
+        <img src="img/0.png">
+        <img src="img/0.png">
+    </div>
+</body>
+<script>
+    function to2Str(num){
+        return num<10 ? '0' +num : ''+num;
+    }
+    var oTimer = document.getElementById('timer');
+    var aImg = document.getElementsByTagName('img')
+    function handleTimer(){
+        var today = new Date();
+        var iHour = today.getHours();
+        var iMinute = today.getMinutes();
+        var iSecond = today.getSeconds();
+        var allTime = to2Str(iHour) + to2Str(iMinute) + to2Str(iSecond);
+        // console.log(allTime[3])
+        // console.log(allTime.charAt(3))
+        for(var i = 0;i<aImg.length;i++){
+            aImg[i].src = "img/"+allTime.charAt(i)+".png";
+        }    
+    }
+    setInterval(handleTimer  ,500)
+    handleTimer();
+</script>
+</html>

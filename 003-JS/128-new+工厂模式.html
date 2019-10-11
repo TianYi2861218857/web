@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>new+工厂模式</title>
+</head>
+<body>
+</body>
+<script>
+	function sayhi(){
+		console.log('hi...'+' I am '+this.name)
+	}
+	function sayage (){
+		console.log('I am ' +this.age+' years old')
+	}
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+		// this.sayhi =function(){
+		// 	console.log('hi...'+' I am '+this.name)
+		// }
+		// this.sayage =function(){
+		// 	console.log('I am ' +this.age+' years old')
+		// }
+		this.sayhi = sayhi;
+		this.sayage = sayage;
+	}
+	var arr1 = new Person('tom','18');
+	arr1.sayhi();
+	arr1.sayage();
+	var arr2 = new Person('leo','21');
+	console.log(arr2)
+	console.log(arr1.sayage == arr2.sayage)
+</script>
+</html>
