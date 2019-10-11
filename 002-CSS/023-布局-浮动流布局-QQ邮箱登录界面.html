@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ邮箱登录界面</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.clearfix:after{       /*  方式5伪类选择器*/
+			content: "";
+			clear: both;
+			display: block;
+			height: 0px;
+			visibility: hidden;
+		}
+		.clearfix{           
+			*zoom:1;
+		}
+		.container{
+			width: 100%;
+			
+		}
+		.header{
+			width: 100%;
+			height: 63px;
+			border-bottom: 1px solid #D8D8D8;
+		}
+		.headerlogo{
+			background-image: url(./QQemail/logo.png);
+			background-repeat: no-repeat; 
+			float: left;
+			width: 182px;
+			height: 35px;
+			margin-top: 14px;
+			margin-left: 40px;
+		}
+		.header_link{
+			float: right;
+			font-size: 12px;
+			line-height: 30px;
+			padding-right: 17px;
+			margin-top: 16px;
+		}
+		.content{
+			width:960px;
+			height: 800px;
+			margin: 32px auto;
+			padding:0 24px;
+			/*background-color: yellow;*/
+		}
+		.login_pictures{
+			float: left;
+		    margin-top: 60px;
+		    font-size: 12px;
+		    background-image: url(./QQemail/bgimg.png);
+		    background-repeat: no-repeat; 
+		    width: 520px;
+		    height: 400px;
+		}
+		.login_pictures_text{
+		    font-size: 14px;
+		    font-weight: normal;
+		    line-height: 24px;
+				}
+		.login_pictures_title{
+		    line-height: 26px;
+		    margin-top: 15px;
+		    margin-bottom: 15px;
+		    font-size: 24px;
+		    font-weight: normal;
+		    color: #6f95c8;
+		}
+		/*.login_pictures_picture{
+			height: 400px;
+			width: 100%;
+		}*/
+		.xm_login_card{
+			width: 334px;
+			height: 387px;
+			border: 1px solid #99D7FA;
+			border-radius: 5px 5px;
+			float: right;
+			margin-top: 60px;
+			/*background-color: blue;*/
+		}
+		.xm_top{
+			width: 100%;
+			height: 51px;
+			border-bottom: 1px solid #99D7FA;
+		}
+		.xm_top_left{
+		    float: left;
+		    width: 50%;
+		    font-size: 16px;
+		    line-height: 50px;
+		    color: #999;
+		    text-align: center;
+		}
+		.xm_top_right{
+		    float: right;
+		    width: 50%;
+		    font-size: 16px;
+		    line-height: 50px;
+		    color: #999;
+		    text-align: center;
+		}
+		.xm_bottom{
+			width: 100%;
+			height: 316px;
+			font-size: 12px;
+			line-height: 16px;
+			/*background-color: yellow;*/
+		}
+		.xm_1{
+			width: 284px;
+			height: 100px;
+			margin:20px auto;
+			/*background-color: blue;*/
+		}
+		.username1{
+		   /* border: 1px solid #96a5b4;*/
+		    height: 38px;
+		    width: 282px;
+		    margin: 0px 1px;
+		}
+		.possword1{
+			border: 1px solid #96a5b4;
+		    height: 38px;
+		    width: 282px;
+		    margin: 22px 1px 0px 1px;
+		}
+		.text1{
+			margin:10px 50px;
+		}
+		.dong{
+			margin:0px 0px 10px 30px;
+		}
+		.deng{
+			margin:10px 0px 10px 140px;
+		}
+		.shao{
+			margin:20px 0px 10px 120px;
+			color: #3C91F4;
+		}
+		.wang{
+			margin:50px 0px 10px 260px;
+			color: #3C91F4;
+		}
+		.footer{
+			width: 100%;
+			height: 38px;
+			border-top: 1px solid #D8D8D8;
+			font-size: 12px;
+			box-sizing: 
+			text-align: center;
+			margin-top: 5px;
+			line-height: 38px;
+		}
+		.span1{
+			color: #9A9292;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<a class="headerlogo clearfix" href="./023-布局-浮动流布局-QQ邮箱登录界面.html"></a>
+			<div class="header_link clearfix">
+				<a href="#">基本版</a>
+				&nbsp;|&nbsp;
+				<a href="#">English</a>
+				&nbsp;|&nbsp;
+				<a href="#">手机版</a>
+				&nbsp;|&nbsp;
+				<a href="#">企业邮箱</a>
+			</div>
+		</div>
+		<div class="content">
+			<div class="login_pictures">
+				<div class="login_pictures_text">
+					<p class="login_pictures_title">QQ邮箱，常联系！</p>
+					<p>2500年前，人们飞鸽传书</p>
+					<p>183年前，莫尔斯发明了电报</p>
+					<p>50年前，第一封电子邮件发出</p>
+					<p>今天，QQ邮箱联系你、我、他</p>
+				</div>
+			</div>
+			<div class="xm_login_card clearfix">
+				<form action="https://www.kuazhu.com/" method="GET">
+					<div class="xm_top">
+						<div class="xm_top_left">微信登录</div>
+						<div class="xm_top_right">QQ登录</div>
+					</div>
+					<div class="xm_bottom">
+						<div class="xm_1">
+							<div class="username1">
+								<input class="text1" type="text" name="username" value="" placeholder="支持QQ号/邮箱/手机号登录" autocomplete="off" id="username01">
+							</div>
+							<div class="possword1">
+								<input class="text1" type="password" name="password" value="" placeholder="请输入密码" autocomplete="off" id="possword01">
+							</div>
+						</div>
+						<div class="dong">
+							<input type="checkbox" name="hobby" value="sing">下次自动登录
+						</div>
+						<div class="deng">
+							<input type="submit" name="submit" value="登录">
+						</div>
+						<div class="shao">扫码快捷登录</div>
+						<div class="wang">忘了密码？</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="#">关于腾讯</a>
+			&nbsp;|&nbsp;
+			<a href="#">服务条款</a>
+			&nbsp;|&nbsp;
+			<a href="#">隐私政策</a>
+			&nbsp;|&nbsp;
+			<a href="#">客服中心</a>
+			&nbsp;|&nbsp;
+			<a href="#">联系我们</a>
+			&nbsp;|&nbsp;
+			<a href="#">帮助中心</a>
+			&nbsp;|&nbsp;
+			<span class="span1">©1998 - 2019 Tencent Inc. All Rights Reserved.</span>
+		</div>
+	</div>
+</body>
+</html>

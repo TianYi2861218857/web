@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ邮箱登录界面（修正）</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+			width: 100%;
+			height: 65px;
+			line-height: 65px;
+			border-top: 1px solid #D8D8D8;
+			border-bottom: 1px solid #D8D8D8;
+			box-sizing: border-box;     /* 变成IE盒模型*/
+		}
+		.container>.header>a{
+			background-image: url(./QQemail/logo.png);
+			width: 182px;
+			height: 34px;
+			float: left;
+			margin-top: 18px;
+			margin-left: 40px;
+		}
+		.header ul{
+			float: right;
+			margin-right: 40px;
+		}
+		.header ul li{
+			float: left;      /* 浮动，水平显示*/
+			list-style: none;  /* 删除圆点*/
+			color: #b6c4d9;
+			font-size: 12px;		
+		}
+		.header ul li a{
+			text-decoration: none;  /* 删除下划线*/
+			font-size: 12px;
+			color: #1d5494;	
+			margin: 0px 1px;			
+		}
+		.header ul li a:hover{
+			text-decoration: underline;
+		}
+		.bodyer{
+			width: 915px;
+			height: 722px;
+			margin: 72px auto;
+		}
+		.bodyer img{
+			float: left;
+			width: 500px;
+			height: 392px;
+		}
+		.denglu{
+			float: right;
+			width: 335px;
+			height: 388px;
+			border: 1px solid #a0b1c4;
+			border-radius: 5px;  
+			/*background-color: red;*/
+		}
+		.centent1{
+			width: 100%;
+			height: 50px;
+			background-color: #f9fbfe;
+			border-radius: 5px;
+		}
+		.centent1 span:nth-child(1){
+			float: left;
+			margin-left: 51px;
+			line-height: 50px;
+			color: #99b4d7;
+		}
+		.centent1 span:nth-child(2){
+			float: right;
+			margin-right: 51px;
+			line-height: 51px;
+		}
+		.centent2{
+			border-top: 1px solid #a0b1c4;
+			width: 100%;
+			height: 100%;
+			/*background-color: red;*/
+		}
+		.centent2 div{
+			margin-left: 26px;
+		}
+		.text1{
+			width: 284px;
+			height: 40px;
+		}
+		.centent2 div:nth-child(1){
+			margin-top: 36px;
+			margin-bottom: 10px;
+		}
+		.centent2 div:nth-child(3){
+			margin-top: 24px;
+		}
+		.centent2 div:nth-child(3) input{
+			width: 18px;
+			height: 18px;
+		}
+		.centent2 div:nth-child(3) span{
+			font-size: 12px;
+			vertical-align: 5px;   /*定义行内元素的基线相对于该元素所在行的基线的垂直对齐。*/
+			margin-left: 3px;
+		}
+		.centent2 div:nth-child(4) input{
+			width: 284px;
+			height: 40px;
+			background-color: #5a98de;
+			border-radius: 3px;                    /*圆角边框*/
+		}
+		.centent2 div:nth-child(5){
+			margin-left: 124px;
+			margin-top: 20px;
+		}
+		.centent2 div:nth-child(5) img{
+			width: 11px;
+			height: 11px;
+			margin-top: 6px;
+		}
+		.centent2 div:nth-child(5) span{
+			font-size: 14px;
+			color: #225592;	
+			margin-left: 5px;
+		}
+		.centent2 div:nth-child(6){
+			text-align: right;             /*设置块级元素内文本的水平对齐方式*/
+			font-size: 12px;
+			color: #225592;
+			margin-top: 50px;
+			margin-right: 10px;
+		}
+		.footer{
+			width: 100%;
+			height: 38px;
+			border-top: 1px solid #D8D8D8;
+			font-size: 12px;
+			text-align: center;
+			line-height: 38px;
+			box-sizing: border-box; /*将 box-sizing 设置为 "border-box"。这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中。*/
+		}
+		.span1{
+			color: #9A9292;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<a href="./023-(修正)QQ邮箱登录界面.html"></a>
+			<ul>
+				<li><a href="#">基本版</a>&nbsp;|&nbsp;</li>
+				<li><a href="#">English</a>&nbsp;|&nbsp;</li>
+				<li><a href="#">手机版</a>&nbsp;|&nbsp;</li>
+				<li><a href="#">企业邮箱</a></li>
+			</ul>
+		</div>
+		<div class="bodyer">
+			<img src="./QQemail/qq邮箱登陆图.png" alt="">
+			<div class="denglu">
+				<div class="centent1">
+					<span>微信登录</span>
+					<span>QQ登录</span>
+				</div>
+				<div class="centent2">
+					<div>
+						<input type="text" class="text1" placeholder="支持QQ号/邮箱/手机号登录">
+					</div>
+					<div>
+						<input type="password" class="text1" placeholder="QQ密码">
+					</div>
+					<div>
+						<input type="checkbox"><span>下次自动登录</span>
+					</div>
+					<div>
+						<input type="submit" value="登录">
+					</div>
+					<div>
+						<img src="./img/erweima.png"><span>扫码快捷登录</span>
+					</div>
+					<div>忘了密码？</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="#">关于腾讯</a>
+			&nbsp;|&nbsp;
+			<a href="#">服务条款</a>
+			&nbsp;|&nbsp;
+			<a href="#">隐私政策</a>
+			&nbsp;|&nbsp;
+			<a href="#">客服中心</a>
+			&nbsp;|&nbsp;
+			<a href="#">联系我们</a>
+			&nbsp;|&nbsp;
+			<a href="#">帮助中心</a>
+			&nbsp;|&nbsp;
+			<span class="span1">©1998 - 2019 Tencent Inc. All Rights Reserved.</span>
+		</div>
+	</div>
+</body>
+</html>

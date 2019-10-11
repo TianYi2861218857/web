@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>子选择器</title>
+	<style>
+		p{color: red;}
+		.father>p{color: green;}
+	</style>
+</head>
+<body>
+	<p>文本</p>
+	<div class="father">
+		<p>div文本</p>
+	</div>
+	<div class="father">
+		<div>
+			<p>文本2</p>
+		</div>
+	</div>
+</body>
+</html>

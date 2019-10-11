@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>正方体</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		li{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			font-size: 62px;
+			text-align: center;
+			line-height: 200px;
+			color: #fff;
+		}
+		.box{
+			width: 800px;
+			height: 800px;
+			margin: 0px auto;
+			/*background-color: yellow;*/
+			transform-style: preserve-3d;
+			transform: rotateX(20deg) rotateY(20deg);
+			position: relative;		
+			animation: sport 5s linear infinite alternate;
+		}
+		@keyframes sport{
+			0%{
+				transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+			}
+			8%{
+				transform: rotateX(40deg) rotateY(20deg) rotateZ(80deg);
+			}
+			25%{
+				transform: rotateX(80deg) rotateY(40deg) rotateZ(160deg);
+			}
+			42%{
+				transform: rotateX(120deg) rotateY(60deg) rotateZ(240deg);
+			}
+			50%{
+				transform: rotateX(160deg) rotateY(80deg) rotateZ(320deg);
+			}
+			65%{
+				transform: rotateX(200deg) rotateY(100deg) rotateZ(400deg);
+			}
+			75%{
+				transform: rotateX(240deg) rotateY(120deg) rotateZ(480deg);
+			}
+			82%{
+				transform: rotateX(280deg) rotateY(140deg) rotateZ(560deg);
+			}
+			100%{
+				transform: rotateX(320deg) rotateY(160deg) rotateZ(640deg);
+			}
+		}
+		.box li:nth-child(1){
+			background-color: red;
+			left: 50%;
+			margin-left: -100px;
+			margin-top: 300px;
+			transform: rotateY(0deg) rotateX(0deg);
+		}
+		.box li:nth-child(2){
+			background-color: blue;
+			left: 50%;
+			margin-left: -100px;
+			margin-top: 100px;
+			transform-origin: center bottom;
+			transform: rotateX(90deg) rotateY(0deg);
+		}
+		.box li:nth-child(3){
+			background-color: #FC8308;
+			margin-left: 100px;
+			margin-top: 300px;
+			transform-origin: right center;
+			transform: rotateX(0deg) rotateY(-90deg);
+		}
+		.box li:nth-child(4){
+			background-color: green;
+			margin-left: 500px;
+			margin-top: 300px;
+			transform-origin: left center;
+			transform: rotateX(0deg) rotateY(90deg);
+		}
+		.box li:nth-child(5){
+			background-color: gray;
+			left: 50%;
+			margin-left: -100px;
+			margin-top: 500px;
+			transform-origin: center top;
+			transform: rotateX(-90deg) rotateY(0deg);
+		}
+		.box li:nth-child(6){
+			background-color: #B200FC;
+			left: 50%;
+			margin-left: -100px;
+			margin-top: 300px;
+			transform: translateZ(-200px) rotateX(180deg);
+		}
+	</style>
+</head>
+<body>	
+	<ul class="box">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+</body>
+</html>

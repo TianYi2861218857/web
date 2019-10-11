@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>文本溢出及单词换行</title>
+	<style>
+		h2{
+			white-space: nowrap;
+			width: 200px; border: 2px solid #000;
+			text-overflow: ellipsis; /*文本溢出处理*/
+			overflow: hidden; /*超出部分隐藏*/
+		}
+		p{
+			width: 200px; border: 2px solid #000;
+			text-overflow: ellipsis; /*文本溢出处理*/
+			word-wrap: break-word;  
+			word-break: break-all; /*单词换行方法*/
+		}
+	</style>
+</head>
+<body>
+	<h2>
+		I am kangkang, i am 20 years old, i from china
+	</h2>
+	<p>I am kangkang, i am 20 yearsssssssssssssssassssssssssss old, i from china</p>
+</body>
+</html>

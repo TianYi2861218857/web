@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>外边距</title>
+	<style>
+		*{
+			border: 0;
+			margin: 0;
+		}
+		.father{
+			border: 2px solid #000;
+		}
+		.father div{
+			display: inline-block;
+			vertical-align: bottom;
+			margin-top: 20px;
+		}
+		.son1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-top: 50px;
+		}
+		.son2{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			margin-bottom: 50px;
+			margin-right: 20px;
+		}
+		.son3{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+	<div class="son1"></div><div class="son2"></div><div class="son3"></div>
+	</div>
+</body>
+</html>

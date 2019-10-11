@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>动画2</title>
+	<!-- <link rel="stylesheet" href="css/reset.css"> -->
+	<style>
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin-bottom: 20px;
+			/*animation-name: hua;
+			animation-duration: 2s;*/
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			animation: hua 1s linear 1s infinite alternate running;
+			/*animation: hua 1s;*/
+			/*animation-name: hua;
+			animation-duration: 1s;
+			animation-delay: 2s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-play-state: running;
+		}
+		.box2:hover{
+			animation-play-state: paused;
+		}*/
+		}
+		@keyframes hua{
+			from{
+				width: 200px;
+			}
+			to{
+				width: 600px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>定位流中元素显示顺序</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.title1{
+			z-index: 3;
+			width: 1000px;
+			height: 54px;
+			/*background-color: blue;*/
+			position: fixed;
+			left: 50%;
+			margin-left: -500px;
+		}
+		.img1{
+			width: 100%;
+			height: 14px;
+			/*background-color: yellow;*/
+		}
+		.title1 div img{
+			/*margin:auto;*/
+			/*text-align: center;*/
+			margin-left: 480px;
+		}
+		/*.img1{
+			background-image: url(./img/dignwei/tmall.png);
+			width: 100%;
+			height: 14px;
+			background-repeat: no-repeat;
+			text-align: center;
+		}*/
+		.text0{
+			width: 1000px;
+			height: 40px;
+			background-color: #808080;
+		}
+		.text1{
+			width: 200px;
+			height: 40px;
+			text-align:center;
+			line-height: 40px;
+		}
+		.text0 div:nth-child(1){
+			position: absolute;
+			left: 0px;
+		}.text0 div:nth-child(2){
+			position: absolute;
+			left: 200px;
+		}
+		.text0 div:nth-child(3){
+			position: absolute;
+			left: 400px;
+			background-color: red;
+		}
+		.text0 div:nth-child(4){
+			position: absolute;
+			left: 600px;
+		}
+		.text0 div:nth-child(5){
+			position: absolute;
+			left: 800px;
+		}
+		.left1{
+			width: 100px;
+			height: 200px;
+			/*background-color: red;*/
+			background-image: url(./img/dignwei/timg.jpg);
+			background-size: 100px auto;
+			position: fixed;
+			top: 50%;
+			margin-top: -100px;
+		}
+		.right1{
+			width: 100px;
+			height: 200px;
+			/*background-color: red;*/
+			background-image: url(./img/dignwei/timg.jpg);
+			background-size: 100px auto;
+			position: fixed;
+			top: 50%;
+			margin-top: -100px;
+			right: 0%;
+		}
+		.ftop{
+			width: 80px;
+			height: 80px;
+			background-color: #999;
+			position: fixed;
+			top: 100%;
+			margin-top: -80px;
+			right: 0%;
+			line-height: 80px;
+			text-align:center;
+		}
+		.conter{
+			width: 832px;
+			height: 442px;
+			position: relative;
+			top: 80px;
+			border: 1px solid #000;
+			margin: 0 auto;
+			background-image: url(./img/dignwei/ad1.jpg);
+		}
+		.span1{
+			width: 1000px;
+			height: 1400px;
+			position: relative;
+			top: 200px;
+			margin: 0 auto;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="title1">
+		<div class="img1" >
+			<img src="./img/dignwei/tmall.png">
+		</div>
+		<div class="text0">
+			<div class="text1">天猫会员</div>
+			<div class="text1">品牌街</div>
+			<div class="text1 textcen">电器城</div>
+			<div class="text1">营业厅</div>
+			<div class="text1">魅力惠</div>
+		</div>	
+	</div>
+	<div class="left1"></div>
+	<div class="right1"></div>
+	<div class="ftop">
+		<a href="#">返回顶部</a>
+	</div>
+	<div class="conter"></div>
+	<div class="span1">
+		<span>我是内容</span>
+	</div>
+</body>
+</html>
