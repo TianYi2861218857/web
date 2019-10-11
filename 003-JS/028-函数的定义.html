@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的定义</title>
+</head>
+<body>
+</body>
+<script>
+	hi();
+	//函数声明提升: 在执行前把所有函数声明的定义放到代码顶部
+	console.log(typeof hello)
+	//hello 类型为undefined,
+	hello();
+	//变量声明的提升: 把所有变量声明(不涉及赋值)提升到顶部;因此类型为undefined
+	function hi(){
+		alert('hi...');
+	}
+	// hi();
+	var hello=function(){
+		alert('hello');
+	}
+	// console.log(typeof hello)
+	// hello();
+</script>
+</html>

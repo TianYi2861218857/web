@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>求和运算</title>
+</head>
+<body>
+	<input type="text" id="txt1">+
+	<input type="text" id="txt2">
+	<input type="button" value="求和" id="box">
+</body>
+<script>
+		var oBox=document.getElementById('box');
+		oBox.onclick = function(){
+			var oTxt1=document.getElementById('txt1');
+			var oTxt2=document.getElementById('txt2');
+			console.log(typeof oTxt1.value)
+			var	vau1 = parseFloat(oTxt1.value);
+			var	vau2 = parseFloat(oTxt2.value);
+			if (isNaN(vau1)) {
+				alert('输入错误')
+			}else if (isNaN(vau2)) {
+				alert('第二栏输入错误')
+			}
+			else{
+				alert(vau1+vau2)
+			}
+		}
+		
+		// alert(a=document.getElementById('txt2')请输入)	
+</script>
+</html>

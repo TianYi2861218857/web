@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的参数(案例)</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box1,#box2{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin-bottom: 20px;
+			/*width: 20px;
+			height: 20px;*/
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">变高</button>
+	<button id="btn2">变宽</button>
+	<button id="btn3">变色</button>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+<script>
+	var obtn1 =document.getElementById('btn1')
+	var obtn2 =document.getElementById('btn2')
+	var obtn3 =document.getElementById('btn3')
+	var obox1 =document.getElementById('box1')
+	var obox2 =document.getElementById('box2')
+	function css(obj,attr,vle){
+		obj.style[attr] = vle;
+	}
+	//字符串用[]
+	obtn1.onclick = function(){
+		css(obox1,'height','200px')
+		css(obox2,'height','200px')
+	}
+	obtn2.onclick = function(){
+		css(obox1,'width','200px')
+		css(obox2,'width','200px')
+	}
+	obtn3.onclick = function(){
+		css(obox1,'backgroundColor','orange')
+		css(obox2,'backgroundColor','orange')
+	}
+</script>
+</html>

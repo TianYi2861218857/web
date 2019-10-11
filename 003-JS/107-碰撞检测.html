@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>碰撞检测</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			top: 0px;
+			left: 0px;
+			background-color: rgba(235,100,0);
+		}
+		#box1{
+			width: 300px;
+			height: 300px;
+			background-color: gray;
+			margin: 200px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box1"></div>
+</body>
+<script>
+	function checkBump(obj1,obj2){
+		if(obj1.offsetLeft+obj1.offsetWidth>obj2.offsetLeft
+			&& obj1.offsetTop+obj1.offsetHeight>obj2.offsetTop
+			&& obj2.offsetLeft+obj2.offsetWidth>obj1.offsetLeft
+			&& obj2.offsetTop+obj2.offsetHeight>obj1.offsetTop
+			){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	var oBox = document.getElementById('box');
+	var oBox1 = document.getElementById('box1');
+	var disX , disY;
+	oBox.onmousedown = function(ev){
+		disY = ev.clientY - oBox.offsetTop;
+		disX = ev.clientX - oBox.offsetLeft;
+		// console.log('aaa')
+		document.onmousemove = function(ev){
+			// console.log('bbb')
+			oBox.style.top = ev.clientY - disY +'px';
+			oBox.style.left = ev.clientX - disX + 'px';
+			if(checkBump(oBox,oBox1)){
+				oBox1.style.backgroundColor = 'blue';
+			}else{
+				oBox1.style.backgroundColor = 'gray';
+			}
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素的属性和方法</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com" id="form1">
+		用户名:<input type="text" id="txt" value="name" name="username">
+		<br>
+		密码:<input type="password" id="password" value="1234567890k" name="password">
+		<br>
+		性别:<input type="radio" name="sex">女
+		<input type="radio" name="sex">男
+		<br>
+		爱好:
+		<input type="checkbox" name="hobby" value="basketball">篮球
+		<input type="checkbox" name="hobby" value="football">足球
+		<input type="checkbox" name="hobby" value="pingpang">乒乓球
+		<br>
+		城市:
+		<select name="city" id="city">
+			<option value="bj">北京</option>
+			<option value="sh">上海</option>
+			<option value="gz">广州</option>
+			<option value="sz">深圳</option>
+			<option value="zz">郑州</option>
+		</select>
+		<br>
+		<input type="submit" id="sbt" value="提交" name="submit">
+	</form>
+</body>
+<script>
+	var oForm = document.forms[0];
+	var oUsername = oForm.username;
+	// oUsername.disabled = true;
+	// oUsername.readOnly = true;
+	oUsername.focus();
+	oUsername.blur();
+	var aHobby = oForm.hobby;
+	aHobby[2].checked = true;
+	var oSelect = oForm.city;
+	oSelect.options[4].selected = true;
+	console.log(oSelect.options)
+	// oForm[7][4].checked =true;
+	// console.log(oForm[7][4])
+</script>
+</html>

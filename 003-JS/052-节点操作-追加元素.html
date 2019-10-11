@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>节点操作-追加元素</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+	<input type="button" id="btn" value="追加">
+	<ul id="ul2"></ul>
+</body>
+<script>
+	var oUl1 = document.getElementById('ul1');
+	var oUl2 = document.getElementById('ul2');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		// for(i=0;i<oul1.children.length;i++){
+		// 	oUl2.appendChild(oUl1.children[i])
+		// }
+		oUl2.appendChild(oUl1.children[0])
+	}
+</script>
+</html>

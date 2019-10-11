@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>同步异步</title>
+</head>
+<body>
+	<button id="btn">自增</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var i =0;
+	oBtn.onclick= function(){
+		i++;
+		console.log(i);
+	}
+	setTimeout(function(){
+		console.log(i)
+	},2000)
+	i++;
+</script>
+</html>

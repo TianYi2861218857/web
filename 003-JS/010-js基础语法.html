@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>js基础语法</title>
+	<script>
+		/*var one	= "hello";
+		var true1= "hel";
+		console.log("2");
+		console.log(one);
+		console.log(true1);*/
+		
+		// function sayhi(){
+		// 	'use strict'
+		// 	console.log(!this);
+		// }
+		// sayhi();
+		// function say(){
+		// 	console.log(!this);
+		// }
+		// say();
+		var a;         //先定义后初始化
+		a='hello';
+		console.log(a);   
+		var b=6;      //先定义的同时初始化
+		console.log(b);
+		var c;        //未初始化保存的是undefined
+		console.log(c);
+		console.log	(typeof d);  //未定义
+		console.log (typeof b);  //数字类型
+		console.log (typeof a);  //字符串类型
+		var e=true;
+		console.log (typeof e);  //布尔类型
+		var odiv=document.getElementById('box');   //空对象
+		console.log(odiv);
+		console.log	(typeof odiv);
+		function f(){          //函数在ES中是对象，比较特殊    
+		}
+		console.log(f);
+		console.log	(typeof f);
+		var	g=[1,2,3];         //数组在ES中是对象
+		console.log(g);
+		console.log	(typeof g);
+		var h=null;            //null代表空指针，也是对象
+		console.log(h); 
+		console.log	(typeof h);
+		function one(){
+			name:tom;
+			age:12
+		}
+		console.log	(one);
+		function two(){
+
+		}
+		two = one;
+		console.log (two);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

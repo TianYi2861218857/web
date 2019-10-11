@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图(案例)</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .lun-con{
+        position: relative;
+        width: 1226px;
+        height: 460px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 100px;
+    }
+    .ul1 li{
+        position: absolute;
+        width: 1226px;
+        height: 460px;
+        transition: all 1s;
+    }
+    .lun-con img{
+        width: 100%;
+        height: 100%;
+    }
+    .lun-con .lun-icon{
+        position: absolute;
+        width: 42px;
+        height: 68px;
+        color: #d2d5d1;
+    }
+    .lun-con i{
+        font-size: 28px;
+        line-height: 68px;
+        margin-left: 10px;
+    }
+    .lun-con .lun-icon-left{
+        top: 194px;
+        left: 0px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+    .lun-con .lun-icon-left:hover{
+        background-color: #70767b;
+        color: #fff;
+    }
+    .lun-con .lun-icon-right{
+        top: 194px;
+        right: 0px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    .lun-con .lun-icon-right:hover{
+        background-color: #70767b;
+        color: #fff;
+    }
+    .lun-dian{
+        position: absolute;
+        right: 55px;
+        bottom: 25px;
+        width: 80px;
+        height: 10px;
+    }
+    .lun-dian li{
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        float: left;
+        margin-right: 10px;
+        background-color: #7d8c98;
+        border: 2px solid #a4afb7;
+        box-sizing: border-box;
+    }
+    .lun-dian li:hover,
+    .lun-dian .active{
+        background-color: #e3f4fd;
+        border-color: #889298;
+    }
+    </style>
+</head>
+<body>
+    <div class="lun-con">
+        <ul class="ul1">
+            <li style="z-index: 99"><a href="javascript:;"><img src="img/carousel1.jpg"></a></li>
+            <li><a href="javascript:;"><img src="img/carousel2.jpg"></a></li>
+            <li><a href="javascript:;"><img src="img/carousel3.jpg"></a></li>
+            <li><a href="javascript:;"><img src="img/carousel4.jpg"></a></li>
+        </ul>
+        <div>
+            <div class="lun-icon-left lun-icon" style="z-index: 199"><i class="iconfont">&#xe627;</i></div>
+            <div class="lun-icon-right lun-icon" style="z-index: 199"><i class="iconfont">&#xe622;</i></div>
+        </div>      
+        <ul class="lun-dian" style="z-index: 199">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+<script>
+    //1.获取元素
+    var aLi = document.querySelectorAll('.ul1 li');
+    var aDian = document.querySelectorAll('.lun-dian li');
+    var oLeftBtn = document.querySelector('.lun-icon-left');
+    var oRightBtn = document.querySelector('.lun-icon-right');
+    var oCarousel= document.querySelector('.lun-con');
+    // console.log(aLi)
+    // console.log(aDian)
+    // console.log(oLeftBtn)
+    // console.log(oRightBtn)
+    var now = 0;
+    var timer = 0;
+    //封装函数(提取公共代码)
+    function tab(){
+       for(i=0;i<aLi.length;i++){
+            aLi[i].style.zIndex = '0';
+            aDian[i].className = '';
+            aLi[i].style.opacity = '0';
+        }
+        aLi[now].style.zIndex = '99';
+        aDian[now].className = 'active';
+        aLi[now].style.opacity = '1'; 
+    }
+    //设置事件(下一张)
+    oRightBtn.onclick =function(){
+        now++;
+        if(now>=aLi.length){
+            now = 0;
+        }
+        tab();
+    }
+    //设置事件(上一张)
+    oLeftBtn.onclick =function(){
+        now--;
+        if(now<0){
+            now = aLi.length-1;
+        }
+        tab();
+    }
+    //设置点状跳转
+    for(i=0;i<aDian.length;i++){
+        aDian[i].idx = i;
+        aDian[i].onclick = function(){
+            now = this.idx;
+            tab();
+        }
+    }
+    timer = setInterval( oRightBtn.onclick,5000)
+    oCarousel.onmouseover = function(){
+        clearInterval(timer)
+    }
+    oCarousel.onmouseout = function(){
+        timer = setInterval( oRightBtn.onclick,5000)
+    }
+</script>
+</html>

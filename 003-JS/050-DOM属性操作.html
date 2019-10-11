@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM属性操作</title>
+</head>
+<body>
+	<input type="text" id="txt" text="文本">
+	<input type="button" id="btn" value="转换">
+	<textarea id="ttr" cols="25" rows="8">  </textarea>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oTtr = document.getElementById('ttr');
+	oBtn.onclick = function(){
+		oTtr.value = oTxt.value;
+		// oTtr["value"] = oTxt["value"];
+		console.log(oTxt.value)
+
+		console.log(oTxt.getAttribute('text'))
+		console.log(oBtn.getAttribute('text'))
+		oTxt.setAttribute('text','文本2');
+		console.log(oTxt.getAttribute('text'))
+	}
+</script>
+</html>

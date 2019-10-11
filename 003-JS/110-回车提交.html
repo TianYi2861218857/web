@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>回车提交</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<textarea  id="txt" cols="30" rows="10"></textarea>
+	<input type="button" value="提交" id="btn">
+	<ul id="ul1">
+	</ul>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('ul1');
+	// console.log(oTxt)
+	// console.log(oBtn)
+	// console.log(oUl)
+	oBtn.onclick = function(){
+		if (oTxt.value) {
+			var oLi = document.createElement('li');
+			oLi.innerHTML = oTxt.value;
+			oUl.appendChild(oLi);
+			oTxt.value = '';
+		}
+	}
+	oTxt.onkeydown = function(ev){
+		console.log(ev.keyCode)
+		if (ev.keyCode ==13 && ev.ctrlKey) {
+			oBtn.onclick();
+		}
+	}
+</script>
+</html>

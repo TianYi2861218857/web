@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>location对象</title>
+</head>
+<body>
+	<button id="btn">修改</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	console.log(window.location)
+	console.log(document.location)
+	console.log(document.location == window.location)
+	oBtn.onclick=function(){
+		// window.location.assign('https://www.mi.com/index.html')
+		// window.location.href = 'https://www.mi.com/index.html';
+		window.location = 'https://www.mi.com/index.html';
+	}
+</script>
+</html>

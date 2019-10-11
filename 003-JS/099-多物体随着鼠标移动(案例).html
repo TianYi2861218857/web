@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>物体随着鼠标移动(案例)</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: rgba(235,100,0);
+			border-radius: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script src="js/util.js"></script>
+<script>
+	var aBox = document.getElementsByTagName('div')
+	// console.log(aBox)
+	document.addEventListener('mousemove',function(ev){
+		// console.log(event.clientX,event.clientY)
+		aBox[0].style.top = ev.clientY + getScrollTop() - 50 +'px';
+		aBox[0].style.left = ev.clientX + getScrollLeft() -50 +'px';
+		for(var i=aBox.length-1;i>0;i--){
+			aBox[i].style.top = aBox[i-1].offsetTop + 20 +'px';
+			aBox[i].style.left = aBox[i-1].offsetLeft + 20 +'px';
+		}
+	},false)
+</script>
+</html>
