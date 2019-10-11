@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>转数值(显示)</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn1"></button>
+</body>
+<script>
+	// var oBtn1 = document.getElementById('btn1');
+	// oBtn1.onclick=function(){
+	// 	var oTxt = document.getElementById('txt');
+	// 	var val = oTxt.value;
+	// }
+	var a = '12 00';
+	var b = parseInt(a);
+	var c = parseFloat(a);
+	var d = Number(a);
+	console.log(b)
+	console.log(c)
+	console.log(d)
+	if ('12' == 12) {
+		console.log('比较运算进行隐式转换')
+	}else{
+		console.log('为假')
+	}
+</script>
+</html>
