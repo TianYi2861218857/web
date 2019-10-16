@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>可以拖拽的调查问卷</title>
+	<style>
+		.father{
+			width: 800px;
+			height: 600px;
+			margin: 20px auto;
+			/*border: 1px solid #000;*/
+		}
+		.page{
+			width: 400px;
+			float: left;
+		}
+		h2{
+			text-align: center;
+		}
+		.con{
+			float: left;
+			height: 600px;
+			border-left: 1px solid red;
+			box-sizing: border-box;
+		}
+		.box{
+			width: 300px;
+			height: 35px;
+			border: 1px dashed gray;
+			margin-left: 50px;
+			margin-bottom: 8px;
+			text-align: center;
+			line-height: 30px;
+			box-sizing: border-box;
+
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="page">
+			<h2>调查问卷</h2>
+		</div>
+		<div class="con">
+			<div class="tar-list">
+				<div class="box">
+					<label for="username">姓名:</label>
+					<input type="text" placeholder="请输入姓名">
+				</div>
+				<div class="box">
+					<label for="major">专业:</label>
+					<input type="text" placeholder="请输入专业">
+				</div>
+				<div class="box">
+					<label for="username">爱好:</label>
+					<input type="checkbox">游戏
+					<input type="checkbox">动漫
+					<input type="checkbox">漫画
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

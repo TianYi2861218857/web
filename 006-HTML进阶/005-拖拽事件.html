@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-拖拽事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#container{
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+		}
+		#target{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="container"></div>
+	<div id="target" draggable=true></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#container')
+		.on('drop',function(){
+			// console.log('aa')
+			$('#container').append($('#target'));
+			console.log('drop 放置被拖动元素时')
+			// ondrop 当放置被拖动元素时触发
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+			console.log('dragover 正在到放置到容器时')
+			// ondragover 被拖动元素正在到放置到容器时触发,
+		})
+		.on('dragenter',function(){
+			console.log('dragenter 放置被拖动元素进入容器时')
+			// ondragenter 当被拖动元素进入容器时触发
+		})
+		.on('dragleave',function(){
+			console.log('dragleave 离开容器时')
+			// ondragleave 当被拖动元素离开容器时触发
+		})
+		.on('dragend',function(){
+			console.log('dragend 被拖动元素在容器中松开鼠标时')
+			// ondragend 被拖动元素在容器中松开鼠标时触发
+		})
+		.on('drag',function(){
+			console.log('drag 容器中的被拖动元素拖动时')
+			// ondrag 容器中的被拖动元素拖动时触发
+		});	
+		$('#target')
+		.on('dragstart',function(){
+			console.log('dragstart*** 元素开始拖动时')
+			// ondragstart 当元素开始拖动时触发
+		})
+		.on('drag',function(){
+			console.log('drag*** 被拖动元素拖动时触发')
+			// ondrag 被拖动元素拖动时触发
+		})	
+		.on('dragend',function(){
+			console.log('dragend*** 拖拽时松开鼠标时触发')
+			// ondragend 拖拽时松开鼠标时触发
+		})
+	});
+</script>
+</html>
