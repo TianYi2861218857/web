@@ -5,13 +5,13 @@ var url = require('url');
 
 var server = http.createServer(function(req,res){
 	// console.log(req.method);
-	var oDate= new Date('2019-10-15 16:59:00').toUTCString();
+	// var oDate= new Date('2019-10-15 16:59:00').toUTCString();
 	// res.setHeader('Set-Cookie',["username=tom","age = 18"]);
 
 	//给cookie设置到期时间
 	// res.setHeader('Set-Cookie',["username=tom; Expires="+oDate]);
 	//cookie倒计时到期
-	res.setHeader('Set-Cookie',["username=tom; Max-Age=10"]);
+	// res.setHeader('Set-Cookie',["username=tom; Max-Age=10"]);
 
 	//服务器获取cookie
 	// console.log(req.headers.cookie); 

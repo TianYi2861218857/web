@@ -1,0 +1,95 @@
+//变量
+@w:100px;
+@h:80px;
+@c:orange;
+@mb:20px;
+.box1{
+	width: @w;
+	height: @h;
+	background-color: @c;
+	margin-bottom: @mb;
+}
+
+//基本混合
+.box2{
+	.box1 !important; //直接把选择器写到另外一个选择器中
+	border: 5px solid red;
+}
+
+//带参数,有默认值
+.border-r(@d:20px;){ 
+	-o-border-radius: @d;
+	-webkit-border-radius: @d;
+	-ms-border-radius: @d;
+	-moz-border-radius: @d;
+	border-radius:@d; 
+}
+.box3{
+	.box1 !important;
+	border: 20px solid red;
+	.border-r(40px);
+}
+
+//匹配模式
+.triangle(@_,@bw:20px,@bc:#000){
+	width: 0;
+	height: 0;
+	border-style: solid;
+}
+.triangle(top,@bw:20px,@bc:#000){
+	border-width: @bw;
+	border-color: @bc transparent transparent transparent;
+}
+.triangle(right,@bw:20px,@bc:#000){
+	border-width: @bw;
+	border-color: transparent @bc transparent transparent;
+}
+.triangle(bottom,@bw:20px,@bc:#000){
+	border-width: @bw;
+	border-color: transparent transparent @bc transparent;;
+}
+.triangle(left,@bw:20px,@bc:#000){
+	border-width: @bw;
+	border-color: transparent transparent transparent @bc;;
+}
+.box4{
+	.triangle(left);//对应位置
+}
+//嵌套
+.box5{
+	width: 400px;
+	height: 400px;
+	border: 20px solid red;
+	list-style: none;
+	li{
+		height: 100px;
+		line-height: 100px;
+		span{
+			float: right;
+		}
+	}
+	&:hover{border-radius: 40px;} //代表父元素
+}
+
+//运算-避免编译
+.box6{
+	span{
+		font-size: ~'calc'(20 + 20px); //至少得有一个带单位
+	}
+	div{
+		font-size: calc(20 + 20px);
+	}
+}
+
+//!important关键字
+//见上面的
+
+//混合参数做为属性和设置计算后的属性值
+.set(@attr,@val){
+    @{attr}:unit(@val/10,px);
+}
+.box7{
+	height: 100px;
+	background-color: orange;
+	.set(width,2000)
+}

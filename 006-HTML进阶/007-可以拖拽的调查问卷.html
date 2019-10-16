@@ -4,22 +4,25 @@
 	<meta charset="UTF-8">
 	<title>可以拖拽的调查问卷</title>
 	<style>
-		.father{
+		.page{
 			width: 800px;
-			height: 600px;
+			height: 400px;
 			margin: 20px auto;
 			/*border: 1px solid #000;*/
 		}
-		.page{
+		.container{
 			width: 400px;
+			height: 400px;
+			padding: 10px;
 			float: left;
-		}
-		h2{
 			text-align: center;
+			box-sizing: border-box;
 		}
-		.con{
+		.tar-list{
 			float: left;
-			height: 600px;
+			height: 400px;
+			width: 400px;
+			padding-left: 10px;
 			border-left: 1px solid red;
 			box-sizing: border-box;
 		}
@@ -38,28 +41,47 @@
 	</style>
 </head>
 <body>
-	<div class="father">
-		<div class="page">
+	<div class="page">
+		<div class="container">
 			<h2>调查问卷</h2>
 		</div>
-		<div class="con">
-			<div class="tar-list">
-				<div class="box">
-					<label for="username">姓名:</label>
-					<input type="text" placeholder="请输入姓名">
-				</div>
-				<div class="box">
-					<label for="major">专业:</label>
-					<input type="text" placeholder="请输入专业">
-				</div>
-				<div class="box">
-					<label for="username">爱好:</label>
-					<input type="checkbox">游戏
-					<input type="checkbox">动漫
-					<input type="checkbox">漫画
-				</div>
+		<div class="tar-list">
+			<div class="box" draggable=true>
+				<label for="username">姓名:</label>
+				<input type="text" placeholder="请输入姓名">
+			</div>
+			<div class="box" draggable=true>
+				<label for="major">专业:</label>
+				<input type="text" placeholder="请输入专业">
+			</div>
+			<div class="box" draggable=true>
+				<label for="username">爱好:</label>
+				<input type="checkbox">游戏
+				<input type="checkbox">动漫
+				<input type="checkbox">漫画
 			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var targetDom = null;
+		$('.tar-list')
+		.on('dragstart','.box',function(){
+			// console.log(this)
+			targetDom = this;
+		})
+		$('.container')
+		.on('drop',function(ev){
+			// console.log(targetDom)
+
+			//.clone复制一个DOM节点放进去
+			$('.container').append($(targetDom).clone())
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+	});
+</script>
 </html>

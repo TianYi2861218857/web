@@ -5,32 +5,62 @@
 	<title>Cookie</title>
 </head>
 <body>
-	
+	cookies cs
 </body>
 <script>
+	/*
+	//指定日期过期
+	var oDate = new Date();
+	oDate.setDate(oDate.getDate()+6);
+	document.cookie = "username = tom;expires="+oDate;
+
+	//倒计时过期
+	document.cookie = "age = 10; max-age =10";
+	*/
+
+	//创建cookie
 	function setCookie(key,value,iDate){
 		var oDate = new Date();
 		oDate.setDate(oDate.getDate()+iDate);
 		document.cookie = key+"=" +value+";expires="+oDate;
 	}
-	setCookie('username','leo',100000);
-	function getCookice(name){
+	setCookie('username','leo',10);
+	setCookie('age','12',2);
+	setCookie('sex','male',10);
+
+	//获取cookie
+	function getCookice(key){
+		//获取当前页面所有的cookie信息
 		var str = document.cookie;
+
+		//把字符串拆分成数组
 		var arr1 = str.split(';');
+		// console.log(arr1);
+
+		//遍历数组
 		var result = "";
 		for (var i = 0; i < arr1.length; i++) {
+			//继续将数组中的每一项(字符串)拆分成数组
 			var arr2 = arr1[i].split("=");
-			if (arr2[0].trim() == name.trim()) {
-				result = arr2[1];
-				break;
+			// console.log(arr2)
+			for (var j=0;j<arr2.length;j++){
+				// console.log(arr2[j]);
+
+				//trim()去掉前后的空格
+				if (key.trim() == arr2[0].trim()) {
+					return arr2[1];
+					break;
+				}
 			}
 		}
-		return result;
 	}
-	console.log(getCookice(username));
+	console.log(getCookice('age'));
+
+	//删除
+	//调用自己创建的setCookie函数来使得cookie过期,已达到删除目的
 	function removeCookie(name){
 		setCookie(name,false,-1);
-	}
-	removeCookie(age);
+	} 
+	removeCookie('sex');
 </script>
 </html>
