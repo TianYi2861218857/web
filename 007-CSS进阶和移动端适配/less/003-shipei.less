@@ -1,0 +1,17 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@father: 37.5px;
+.set(@attr,@px1){
+    @{attr}:unit(@px1/@father,rem);
+}
+img,p{
+	float: left;
+}
+img{
+	.set(width,80);
+}
+p{
+	.set(font-size,30);
+}
