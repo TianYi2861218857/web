@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-弹性布局基础(容器与项目).html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*指定了弹性布局的元素称为Flex容器(flex container),它的所有子元素自动成为容器成员,称为 Flex项目(flex item)*/
+		.father{
+			display: flex;
+			border: 1px solid #000;
+			width: 600px;
+		}
+		.father div{
+			/*float: left;*/
+			height: 50px;
+		}
+		.box1{
+			width: 100px;
+			background-color: red;
+		}
+		.box2{
+			width: 200px;
+			background-color: green;
+		}
+		.box3{
+			width: 300px;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>容器属性-排列方向</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			margin: 0 auto;
+			display: flex;
+			/*默认值,水平方向,起点在左端;*/
+			/*flex-direction: row; */
+			/*水平方向,起点在右端;*/
+			/*flex-direction: row-reverse; */
+			/*垂直方向,起点在上沿;*/
+			/*flex-direction: column;*/
+			 /*垂直方向,起点在上沿;*/
+			flex-direction: column-reverse;
+			border: 1px solid #000;
+			width: 600px;
+		}
+		.father div{
+			/*float: left;*/
+			height: 30px;
+		}
+		.box1{
+			width: 100px;
+			background-color: red;
+		}
+		.box2{
+			width: 200px;
+			background-color: green;
+		}
+		.box3{
+			width: 300px;
+			background-color: orange;
+		}
+		.father2{
+			margin: 0 auto;
+			/*display: inline-flex;*/
+			display: flex;
+			border: 5px solid blue;
+			width: 600px;
+		}
+		.father2 div{
+			/*float: left;*/
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="box1">son1</div>
+		<div class="box2">son2</div>
+		<div class="box3">son3</div>
+	</div>
+	<span class="father2">
+		<div class="box1">son1</div>
+		<div class="box2">son2</div>
+		<div class="box3">son3</div>
+	</span>
+</body>
+</html>

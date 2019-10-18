@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>容器属性-水平对齐方式</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			display: flex;
+			flex-flow: row wrap-reverse;
+			/*(默认值),左对齐*/
+			/*justify-content: flex-start;*/
+			/*右对齐*/
+			/*justify-content: flex-end;*/
+			/*居中*/
+			/*justify-content: center;*/
+			/*两端对齐,项目之间的间隔相等*/
+			/*justify-content: space-between;*/
+			/*每个项目两侧的间隔相等,所以两个项目之间的距离比项目与边界之间的距离大*/
+			justify-content: flex-end;
+			border: 1px solid #000;
+			width: 800px;
+		}
+		.father div{
+			/*float: left;*/
+			height: 30px;
+		}
+		.box1{
+			width: 100px;
+			background-color: skyblue;
+		}
+		.box2{
+			width: 200px;
+			background-color: green;
+		}
+		.box3{
+			width: 300px;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="box1">son1</div>
+		<div class="box2">son2</div>
+		<div class="box3">son3</div>
+	</div>
+</body>
+</html>
