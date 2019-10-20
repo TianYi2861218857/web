@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的结构解析</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj = {
+		name : 'tom',
+		age : 12
+	}
+	/*let {name:name1,age:age1} = obj
+	console.log(name1);
+	console.log(age1);*/
+	// let{name,age} = obj;
+	let{name,age,sex=2} = obj;
+	console.log(name);
+	console.log(age);
+	console.log(sex);
+</script>
+</html>

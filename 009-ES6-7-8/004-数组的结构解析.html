@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lan=g"en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的结构解析</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let [a,b,c,d =4,e,f =6,g =7,h] = [1,2,null,null,undefined,undefined];
+	//等号左边可以在数组中用等号设置默认值,当对应右边位置(没有或者unde)时默认值生效;(即d:null; f:undefined; g: )
+	//结构不成功,变量值就位undefined;
+	console.log('a=',a,'b=',b,'c=',c,'d=',d,'e=',e,'f=',f,'g=',g,'h=',h);
+</script>
+</html>

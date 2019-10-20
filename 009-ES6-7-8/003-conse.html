@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>const</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const PI = 3.1415926; //const定义常量必须赋初值;且不能重新定义;也无声明提升;
+
+	const obj = {
+		name: 'tom',
+		age: 12
+	}
+	/*obj={
+		name: 'leo',
+		age: 16   //改变了地址指向
+	}*/
+	obj.name = 'leo'; //const所定义的常量是保证常量地址不变,地址指向的数据可变;
+	console.log(obj);
+</script>
+</html>
