@@ -1,0 +1,28 @@
+body{
+	/*background-image: url(../images/timg3.jpg);
+	background-size: contain;*/
+	background-color: skyblue;
+}
+.link{
+	text-decoration: none !important;
+}
+.link:hover{
+	color: pink !important;
+}
+#con-right .box{
+	height: 200px;
+	background-color: orange;
+}
+.container{
+	margin-right: auto;
+	margin-left: auto;
+}
+*{
+	list-style: none;
+}
+.main{
+	margin-top: 70px;
+}
+.con-con .panel-title a{
+	text-decoration: none;
+}

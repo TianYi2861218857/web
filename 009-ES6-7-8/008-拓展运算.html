@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拓展运算(数组)</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function add(n1,n2){
+		return n1+n2;
+	}
+	let arr = [11,22];
+	// add(...arr);
+	console.log('函数调用时使用把数组转换为参数列表',add(...arr));
+
+	function add1(...arr){
+		let result = 0;
+		for(let i=0;i<arr.length;i++){
+			result += arr[i]
+		}
+		return result;
+	}
+	console.log('函数定义时使用把参数列表转换为数组',add1(11,22));
+
+	let arr2 = [11,22,44,88,77];
+	//ES5
+	console.log('ES5求最大值',Math.max.apply(null,arr2));
+	//ES6 用扩展运算
+	console.log('ES6求最大值',Math.max(...arr2));
+</script>
+</html>

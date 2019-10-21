@@ -1,0 +1,53 @@
+/*导航条*/
+#nav-blog .navbar-nav li{
+	margin-right: 15px;
+}
+#nav-blog .navbar-nav li a{
+	font-size: 
+}
+#nav-blog .navbar-nav li a:hover{
+	color: pink;
+}
+#nav-blog .navbar-nav .active a{
+	background-color: transparent;
+}
+#nav-blog{
+	background-color: #2CD8C1;
+	border-color: #2CD8C1;
+}
+/*left区-----*/
+/*轮播图*/
+#carousel-example-generic img{
+	width: 100%;
+	height: 100%;
+}
+
+/*内容区*/
+.con-con{
+	margin-top: 20px;
+}
+.con-con .panel-heading{
+	border-style: none;
+	background-color: transparent;
+	padding-left: 0px;
+}
+.con-con .panel-heading .panel-title{
+	border-left: 2px solid #f65a8a;
+	padding-left: 15px;
+}
+.con-con .panel-heading .panel-title a:hover{
+	color: #f65a8a;
+}
+.con-con .panel-footer{
+	border-style: none;
+	background-color: transparent;
+}
+.con-con .panel-ft-text{
+	margin-right: 15px;
+	color: gray;
+}
+
+/*right区-----*/
+.con-right .img-rounded{
+	/*height: 200px;*/
+}
