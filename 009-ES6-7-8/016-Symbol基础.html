@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Symbol基础</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let s1 = Symbol('tom');
+	let s2 = Symbol('kangkang');
+	let obj = {};
+	obj.name = "leo";
+	obj[s1] = 'xf001';
+	obj[s2] = 'xf002';
+	console.log(obj);
+	console.log(obj[s1]);
+	console.log(obj[s2]);
+	console.log(Reflect.ownKeys(obj));
+</script>
+</html>

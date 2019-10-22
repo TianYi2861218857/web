@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>set基础</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//Set对象的生成1
+	const ss = new Set([12,22]);
+	//Set对象的生成2
+	const arr = [11,22,33];
+	const s = new Set(arr);
+	// console.log(s);
+	// console.log(s.size);
+	// console.log(ss);
+	console.log(s.add(44));
+	//删除该元素,返回布尔值来表示是否删除成功
+	console.log(s.delete(22));
+	console.log(s);
+	//判断是否为Set的成员,返回布尔值
+	console.log(s.has(123));
+	//清除所有,没有返回值
+	console.log(s.clear());
+	console.log(s);
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Map对象的遍历方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj1 = {id:'xf001'};
+	let obj2 = {id:'xf002'};
+	let obj = {};
+	let m  = new Map();
+	m.set('name','tom');
+	m.set(obj1,'22e');
+	m.set(obj2,'2222');
+	console.log(m);
+	//返回键名的遍历器
+	for(let key of m.keys()){
+		console.log("key:",key);
+	}
+	//返回键值的遍历器
+	for(let value of m.values()){
+		console.log("value:",value);
+	}
+	//返回键名键值对的遍历器
+	for(let entrie of m.entries()){
+		console.log("entrie:",entrie);
+	}
+	//使用回调函数来遍历
+	m.forEach(function(value,key){
+		console.log('value',value,'key',key);
+	})
+</script>
+</html>

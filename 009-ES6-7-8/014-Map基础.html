@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Map基础</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj1 = {id:'xf001'};
+	let obj2 = {id:'xf002'};
+	let obj = {};
+	/*
+	obj['name'] = 'tom';
+	obj[obj1] = '22';
+	obj[obj2] = '33';
+	console.log(obj);
+	*/
+	let m  = new Map();
+	m.set('name','tom');
+	m.set(obj1,'22e');
+	m.set(obj2,'2222');
+	console.log(m);
+	console.log(m.get(obj1));
+	console.log(m.delete(obj1));
+	console.log(m.has(obj1));
+	console.log(m);
+	console.log(m.clear());
+	console.log(m);
+</script>
+</html>

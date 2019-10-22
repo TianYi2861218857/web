@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Set对象2</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	Set只有值没有键,因此key和value一样
+	Set的遍历顺序是插入顺序
+	Set类似于数组,但值唯一
+	*/
+
+	const arr = [11,22,33];
+	const s = new Set(arr);
+	console.log(s);
+	//返回键名的遍历器
+	for(let key of s.keys()){
+		console.log("key:",key);
+	}
+	//返回键值的遍历器
+	for(let value of s.values()){
+		console.log("value:",value);
+	}
+	//返回键名键值对的遍历器
+	for(let entrie of s.entries()){
+		console.log("entrie:",entrie);
+	}
+	//使用回调函数来遍历
+	s.forEach(function(value,key){
+		console.log('value',value,'key',key);
+	})
+</script>
+</html>

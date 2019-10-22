@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Set唯一性去重</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const arr = [11,22,33,22,44];
+	console.log(arr);
+	function uniqueArray1(obj){
+		let result = [];
+		for(let i=0;i<obj.length;i++){
+			if (result.indexOf(obj[i],0) == -1){
+				result.push(obj[i])
+			}
+		}
+		return result;
+	}
+	function uniqueArray2(obj){
+		let result = [];
+		let obj2 ={};
+		//利用对象的属性: 键值无序唯一
+		for(let i=0;i<obj.length;i++){
+			obj2[obj[i]] = '';
+		}
+		for(let key in obj2){
+			result.push(key*1);
+		}
+		console.log(obj2);
+		return result;
+	}
+	function uniqueArray3(obj){
+		const s = new Set(obj);
+		let result = [...s]
+		return result;
+	}
+	console.log(uniqueArray2(arr));
+</script>
+</html>
