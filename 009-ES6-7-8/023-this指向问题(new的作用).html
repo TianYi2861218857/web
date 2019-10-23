@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this指向问题(new的作用)</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var id = 11;
+	function Timer(id){
+		//1.  var Timer = {};
+		//2.  this => Timer;
+		this.id = id ;
+		console.log('this1::',this) //this1:
+		setTimeout(function(){
+			console.log('this2::',this); //this2:
+			console.log(this.id); //id
+		},200)
+		//3.  return this;
+	}
+
+	/*
+		new的作用:
+		1.  var Timer = {};
+		2.	this => Timer;
+		3.  return this;
+	*/
+	const t = new Timer(22);
+	/*
+		this1:  Timer
+		this2:  window
+		id:     11
+	*/
+
+
+	//等效于window.Timer(22);
+	// Timer(22);
+	/*
+		this1:  window
+		this2:  window
+		id:     22
+	*/
+</script>
+</html>

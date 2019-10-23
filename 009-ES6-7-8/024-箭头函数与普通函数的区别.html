@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数与普通函数的区别3</title>
+</head>
+<body>
+	
+</body>
+<script>
+	show(11,22); //报错;  show is not a function;   因为箭头函数无申明提升
+	var show = (agr1,agr2) => {
+		console.log("show:;",agr1+agr2);
+	}
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数的this指向</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//let不会定义在window上
+	/*   //谁调用指向谁
+	var id = 11;
+	function Timer(id){
+		this.id = id ;
+		setTimeout(function(){
+			console.log(this); //window
+			console.log(this.id); //11
+		},200)
+	}
+	const t = new Timer(100);
+	*/
+ 	//this在定义时决定
+	var id =11;
+	function Timer(id){
+		this.id =id ;
+		console.log('this1::',this) 
+		setTimeout(()=>{
+			console.log('this2::',this);   //Timer
+			console.log(this.id); //22
+		},200)
+	}
+	//new的作用: 
+	const t = new Timer(22);
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>异步处理-异步处理任务</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	//1.ajax请求
+	$.get('https://api.github.com/users/TianYi2861218857',function(data){
+		console.log('0',data);
+		$.get(data.followers_url,function(data){
+			console.log('1',data);
+			$.get(data[1].followers_url,function(data){
+				console.log('2',data);
+			})
+		})
+	})
+	// console.log()
+</script>
+</html>

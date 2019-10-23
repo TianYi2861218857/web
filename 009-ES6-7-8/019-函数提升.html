@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数提升</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function show(){   //函数申明
+		console.log('leo');
+	}
+	var show = function(){  //函数表达式
+		console.log('tom');
+	}
+	//结果为tom,理由:层叠   
+	show();
+
+
+	var show1 =function(){
+		console.log('tom1');
+	}
+	function show(){
+		console.log('leo1');
+	}
+	//结果为tom1,函数申明的提升,
+	show1();
+</script>
+</html>
