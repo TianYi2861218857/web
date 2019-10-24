@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>all方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const p1 = Promise.resolve('ok p1')
+	const p2 = Promise.resolve('ok p2')
+	const p3 = Promise.resolve('ok p3')
+	const p4 = Promise.reject('err p4')
+	const promises = Promise.all([p1,p2,p3,p4])
+
+	promises
+	.then(data=>{
+		console.log(promises)
+		console.log(data)
+	})
+	.then(err=>{
+		console.log(promises)
+		console.log(err)
+	})
+</script>
+</html>

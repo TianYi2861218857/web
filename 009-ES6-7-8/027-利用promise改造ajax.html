@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用promise改造ajax</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//1.ajax请求
+	/*$.get('https://api.github.com/users/TianYi2861218857',function(data){
+		console.log('0',data);
+		$.get(data.followers_url,function(data){
+			console.log('1',data);
+			$.get(data[1].followers_url,function(data){
+				console.log('2',data);
+			})
+		})
+	})
+	*/
+
+	//
+	function getDataPromise(url){
+		return new promise()
+	}
+</script>
+</html>
