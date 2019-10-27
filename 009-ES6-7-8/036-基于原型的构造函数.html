@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基于原型的构造函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name =name;
+		this.age =age ;
+	}
+	//动态方法:
+	Person.prototype.sayName=function(){
+		console.log('I am '+this.name);
+	}
+	//静态方法:
+	Person.sayHello=function(){
+		console.log('hello world');
+	}
+	const p1 = new Person('tom','12');
+	p1.sayName();    //p1可以通过原型链拿到动态方法,无法拿到静态方法
+	Person.sayHello();
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES8对象的新增方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const obj ={
+		name: 'tom',
+		age: '12'
+	}
+	Object.defineProperty(obj,"sex",{
+		value: "female"
+	});
+	console.log(obj);
+	console.log(Object.keys(obj));
+	console.log(Object.entries(obj));
+	console.log(Object.values(obj));
+	console.log(Object.getOwnPropertyDescriptors(obj));
+	console.log(Object.assign([11,22,99],[33,44]));
+	console.log(Object.is(+0,-0)); //false
+	console.log(Object.is(NaN,NaN)); //true
+</script>
+</html>
