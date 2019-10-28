@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多物体减速动画(初步封装减速动画).html</title>
+	<style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 30px;
+            margin: 100px auto;
+        }
+        #box div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 100px;
+        }
+        #box3{
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+	<div id="box">
+       <div id="box1">变宽</div>
+       <div id="box2">变高</div>
+       <div id="box3">变色</div>
+   </div>
+</body>
+<script>
+	var oDiv1 = document.getElementById('box1');
+    var oDiv2 = document.getElementById('box2');
+    var oDiv3 = document.getElementById('box3');
+    //减速动画
+    function animate1(obj,attr,target){
+    	clearInterval(obj.timer);
+        var iSpeed = 0; 
+		obj.timer=setInterval(function(){
+			var current = parseFloat(getComputedStyle(obj,false)[attr]);
+			if (attr == 'opacity'){
+				current = Math.round(current*100);
+			}
+            iSpeed = (target-current)/10;
+            iSpeed = iSpeed>0 ? iSpeed = Math.ceil(iSpeed) : iSpeed = Math.floor(iSpeed);
+			if (!iSpeed) {
+				clearInterval(obj.timer);
+			}else{
+				if (attr == 'opacity') {
+                    obj.style[attr] = (current + iSpeed)/100;    
+                }else{
+                    obj.style[attr] = current + iSpeed + 'px';
+                }
+			}
+		},30)
+    }
+    oDiv1.onmouseover=function(){
+        animate1(oDiv1,'width',400)
+    }
+    oDiv2.onmouseover=function(){
+        animate1(oDiv2,'height',400)
+    }
+    oDiv3.onmouseover=function(){
+        animate1(oDiv3,'opacity',100)
+    }
+</script>
+</html>

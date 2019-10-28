@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>评论区</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.box{
+			width: 400px;
+			margin: 100px auto;
+		}
+		h2{
+			color: orange;
+			font-size: 24px;
+			border-bottom: 1px solid #000;
+			background-color: gray;
+			margin-top: 20px;
+			line-height: 30px;
+		}
+		li{
+			/*height: 30px;*/
+			/*line-height: 30px;*/
+			padding: 5px 0;
+			border-bottom: 1px dashed orange;
+		}
+		a{
+			float: right;
+			text-decoration: none;
+			color: #F07C7C;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<textarea id="txt" cols="40" rows="10"></textarea>
+		<input type="button" value="提交" id="btn">
+		<h2>评论区</h2>
+		<ul id="ul1">
+		</ul>
+	</div>
+</body>
+<script>
+	var oUl = document.getElementById('ul1');
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick= function(){
+		if (oTxt.value == '') {
+			alert("输入值不能为空")
+		}else{
+			var oLi = document.createElement('li');
+			var oA = document.createElement('a');
+			var val = oTxt.value;
+			oTxt.value = '';
+			oA.href = 'javascript:;';
+			oA.innerHTML = '删除';
+			oA.onclick=function(){
+				oUl.removeChild(oLi);
+			}
+			oLi.innerHTML = val;
+			oLi.appendChild(oA);
+			oUl.insertBefore(oLi,oUl.firstChild);
+		}
+	}
+</script>
+</html>

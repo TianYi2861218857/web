@@ -1,0 +1,5 @@
+const rqe=require('G:/WEB/web/010-NodeJs/01-module/03-document/m5-im.js')
+console.log(rqe)
+console.log(rqe.str)
+console.log(rqe.obj)
+console.log(rqe.fn)

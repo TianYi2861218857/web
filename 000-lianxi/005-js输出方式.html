@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>js输出方式</title>
+</head>
+<body>
+	<button id="alert1">alert</button>
+	<button id="alert2">prompt</button>
+	<button id="alert3">confirm</button>
+	<button id="alert4">write</button>
+	<button id="alert5">log</button>
+	<button id="alert6">error</button>
+	<button id="alert7">warm</button>
+</body>
+<script>
+	var oBtn1 = document.getElementById('alert1');
+	var oBtn2 = document.getElementById('alert2');
+	var oBtn3 = document.getElementById('alert3');
+	var oBtn4 = document.getElementById('alert4');
+	var oBtn5 = document.getElementById('alert5');
+	var oBtn6 = document.getElementById('alert6');
+	var oBtn7 = document.getElementById('alert7');
+	oBtn1.onclick =function(){
+		alert('hi...alert');
+	}
+	oBtn2.onclick =function(){
+		prompt('hi...');
+	}
+	oBtn3.onclick =function(){
+		confirm('你好吗?');
+	}
+	oBtn4.onclick =function(){
+		document.write('hello world');
+	}
+	oBtn5.onclick =function(){
+		console.log("hello world");
+	}
+	oBtn6.onclick =function(){
+		console.error("错误信息");
+	}
+	oBtn7.onclick =function(){
+		console.warn("警告信息");
+	}
+</script>
+</html>

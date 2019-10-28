@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据类型的转换</title>
+</head>
+<body>
+	<span>转数值:  </span>
+	<button id="btn1">parseInt</button>
+	<button id="btn2">parseFloat</button>
+	<button id="btn3">Number</button>
+	<button id="btn4">isNaN</button>
+	<button id="btn5">隐示</button>
+	<br>
+	<span>转字符串: </span>
+	<button id="btn6">toString</button>
+	<button id="btn7">String</button>
+	<button id="btn8">+" "连接</button>
+</body>
+<script>
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBtn3 = document.getElementById('btn3');
+	var oBtn4 = document.getElementById('btn4');
+	var oBtn5 = document.getElementById('btn5');
+	var oBtn6 = document.getElementById('btn6');
+	var oBtn7 = document.getElementById('btn7');
+	var oBtn8 = document.getElementById('btn8');
+
+	var s_i_Numb = "7";
+	var s_l_Numb = "2.6a2";
+	var i_Numb = 8;
+	var l_Numb = 5.6;
+	/*
+	console.log('s_i_Numb: ',typeof s_i_Numb,s_i_Numb)
+	console.log('s_l_Numb: ',typeof s_l_Numb,s_l_Numb)
+	console.log('i_Numb:   ',typeof i_Numb,i_Numb)
+	console.log('l_Numb:   ',typeof l_Numb,l_Numb)
+	*/
+	oBtn1.onclick =function(){
+		console.log("parseInt: ",s_i_Numb," ->",parseInt(s_i_Numb))
+		console.log("parseInt: ",s_l_Numb," ->",parseInt(s_l_Numb))
+	}
+	oBtn2.onclick =function(){
+		console.log("parseFloat: ",s_i_Numb," ->",parseFloat(s_i_Numb))
+		console.log("parseFloat: ",s_l_Numb," ->",parseFloat(s_l_Numb))
+	}
+	oBtn3.onclick =function(){
+		console.log("Number: ",s_i_Numb," ->",Number(s_i_Numb))
+		console.log("Number: ",s_l_Numb," ->",Number(s_l_Numb))
+	}
+	oBtn4.onclick =function(){
+		console.log("isNaN: ",s_i_Numb," ->",isNaN(s_i_Numb))
+		console.log("isNaN: ",s_l_Numb," ->",isNaN(s_l_Numb))
+	}
+	oBtn5.onclick =function(){
+		console.log("隐示: ",s_i_Numb," ->",s_i_Numb-0)
+		console.log("隐示: ",s_l_Numb," ->",s_l_Numb-0)
+	}
+	oBtn6.onclick =function(){
+		console.log("toString(2)方法: ",i_Numb," ->",i_Numb.toString(2))
+		console.log("toString方法: ",l_Numb," ->",l_Numb.toString())
+	}
+	oBtn7.onclick =function(){
+		console.log("String: ",i_Numb," ->",String(i_Numb))
+		console.log("String: ",l_Numb," ->",String(l_Numb))
+	}
+	oBtn8.onclick =function(){
+		console.log('+" "连接: ',i_Numb," ->",i_Numb+" ")
+		console.log('+" "连接: ',l_Numb," ->",l_Numb+" ")
+	}
+</script>
+</html>
