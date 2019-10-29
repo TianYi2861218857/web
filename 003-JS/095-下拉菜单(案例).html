@@ -9,10 +9,10 @@
 			padding: 0;
 		}
 		#box{
+			display: none; /*写在这下面js接收不到*/
 			width: 200px;
 			height: 200px;
 			background-color: #ff6700;
-			/*display: none;*/ /*写在这下面js接收不到*/
 		}
 	</style>
 </head>
@@ -23,8 +23,9 @@
 <script>
 	var oBtn = document.getElementById('btn');
 	var oBox = document.getElementById('box')
-	oBox.style.display = 'none';
-	oBtn.addEventListener('click',function(event){
+	// oBox.style.display = 'none';
+	oBtn.addEventListener('click',function(ev){
+		console.log(oBox.style.display);
 		if (oBox.style.display == 'none') {
 			oBox.style.display='block';
 		}else{
@@ -32,7 +33,7 @@
 		}
 		event.stopPropagation();
 	},false)
-	oBox.addEventListener('click',function(event){
+	oBox.addEventListener('click',function(ev){
 		event.stopPropagation();
 	},false)
 	document.addEventListener('click',function(){
