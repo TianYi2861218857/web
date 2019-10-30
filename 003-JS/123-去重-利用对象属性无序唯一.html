@@ -13,9 +13,11 @@
 	var obj = {};
 	function uniqueArray(arr){
 		for(var i=0;i<arr.length;i++){
+			//将数组里的每一项做为对象里的属性,且设置属性的值为''(空)
 			obj[arr[i]] = '';
 		}
 		console.log(obj)
+		//遍历对象
 		for(var attr in obj){
 			result.push(attr*1);
 		}

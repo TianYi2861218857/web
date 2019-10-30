@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bird</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			position: relative;
+			top: 20px;
+			left: 100px;
+			width: 600px;
+			height: 550px;
+			border: 1px solid #000;
+			/*overflow: hidden;*/
+		}
+		#bird{
+			position: absolute;
+			top: 0px;
+			left: 50%;
+			margin-left: -25px;
+			width: 50px;
+			height: 50px;
+		}
+		#bird img{
+			width: 100%;
+			height: 100%;
+		}
+		.topLine{
+			position: absolute;
+			top: 0px;
+			left: 100%;
+			width: 30px;
+			background-color: green;
+		}
+		.bottomLine{
+			position: absolute;
+			bottom: 0px;
+			left: 100%;
+			width: 30px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="bird">
+			<img src="images/bird.png">
+		</div>
+	</div>
+</body>
+<script>
+//管道生成
+	function addLine(){
+		var topLine = document.createElement('div');
+		var bottomLine = document.createElement('div');
+		
+	}
+</script>
+</html>
