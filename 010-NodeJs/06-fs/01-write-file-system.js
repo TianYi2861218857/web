@@ -6,11 +6,11 @@
 const fs = require('fs')
 /*
 //1.打开文件
-const txt = fs.openSync('./01-txt.text','a')
+const fd = fs.openSync('./01-fd.text','a')
 //2.写入内容
-fs.writeSync(txt,' world')
+fs.writeSync(fd,' world')
 //3.保存并退出
-fs.closeSync(txt)
+fs.closeSync(fd)
 */
 //合并操作
-fs.writeFileSync('./01-txt.text',' world',{flag:'a'})
+fs.writeFileSync('./01-fd.text',' world',{flag:'a'})
