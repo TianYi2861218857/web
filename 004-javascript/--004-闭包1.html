@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包1</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fn1(){
+		var n = 1;
+		add = function(){
+			n++;
+		}
+		return function(){
+			return n;
+		}
+	}
+	var result = fn1();
+	console.log(result());
+	add();
+	console.log(resule());
+</script>
+</html>
