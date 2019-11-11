@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数节流</title>
+	<style>
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function throttle(fn,timer){
+		var lastTime = Date.now();
+		console.log("调用throttle")
+		return function(){window.onscroll = throttle(function(){
+		i++;
+		console.log(i);
+	},1000);
+			if (Date.now-lastTime > timer){
+				fn();
+				lastTime = Date.now();window.onscroll = throttle(function(){
+		i++;
+		console.log(i);
+	},1000);
+			}
+		}
+	}
+	var i=1;
+	window.onscroll = throttle(function(){
+		i++;
+		console.log("i",i);
+	},500)
+</script>
+</html>

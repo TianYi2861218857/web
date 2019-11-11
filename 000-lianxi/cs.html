@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cs</title>
+	<style>
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function throttle(fn,b){
+		console.log('a');
+		var j = 0;
+		j++;
+		console.log("j",j);
+	}
+	var i=0;
+	window.onscroll = throttle(function(){
+		i++;
+		console.log(i);
+	},500);
+</script>
+</html>
