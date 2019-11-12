@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>post中间件</title>
+</head>
+<body>
+	<h1>Test Request</h1>
+	<button id="post">post</button>
+</body>
+<script src="jquery-1.12.4.min.js"></script>
+<script>
+	//post 
+	$('#post').on('click',function(){
+		$.ajax({
+			url:"/",
+			type:"post",
+			data:{
+				name:'tom',
+				age:18
+			},
+			success:function(data){
+				console.log(data)
+			}
+		})
+	})
+</script>
+</html>

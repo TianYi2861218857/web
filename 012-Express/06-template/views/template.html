@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="common.css">
+	{% block i-css %}{% endblock %}
+</head>
+<body>
+	<nav>
+		导航栏
+	</nav>
+	<div>
+		{% block con %}{% endblock %}
+	</div>
+	<footer>
+		列表栏
+	</footer>
+</body>
+<script src="jQuery.js"></script>
+{% block footer %}{% endblock %}
+</html>

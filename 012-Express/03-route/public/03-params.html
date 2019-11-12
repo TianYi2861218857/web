@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>params</title>
+</head>
+<body>
+	<h1>Test Request</h1>
+	<!-- button[id ="get"]*4 -->
+	<button id="get1">get1</button>
+	<button id="get2">get2</button>
+</body>
+<script src="jquery-1.12.4.min.js"></script>
+<script>
+	//   /user?name=tom&age=18
+	//   /users/123/boks/456
+	//get1 
+	$('#get1').on('click',function(){
+		$.ajax({
+			url:"/",
+			type:"get",
+			data:{
+				name:"tom",
+				age:18
+			},
+			success:function(data){
+				console.log("get1",data)
+			}
+		})
+	})
+	//get2 
+	$('#get2').on('click',function(){
+		$.ajax({
+			url:"/users/123/books/456",
+			type:"get",
+			data:{
+				name:"tom",
+				age:18
+			},
+			success:function(data){
+				console.log("get2",data)
+			}
+		})
+	})
+</script>
+</html>
