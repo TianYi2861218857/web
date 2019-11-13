@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封闭空间-构建对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//w此处就是window
+	;(function(w){
+		//对象不写在闭包里时相当于是在window中构造了一个对象
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		/*Person.prototype.sayName = function(){
+			console.log(this.name);
+		};
+		Person.prototype.LEGS=2;*/
+		Person.prototype={
+			constructor: Person,
+			sayName: function(){
+				console.log(this.name);
+			}
+			LEGS: 2
+		}
+	})(window);
+	var p1 = new Person('tom',12);
+	p1.sayName();
+</script>
+</html>

@@ -17,6 +17,6 @@
 		列表栏
 	</footer>
 </body>
-<script src="jQuery.js"></script>
-{% block footer %}{% endblock %}
+{% include "./footer.html" %}    <!-- 包含模板 -->
+{% block footer %}{% endblock %}  <!-- 继承模板 -->
 </html>

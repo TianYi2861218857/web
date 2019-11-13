@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封闭空间-循环中直接找到元素的索引</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		li{
+			width: 80px;
+			height: 40px;
+			background-color: orange;
+		}
+		.active{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+</body>
+<script>
+	var aLi = document.getElementsByTagName('li');
+	var lastLi = 0;
+	for(var i=0;i<aLi.length;i++){
+		/*
+		aLi[i].index = i;
+		aLi[i].onmouseenter = function(){
+			aLi[lastLi].className = '';
+			this.className ='active';
+			lastLi = this.index;
+		}
+		//循环中直接找到元素的索引
+		*/
+		;(function(i){
+			aLi[i].onmouseenter = function(){
+				aLi[lastLi].className = '';
+				aLi[i].className ='active';
+				lastLi = i;
+			}
+		})(i);
+	}
+</script>
+</html>

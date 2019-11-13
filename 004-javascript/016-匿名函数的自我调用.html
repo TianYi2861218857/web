@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匿名函数的自我调用</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function aa(){
+		alert('aa')
+	}
+	aa();
+	var bb = function(){
+		alert('bb')
+	}
+	bb();
+	*/
+	//()();  -->这个就是封闭空间; 第一个()是匿名函数,第二个()是自我调用
+	;(function(){
+		alert('123')
+	})();
+
+	//小括号的语义:
+	/*
+	if(){}    //和语句联合使用达到某些限定作用,如if/while后面的
+	var a="a"+(1+1)+"b" //提高运算的优先级
+	function add(a,b){}   //函数声明时参数表
+	function cs(max){console.log(max)};  cs(5)   //函数调用和传参
+	(function(){alert(111)})();   //包裹function的是强制表达式运算
+	*/
+</script>
+</html>

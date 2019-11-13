@@ -7,4 +7,17 @@
 <body>
 		
 </body>
+<script>
+	function fn(){
+		var n =1;
+		add = function(){
+			n++;
+			console.log("add中",n)
+		}
+		return n;
+	}
+	console.log("add之前:",fn());
+	add();
+	console.log("add之后:",fn());
+</script>
 </html>

@@ -17,20 +17,16 @@
 	function throttle(fn,timer){
 		var lastTime = Date.now();
 		console.log("调用throttle")
-		return function(){window.onscroll = throttle(function(){
-		i++;
-		console.log(i);
-	},1000);
+		return function(){
 			if (Date.now-lastTime > timer){
 				fn();
-				lastTime = Date.now();window.onscroll = throttle(function(){
-		i++;
-		console.log(i);
-	},1000);
+				lastTime = Date.now();
 			}
 		}
 	}
 	var i=1;
+	//相当于第一步:  throttle()    -->调用函数throttle
+	//第二步:    window.onscroll = fn() -->滑动时触发throttle函数中返回的fn函数()
 	window.onscroll = throttle(function(){
 		i++;
 		console.log("i",i);

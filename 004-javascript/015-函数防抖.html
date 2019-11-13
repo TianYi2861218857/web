@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数防抖</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function debounce(fn){
+		var timer = 0;
+		return function(){
+			//实现原理:   在每次滑动时先关闭一个延迟定时器,然后再开一个延迟定时器.  这样在停止滑动时会保留最后一个延迟定时器.
+			clearTimeout(timer);
+			timer = setTimeout(fn,500);
+		}
+	}
+	window.onscroll = debounce(function(){
+		i++;
+		console.log(i);
+	});
+</script>
+</html>

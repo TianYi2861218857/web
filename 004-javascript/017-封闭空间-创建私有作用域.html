@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-封闭空间-创建私有作用域</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 0;
+	;(function(){
+		var a = 1;
+		console.log(a);   // 1
+	})();
+	;(function(){
+		var a  = 2;
+		console.log(a);  // 2
+	})();
+	console.log(a);      // 0
+</script>
+</html>
