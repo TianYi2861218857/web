@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设计模式-发布者模式</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//添加学生   register
+	//发布消息 publish
+	/*
+		task:  发布的内容
+		listen:  订阅者的监听方法
+	*/
+	function Teacher(name){
+		this.name = name;
+		this.students = [];
+	}
+	Teacher.prototype={
+		constructor:Teacher,
+		//添加学生
+		register:function(student){
+			this.students.push(student);
+		},
+		//发布消息
+		publish:function(task){
+			for(var i=0; i<this.students.length;i++){
+				this.students[i].listen(task);
+			}
+		}
+	}
+	function Student(name,teacher){
+		this.name = name;
+		teacher.register(this)
+	}
+	Student.prototype={
+		constructor:Student,
+		//订阅者的监听方法
+		listen:function(task){
+			console.log(this.name+' 收到今天的作业: --->'+task)
+		}
+	}
+	var t1 = new Teacher("echo");
+	var s1 = new Student("tom",t1);
+	var s2 = new Student("leo",t1);
+	var s3 = new Student("array",t1);
+	var s4 = new Student("fate",t1);
+	t1.publish("背40个单词")
+	console.log(t1);
+	console.log(s1);
+	console.log(s2);
+	console.log(s3);
+	console.log(s4);
+</script>
+</html>
