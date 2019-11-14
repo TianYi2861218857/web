@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	{% block i-css %}{% endblock %}
+</head>
+<body>
+	<!-- 导航区 -->
+	<nav class="navbar navbar-default navbar-fixed-top" id="nav-blog">
+	  <div class="container">
+	  	 <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand link" href="javascript:;">个人博客</a>
+		    </div>
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="javascript:;">首页 <span class="sr-only">(current)</span></a></li>
+		        <li><a href="/list">HTML/CSS</a></li>
+		        <li><a href="/list">JavaScript</a></li>
+		        <li><a href="/list">学无止境</a></li>
+		        <li><a href="/list">我的足迹</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+	  </div>
+	</nav>
+
+	<!-- 主体内容区 -->
+	<div class="main">
+		<div class="container">
+			<div class="row">
+				<div class="con-left col-md-8" id="con-left">
+					<!-- 轮播图 -->
+					{% block lun %}{% endblock %}
+					<!-- 内容区 -->
+					{% block con-con %}{% endblock %}
+					<!-- 分页栏 -->
+					<nav aria-label="Page navigation">
+					  <ul class="pagination">
+					    <li>
+					      <a href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li><a href="#">1</a></li>
+					    <li><a href="#">2</a></li>
+					    <li><a href="#">3</a></li>
+					    <li><a href="#">4</a></li>
+					    <li><a href="#">5</a></li>
+					    <li>
+					      <a href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
+				<dvi class="con-right col-md-4 hidden-xs hidden-sm" id="con-right"> 
+					<!-- hidden-xs:超小屏幕手机 (<768px)不可见
+					hidden-sm 小屏幕平板 (768~992px) 不可见 -->
+					<div class="right-cn">
+					  <!--用户注册登录开始--> 
+					  <div class="panel panel-default" style="display: none">
+						  <div class="panel-body">
+						     欢迎<span>Tom</span>
+				            <a class="link" href="/home">进入个人中心</a>
+				            <a class="link" href="javascript:;" id='logout'>退出</a>
+				            <div class="form-group">
+				              <div class="col-sm-12">
+				                <p class="text-danger err"></p>
+				              </div>
+				            </div>     
+						  </div>
+					  </div>
+					  <div class="panel panel-default" id="register1" style="display: none">
+						  <div class="panel-body" >
+						    <div class="form-horizontal user-panel" id='register' >
+					            <div class="form-group">
+					              <label class="col-sm-4 control-label">用户名</label>
+					              <div class="col-sm-6">
+					                <input autocomplete="off" type="text" class="form-control" name='username' placeholder="请输入用户名">
+					              </div>
+					            </div>
+					            <div class="form-group">
+					              <label class="col-sm-4 control-label">密码</label>
+					              <div class="col-sm-6">
+					                <input autocomplete="off" type="password" class="form-control" name="password" placeholder="请输入密码">
+					              </div>
+					            </div>
+					            <div class="form-group">
+					              <label class="col-sm-4 control-label">重复密码</label>
+					              <div class="col-sm-6">
+					                <input autocomplete="off" type="password" class="form-control" name="repassword" placeholder="请再次输入密码">
+					              </div>
+					            </div>            
+					            <div class="form-group">
+					              <div class="col-sm-offset-4 col-sm-6">
+					                <a href="javascript:;" class="btn btn-primary" id='sub-register'>提交</a>
+					                <a href="javascript:;" class="link" id='go-login'>已有账号,去登录</a>
+					              </div>
+					            </div>
+					            <div class="form-group">
+					              <div class="col-sm-12">
+					                <p class="text-danger err"></p>
+					              </div>
+					            </div>            
+					          </div> 
+						  </div>
+					  </div>
+					  <div class="panel panel-default" id="login1" style="display: block;">
+						  <div class="panel-body">
+						     <div class="form-horizontal user-panel" id='login'>
+					            <div class="form-group">
+					              <label class="col-sm-4 control-label">用户名</label>
+					              <div class="col-sm-6">
+					                <input autocomplete="off" type="text" class="form-control" name='username' placeholder="请输入用户名">
+					              </div>
+					            </div>
+					            <div class="form-group">
+					              <label class="col-sm-4 control-label">密码</label>
+					              <div class="col-sm-6">
+					                <input autocomplete="off" type="password" class="form-control" name="password" placeholder="请输入密码">
+					              </div>
+					            </div>            
+					            <div class="form-group">
+					              <div class="col-sm-offset-4 col-sm-6">
+					                <a href="javascript:;" class="btn btn-primary" id='sub-login'>提交</a>
+					                <a href="javascript:;" class="link" id='go-register'>免费注册</a>
+					              </div>
+					            </div>
+					            <div class="form-group">
+					              <div class="col-sm-12">
+					                <p class="text-danger err"></p>
+					              </div>
+					            </div>            
+					          </div>
+						  </div>
+					  </div>			          
+			          <!--用户注册登录结束--> 
+					</div>
+					<!-- 展示区 -->
+					<a href="javascript:;" class="thumbnail">
+				      <img src="images/ad/ad1.jpg" alt="展示区1">
+				    </a>
+					<a href="javascript:;" class="thumbnail">
+				      <img src="images/ad/ad2.jpg" alt="展示区1">
+				    </a>
+				    <!-- 博主介绍 -->
+				    <div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">博主介绍</h3>
+					  </div>
+					  <div class="panel-body">
+					    <div class="media">
+						  <div class="media-left">
+						    <a href="javascript:;">
+						      <img class="media-object img-circle" src="images/head portrait.jpg" alt="天一照片">
+						    </a>
+						  </div>
+						  <div class="media-body">
+						    <h4 class="media-heading">TianYi</h4>
+						    98！  未入行菜鸟。学习web，分享一些个人心得。
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<!-- 排行榜 -->
+					<div class="panel panel-default pai-hang">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">点击排行</h3>
+					  </div>
+					  <div class="panel-body">
+					    <ul>
+					    	<li><a href="#">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+					    	<li><a href="#">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+					    	<li><a href="#">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+					    	<li><a href="#">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+					    	<li><a href="#">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+					    	<li><a href="#">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+					    </ul>
+					  </div>
+					</div>
+					<!-- 二维码 -->
+					 <div class="panel panel-default erweima">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">记得三连</h3>
+					  </div>
+					  <div class="panel-body">
+					    <img src="images/me-CSDN.jpg" alt="博客二维码" class="img-rounded erwei">
+					    <img src="images/me-bilibili.jpg" alt="B站二维码" class="img-rounded erwei">
+					    <img src="images/san.png" alt="素质三连" class="img-rounded sanlian">
+					  </div>
+					</div>
+				</dvi>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+{% block i-js %}{% endblock %}
+</html>

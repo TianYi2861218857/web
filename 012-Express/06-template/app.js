@@ -5,6 +5,8 @@ const swig  = require('swig');
 //处理静态资源
 app.use(express.static('public'))  
 
+
+//配置模板引擎
 //1.设置缓存
 //开发阶段设置不走缓存
 swig.setDefaults({
