@@ -2,10 +2,20 @@ const express = require('express')
 const app = express()
 const swig = require('swig')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 
 //处理静态资源
 app.use(express.static('public'))  
 
+/*-----------------处理post请求获取参数的中间件配置-------------*/
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+// 配置中间件信息后post的参数会被存在req.body
+/*-----------------处理post请求获取参数的中间件配置-------------*/
+
+/*----------------连接数据库开始-------------*/
 //链接数据库
 mongoose.connect('mongodb://localhost/blog', { useUnifiedTopology: true,useNewUrlParser: true })
 //生成数据库
@@ -19,7 +29,10 @@ db.on('error',(err)=>{
 db.once('open', function() {
   	console.log('connect mongodb success !!!')
 })
+/*----------------连接数据库结束-------------*/
 
+
+/*------------------配置模板引擎开始----------------*/
 //配置模板引擎
 //1.设置缓存
 //开发阶段设置不走缓存
@@ -41,10 +54,11 @@ app.set('views','./views')
 //第一个参数必须是view engine
 //第二个参数时模板名称,也就是app.engine的第一个参数
 app.set('view engine','html')
+/*------------------配置模板引擎结束----------------*/
 
-
-//配置路由
+/*------------------配置路由开始----------------*/
 app.use('/',require('./routers/index.js')) 
-
+app.use('/user',require('./routers/user.js')) 
+/*------------------配置路由结束----------------*/
 
 app.listen(3000,()=>console.log('sever is running in the 127.0.0.1:3000!'))

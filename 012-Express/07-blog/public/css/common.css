@@ -7,6 +7,9 @@ body{
 	text-decoration: none !important;
 }
 .link:hover{
+	color: pink !important;
+}
+.navbar-header .link:hover{
 	color: #fff !important;
 }
 #con-right .box{

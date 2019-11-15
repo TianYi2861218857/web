@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{% block title %}{% endblock %}</title>
-	<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/common.css">
 	{% block i-css %}{% endblock %}
 </head>
@@ -73,7 +73,7 @@
 					hidden-sm 小屏幕平板 (768~992px) 不可见 -->
 					<div class="right-cn">
 					  <!--用户注册登录开始--> 
-					  <div class="panel panel-default" style="display: none">
+					  <div class="panel panel-default" id="user-cs" style="display: none">
 						  <div class="panel-body">
 						     欢迎<span>Tom</span>
 				            <a class="link" href="/home">进入个人中心</a>
@@ -120,7 +120,7 @@
 					          </div> 
 						  </div>
 					  </div>
-					  <div class="panel panel-default" id="login1" style="display: block;">
+					  <div class="panel panel-default" id="login1">
 						  <div class="panel-body">
 						     <div class="form-horizontal user-panel" id='login'>
 					            <div class="form-group">
@@ -210,8 +210,8 @@
 	</div>
 	
 </body>
-<script src="js/jquery-1.12.4.js"></script>
-<script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="lib/jquery/jquery-1.12.4.min.js"></script>
+<script src="lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
 <script src="js/common.js"></script>
 {% block i-js %}{% endblock %}
 </html>
