@@ -1,8 +1,13 @@
 ;(function($){
+//0. 点击首页
+	$('.shou-cs').on('click',function(){
+		//返回首页
+		window.location.href = '/'
+	})
 //1. 登陆注册面板切换
 	var $login = $('#login1')
 	var $register = $('#register1')
-	var $userCs = $('#user-cs')
+	var $userInfo = $('#user-info')
 	//1.1登陆=>注册
 	$('#go-register').on('click',function(){
 		$login.hide()
@@ -76,7 +81,7 @@
 			})
 		}
 	})
-//点击登录发送请求
+//3. 点击登录发送请求
 	$('#sub-login').on('click',function(){
 		//3.1获取登录信息
 		var username = $login.find("[name='username']").val()   //属性选择器
@@ -119,9 +124,13 @@
 			.done(function(data){
 				// console.log(data)
 				if(data.code == 0){
-					
-					$userCs.show()
+					/*
+					$userInfo.find('span').html(data.user.username)
+					$userInfo.show()
 					$login.hide()
+					*/
+					//刷新页面
+					window.location.reload()
 				}else{
 					$err.html(data.message)
 				}
@@ -131,5 +140,22 @@
 				$err.html('请求失败,请稍后再试!!!')
 			})
 		}
+	})
+//4. 点击退出
+	$('#logout').on('click',function(){
+		$.ajax({
+			url:'/user/logout',
+			type:'get'
+		})
+		.done(function(data){
+			// console.log(data)
+			if(data.code == 0){
+				//退出成功返回首页
+				window.location.href = '/'
+			}
+		})
+		.fail(function(err){
+			$userInfo.find('.err').html('请求失败,请稍后再试!!!')
+		})
 	})
 })(jQuery);

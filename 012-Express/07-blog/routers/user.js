@@ -57,9 +57,16 @@ router.post('/login', (req, res) => {
 	UserModel.findOne({username:username,password:hmac(password)},'-password')
 	.then(user=>{
 		if(user){//存在该用户
+			//3.返回数据
+			//设置cookie(同时可以设置过期时间)
+			/*
+				cookies后面跟上键,值和对象(设置过期时间),其中里面的值只能以字符串的形式存
+			*/
+			req.cookies.set('userInfo',JSON.stringify(user),{maxAge:1000*60*60*24})
 			res.json({
 				code:0,
-				message:'登录成功'
+				message:'登录成功',
+				user:user
 			})
 		}else{
 			res.json({
@@ -76,5 +83,14 @@ router.post('/login', (req, res) => {
 	})
 })
 
-
+//处理退出
+router.get('/logout',(req,res)=>{
+	//清除cookie
+	req.cookies.set('userInfo',null)
+	// req.session.destroy()
+	res.json({
+		code:0,
+		message:'退出成功'
+	})
+}) 
 module.exports = router

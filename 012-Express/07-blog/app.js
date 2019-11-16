@@ -3,6 +3,8 @@ const app = express()
 const swig = require('swig')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const Cookies = require('cookies')
+const MongoStore = require("connect-mongo")(session);
 
 //处理静态资源
 app.use(express.static('public'))  
@@ -55,6 +57,19 @@ app.set('views','./views')
 //第二个参数时模板名称,也就是app.engine的第一个参数
 app.set('view engine','html')
 /*------------------配置模板引擎结束----------------*/
+
+/*------------------配置cookies保存用户状态信息开始----------------*/
+app.use((req,res,next)=>{
+	//生成cookies对象并存在req上-->(在路由中接收的有req和res对象,存在上面只有有路由匹配都可以在req上拿到cookies)
+	req.cookies = new Cookies(req,res)
+	let userInfo = {}
+	if (req.cookies.get('userInfo')) {
+		userInfo = JSON.parse(req.cookies.get('userInfo'))
+	}
+	req.userInfo = userInfo
+	next()
+})
+/*------------------配置cookies保存用户状态信息结束----------------*/
 
 /*------------------配置路由开始----------------*/
 app.use('/',require('./routers/index.js')) 

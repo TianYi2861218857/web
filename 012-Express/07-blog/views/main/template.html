@@ -22,12 +22,12 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand link" href="javascript:;">个人博客</a>
+		      <a class="navbar-brand link shou-cs" href="javascript:;">个人博客</a>
 		    </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="javascript:;">首页 <span class="sr-only">(current)</span></a></li>
+		        <li class="active shou-cs"><a href="javascript:;">首页 <span class="sr-only">(current)</span></a></li>
 		        <li><a href="/list">HTML/CSS</a></li>
 		        <li><a href="/list">JavaScript</a></li>
 		        <li><a href="/list">学无止境</a></li>
@@ -73,9 +73,10 @@
 					hidden-sm 小屏幕平板 (768~992px) 不可见 -->
 					<div class="right-cn">
 					  <!--用户注册登录开始--> 
-					  <div class="panel panel-default" id="user-cs" style="display: none">
+					  {% if userInfo._id %}
+					  <div class="panel panel-default" id="user-info">
 						  <div class="panel-body">
-						     欢迎<span>Tom</span>
+						     欢迎  <span>{{ userInfo.username }}</span>
 				            <a class="link" href="/home">进入个人中心</a>
 				            <a class="link" href="javascript:;" id='logout'>退出</a>
 				            <div class="form-group">
@@ -85,6 +86,7 @@
 				            </div>     
 						  </div>
 					  </div>
+					  {% else %}
 					  <div class="panel panel-default" id="register1" style="display: none">
 						  <div class="panel-body" >
 						    <div class="form-horizontal user-panel" id='register' >
@@ -117,9 +119,10 @@
 					                <p class="text-danger err"></p>
 					              </div>
 					            </div>            
-					          </div> 
+					        </div> 
 						  </div>
 					  </div>
+
 					  <div class="panel panel-default" id="login1">
 						  <div class="panel-body">
 						     <div class="form-horizontal user-panel" id='login'>
@@ -146,9 +149,10 @@
 					                <p class="text-danger err"></p>
 					              </div>
 					            </div>            
-					          </div>
+					         </div>
 						  </div>
-					  </div>			          
+					  </div>	
+					  {% endif %}		          
 			          <!--用户注册登录结束--> 
 					</div>
 					<!-- 展示区 -->
