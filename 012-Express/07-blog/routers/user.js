@@ -62,7 +62,10 @@ router.post('/login', (req, res) => {
 			/*
 				cookies后面跟上键,值和对象(设置过期时间),其中里面的值只能以字符串的形式存
 			*/
-			req.cookies.set('userInfo',JSON.stringify(user),{maxAge:1000*60*60*24})
+			// req.cookies.set('userInfo',JSON.stringify(user),{maxAge:1000*60*60*24})
+
+			//session可以设置对象
+			req.session.userInfo = user
 			res.json({
 				code:0,
 				message:'登录成功',
@@ -86,8 +89,8 @@ router.post('/login', (req, res) => {
 //处理退出
 router.get('/logout',(req,res)=>{
 	//清除cookie
-	req.cookies.set('userInfo',null)
-	// req.session.destroy()
+	// req.cookies.set('userInfo',null)
+	req.session.destroy()
 	res.json({
 		code:0,
 		message:'退出成功'
