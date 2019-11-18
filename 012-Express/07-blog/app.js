@@ -101,6 +101,8 @@ app.use((req,res,next)=>{
 /*------------------配置路由开始----------------*/
 app.use('/',require('./routers/index.js')) 
 app.use('/user',require('./routers/user.js')) 
+app.use('/admin',require('./routers/admin.js')) 
+app.use('/category',require('./routers/category.js')) 
 /*------------------配置路由结束----------------*/
 
 app.listen(3000,()=>console.log('sever is running in the 127.0.0.1:3000!'))
