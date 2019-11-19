@@ -1,9 +1,4 @@
 ;(function($){
-//0. 点击首页
-	$('.shou-cs').on('click',function(){
-		//返回首页
-		window.location.href = '/'
-	})
 //1. 登陆注册面板切换
 	var $login = $('#login1')
 	var $register = $('#register1')

@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const UserModel = require('../models/user.js')
+const pagination = require('../util/pagination.js')
 
 //权限验证(防止普通用户直接通过输入网址登陆管理员界面)
 router.use((req,res,next)=>{
@@ -32,6 +33,7 @@ router.get('/users',(req,res)=>{
 	 ......
 	 第page页  显示    skip(page-1)*limit
 	*/
+	/*
 	const limit = 3
 	let page = req.query.page / 1    //页码,隐式转换
 
@@ -75,7 +77,29 @@ router.get('/users',(req,res)=>{
 			console.log(err)
 		})
 	})
-	
+	*/
+	const options = {
+		page: req.query.page / 1,
+		model: UserModel,
+		query: {},
+		projection:'-password -__v',
+		sort: {_id:-1}
+	}
+	pagination(options)
+	.then(result=>{
+		res.render('admin/user_list',{
+			// 以下数据传递给前台
+			userInfo:req.userInfo,
+			users:result.docs,
+			page:result.page,
+			list:result.list,
+			pages:result.pages,
+			url:'/admin/users'
+		})
+	})
+	.catch(err=>{
+		console.log(err)
+	})
 })
 
 

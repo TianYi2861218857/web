@@ -1,14 +1,21 @@
 /*
 	options = {
 		page: 当前显示页码
-		model:  
-		count:  数据总条数
+		model:  需要操作的文档模型
+		query: 查询条件
+		projection:显示字段信息
+		sort: 排序
 	}
 */
 
+/*
+函数中有异步处理,所以使用async函数
+变化的部分较多,使用参数列表字段过多,因此使用对象options
+*/
 async function pagination(options){
-	const limit = 3
-	const { page } = options
+	const limit = 5
+	//结构解析的形式
+	let { page,model,query,projection,sort } = options
 
 	if(isNaN(page)){
 		page = 1
@@ -17,24 +24,33 @@ async function pagination(options){
 	if (page == 0) {
 		page = 1
 	}
-	const count = UserModel.countDocuments()
+	const count = await model.countDocuments()
+
 	const pages = Math.ceil(count / limit)
 	//下一页边界控制
 	if (page > pages) {
 		page = pages
 	}
-	//上面的是异步 ,下面的逻辑是同步,所以要把下面的逻辑放到上面的回调函数中
-	//由于swig无法对数字进行循环遍历,因此需要在后台生成页码(list数组里对应的页码)
+	if (page == 0) {
+		page = 1
+	}
+
 	let list = []
 	for(let i=1;i<=pages;i++){
 		list.push(i)
 	}
 	let skip = (page-1)*limit
-	UserModel.find({},'-password -__v')
+	const docs = await model.find(query,projection).sort(sort).skip(skip).limit(limit)
 	
-	.catch(err=>{
-		console.log(err)
-	})
+	//返回信息
+	return {
+		docs:docs,
+		page:page,
+		list:list,
+		pages:pages
+	}
 }
 
-module.exports = router
+
+//把pagination函数导出
+module.exports = pagination
