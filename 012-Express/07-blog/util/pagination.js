@@ -13,7 +13,7 @@
 变化的部分较多,使用参数列表字段过多,因此使用对象options
 */
 async function pagination(options){
-	const limit = 5
+	const limit = 3
 	//结构解析的形式
 	let { page,model,query,projection,sort } = options
 
