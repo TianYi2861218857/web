@@ -166,11 +166,33 @@ router.post('/edit',(req,res)=>{
 		}
 	})
 	.catch(err=>{
-						res.render('admin/err',{
-							userInfo:req.userInfo,
-							message:'数据库操作失败,请稍后再试!!!'
-						})
-					})
+		res.render('admin/err',{
+			userInfo:req.userInfo,
+			message:'数据库操作失败,请稍后再试!!!'
+		})
+	})
 	//3.验证数据是否可以更新
 })
+
+//处理删除分类
+router.get('/delete/:id',(req,res)=>{
+	const id = req.params.id
+	//通过ID在数据库中查找该条数据并删除
+	CategoryModel.deleteOne({_id:id})
+	.then(category=>{
+		res.render('admin/ok',{
+			userInfo:req.userInfo,
+			message:'删除分类成功',
+			url:'/category'
+		})
+	})
+	.catch(err=>{
+		res.render('admin/err',{
+			userInfo:req.userInfo,
+			message:'数据库操作失败,请稍后再试!!!',
+			url:'/category'
+		})
+	})
+})
+
 module.exports = router
