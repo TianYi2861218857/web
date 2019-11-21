@@ -11,7 +11,7 @@ const mongoose = require('mongoose')
 	  	intro:{
 	  		type:String
 	  	},
-	  	//作者
+	  	//发布者
 	  	user:{
 	  		type:mongoose.Schema.Types.ObjectId,
 	  		ref:'user'
@@ -22,6 +22,12 @@ const mongoose = require('mongoose')
 	  		ref:'category'
 	  	},
 	  	//时间
+	  	/*
+	  	createTime:{
+	  		type:Date,
+	  		default:Date.now
+	  	}
+	  	*/
 	  	createdAt:{
 	  		type:Date,
 	  		default:Date.now

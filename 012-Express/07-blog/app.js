@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const Cookies = require('cookies')
 const session = require('express-session');
+// const Moment = require('Moment');  //临时添加
 const MongoStore = require("connect-mongo")(session);
 
 //处理静态资源
