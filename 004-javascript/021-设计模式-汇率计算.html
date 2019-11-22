@@ -8,22 +8,77 @@
 	
 </body>
 <script>
-	;(function(){
+	;(function(w){
 		function Local(name){
+			this.oInput = null;
 			//初始化(即创建人民币对象后让页面显示对应的input框)
 			this.init(name);
+			//需要转换的外汇币种列表
+			this.foreigns = [];
+			//拿取输入值
+			this.bindEvent();
 		}
-		Local.ptototypetype = {
+		Local.prototype = {
 			constructor:Local,
 			init:function(name){
-				var oP = document.creatElement('p');
-
+				var oP = document.createElement('p');
+				this.oInput = document.createElement('input');
+				oP.innerHTML = name+': '
 				document.body.appendChild(oP);
+				oP.appendChild(this.oInput);
+			},
+			//加入 需要转换的外汇币种列表 的方法
+			register:function(foreign){
+				this.foreigns.push(foreign);
+			},
+			// 显示汇率(发布)
+			publish:function(val){
+			for(var i=0;i<this.foreigns.length;i++)
+				this.foreigns[i].listen(val)
+			},
+			//拿到输入值
+			bindEvent:function(){
+				//在用户输入时触发
+				this.oInput.oninput=function(){
+					var sVal = this.oInput.value;
+					this.publish(sVal);
+				}.bind(this)
 			}
 		}
 		w.Local = Local;
 	})(window);
 
-	var cny = new Local('人民币cny')
+	;(function(w){
+		//外汇币种：  名称,汇率,人民币
+		function Foreign(name,rate,local){
+			this.oSpan = null;
+			this.name = name;
+			this.rate = rate;
+			this.init();
+			//加入列表
+			local.register(this);
+		}
+		Foreign.prototype = {
+			constructor:Foreign,
+			init:function(){
+				var oP = document.createElement('p');
+				this.oSpan = document.createElement('span');
+				oP.innerHTML = this.name+': '
+				document.body.appendChild(oP);
+				oP.appendChild(this.oSpan);
+			},
+			//计算汇率(监听事件)
+			listen:function(val){
+				this.oSpan.innerHTML = val / this.rate;
+			}
+		}
+		w.Foreign = Foreign;
+	})(window);
+	var cny = new Local('人民币cny');
+	var usd = new Foreign('美元usd',7,cny);
+	var jpy = new Foreign('日元jpy',0.07,cny);
+	console.log(cny);
+	console.log(usd);
+	console.log(jpy);
 </script>
 </html>

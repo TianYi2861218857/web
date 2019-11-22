@@ -2,19 +2,34 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>单例模式</title>
+	<title>单例模式-皇帝上朝</title>
 </head>
 <body>
 	
 </body>
 <script>
-	;(function(){
-		function King(){
-
+	;(function(w){
+		//注意这个king是小写的,用于判断皇帝是否已经存在
+		var king = null;
+		function King(name){
+			if (!king){
+				this.name = name;
+				//生成随机数
+				this.id = Math.random();
+				king = this;
+			}
+			return king;
 		}
-		King.ptototypetype = {
+		King.prototype = {
 			constructor:King,
+			sayWork: function(){
+				console.log(this.name+this.id+'  say:" 有事起奏,无事退朝 "')
+			}
 		}
+		w.King =King;
 	})(window);
+	for(var i=0;i<5;i++){
+		new King('秦始皇').sayWork();
+	}
 </script>
 </html>
