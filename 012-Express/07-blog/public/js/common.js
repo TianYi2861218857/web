@@ -144,7 +144,7 @@
 		})
 		.done(function(data){
 			// console.log(data)
-			if(data.code == 0){
+			if(data.code == 0) {
 				//退出成功返回首页
 				window.location.href = '/'
 			}
