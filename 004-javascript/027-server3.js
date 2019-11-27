@@ -1,5 +1,3 @@
-/* 可以读取文件
-*/
 const http = require('http');
 
 //fs模块上有个readFile方法,获取文件

@@ -1,4 +1,4 @@
-/*最基本的服务器
+/*  最基本的服务器
 	hello world
 	每次更改之后都要在控制台重启服务
 */
@@ -18,7 +18,7 @@ const port = 3000;
 const server = http.createServer();
 
 req: 用来传递请求有关的参数
-res: 用来传递相应有关的参数
+res: 用来传递响应有关的参数
 end() 向前台返回内容
 */
 const server = http.createServer(function(req, res){
