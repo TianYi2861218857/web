@@ -17,7 +17,8 @@
     "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
-    "build": "webpack --progress --display-modules --display-reasons --watch"
+    "build": "webpack --progress --display-modules --display-reasons --watch",
+    "start": "webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",

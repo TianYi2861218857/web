@@ -65,5 +65,10 @@ module.exports = {
 	    }),
 	    //自动清除无用输出文件
 	    new CleanWebpackPlugin()
-	]
+	],
+	//实时更新加载页面
+	devServer:{
+	    contentBase: './dist',//内容的目录
+	    port:8080//服务运行的端口(端口可以自己更改)
+	}
 };
