@@ -1,0 +1,26 @@
+/*
+* @Author: TomChen
+* @Date:   2018-08-17 10:26:29
+* @Last Modified by:   TomChen
+* @Last Modified time: 2018-08-17 10:33:47
+*/
+*{
+	margin: 0;
+	padding: 0;
+}
+.box{
+	width: 400px;
+	margin: 50px auto;
+}
+.box li{
+	list-style: none;
+	width: 100%;
+	border-bottom: 1px dashed gray;
+	margin-top: 10px;
+	border-left: 2px solid #ff6700;
+	padding: 8px;
+	background-color: #fff;
+}
+.box li:hover{
+	background-color: #ccc;
+}
