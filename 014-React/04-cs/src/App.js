@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-16 17:14:09
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-17 16:13:03
-*/
 import React,{ Component } from 'react';
 
 import Item from './Item';
@@ -14,14 +8,17 @@ import './App.css';
 //定义组件
 //必须继承React.Component
 class App extends Component{
-	
 	constructor(props){
 		super(props);
-		//初始化state,state代表当前页面中的数据
+		//初始化state,dddsstate代表当前页面中的数据
 		this.state = {
 			value :'',
-			list:['11','22']
+			list:['吃饭','睡觉','打豆豆']
 		}
+		this.handleChange = this.handleChange.bind(this);
+		this.handleAdd = this.handleAdd.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
+
 	}
 
 	handleAdd(){
@@ -77,5 +74,6 @@ class App extends Component{
 		)
 	}
 }
+
 //导出组件 ==  module.exports = App
 export default App;
