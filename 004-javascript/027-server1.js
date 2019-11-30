@@ -19,11 +19,13 @@ const server = http.createServer();
 
 req: 用来传递请求有关的参数
 res: 用来传递响应有关的参数
-end() 向前台返回内容
 */
 const server = http.createServer(function(req, res){
+  //状态码
   res.statusCode = 200;
+  //设置请求头
   res.setHeader('Content-Type', 'text/plain');
+  //end() 向前台返回内容
   res.end('Hello World\n');
 });
 
