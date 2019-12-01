@@ -1,16 +1,37 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-16 16:55:36
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-17 11:20:38
-*/
-//用React的语法解析文件
-import React from 'react'; // const React = require('react')
-
-//ReactDOM就是用来把组件挂载到DOM节点上
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { ConfigProvider, DatePicker, message } from 'antd';
+// 由于 antd 组件的默认文案是英文，所以需要修改为中文
+import zhCN from 'antd/es/locale/zh_CN';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+import 'antd/dist/antd.css';
+import './index.css';
 
-//注意:自己定义的组件必须首字母大写
-import App from './App'
+moment.locale('zh-cn');
 
-ReactDOM.render(<App />,document.getElementById('root'))
+class App extends React.Component {
+  state = {
+    date: null,
+  };
+
+  handleChange = date => {
+    message.info(`您选择的日期是: ${date ? date.format('YYYY-MM-DD') : '未选择'}`);
+    this.setState({ date });
+  };
+  render() {
+    const { date } = this.state;
+    return (
+      <ConfigProvider locale={zhCN}>
+        <div style={{ width: 400, margin: '100px auto' }}>
+          <DatePicker onChange={this.handleChange} />
+          <div style={{ marginTop: 20 }}>
+            当前日期：{date ? date.format('YYYY-MM-DD') : '未选择'}
+          </div>
+        </div>
+      </ConfigProvider>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
