@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发布订阅模式</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Teacher(name){
+		this.name =name;
+		//创建订阅者数组
+		this.students= [];
+	}
+	Teacher.prototype= {
+		constructor : Teacher,
+		//提供订阅方法
+		pushs: function(student){
+			this.students.push(student);
+		},
+		//发布消息
+		fb: function(talk){
+			//遍历所有订阅者
+			for(var i=0;i<this.students.length;i++){
+				//调用订阅者的监听方法传送消息
+				this.students[i].listen(talk);
+			}
+		}
+	}
+	function Student(name,teacher){
+		this.name = name;
+		//订阅
+		teacher.pushs(this);
+	}
+	Student.prototype={
+		construction : Student,
+		listen: function(talk){
+			console.log(this.name+'已接收'+talk);
+		}
+	}
+	var t1 = new Teacher('t_echo');
+	var t2 = new Teacher('t_leo');
+	var s1 = new Student('s_tom1',t1);
+	var s2 = new Student('s_tom2',t1);
+	var s3 = new Student('s_tom3',t2);
+	console.log('t1: ', t1);
+	console.log('t2: ', t2);
+	console.log('s2: ', s2);
+	t1.fb('打豆豆');
+	t2.fb('吃饭 ,睡觉');
+</script>
+</html>

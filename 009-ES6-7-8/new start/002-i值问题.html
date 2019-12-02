@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>i值问题</title>
+</head>
+<body>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>4</button>
+	<button>5</button>
+</body>
+<script>
+	//for循环是同步,DOM事件是异步,只有在for循环结束后才开始DOM事件
+	var aBtns = document.getElementsByTagName('button');
+	/*
+	for(var i=0;i<aBtns.length;i++){
+		//方法一:
+		aBtns[i].index = i;
+		aBtns[i].onclick = function(){
+			console.log(_this.index);
+		}		
+	}
+	*/
+	//方法二(闭包):封闭空间
+	/*
+	for(var i=0;i<aBtns.length;i++){
+		;(function(i){
+			aBtns[i].onclick = function(){
+				console.log(i+1);
+			}
+		})(i);	
+	}
+	*/
+
+	//使用let:   for循环中的i变成了块级域,每进入一次花括号生成一个块级域
+	for(let i=0;i<aBtns.length;i++){
+		aBtns[i].onclick = function(){
+			console.log(_this.index);
+		}		
+	}
+</script>
+</html>

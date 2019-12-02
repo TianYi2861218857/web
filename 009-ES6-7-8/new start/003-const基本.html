@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>const</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//作用: 定义常量
+	//定义常量必须赋初值
+	//定义后的常量不可改变(不可再次赋值)
+	//定义的常量在const所在的命令块内有效
+	//定义的常量没有声明提升
+
+	/*定义的常量保证的是常量的地址不变,
+	对于简单数据来说值就是保持在常量所指向的内存地址,因此不可赋值(例如: const PI= 3.1415926 ;就是个数字,基本数据类型存储在栈内存)
+
+	对于复杂数据来说常量指向数据保存的地址,const保证地址不变,指向的数据可以改变
+	const obj = 对象; 对象是个引用数据类型,存储的是地址
+	*/
+	const obj = {
+		name:'Tom',
+		age:18
+	}
+	//相当于obj指向一个新的对象
+	/*
+	obj = {
+		name:"Leo",
+		age:20
+	}
+	*/
+	obj.name  = 'echo';
+	console.log(obj)
+</script>
+</html>

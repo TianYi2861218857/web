@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let基本</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//let作用是定义变量
+	//let定义过的变量不能重新定义,var可以重新定义
+	//let定义过的变量没有声明的提升,var 有声明提升
+	//let定义的变量在let命令所在的代码块有效,var 定义的变量在函数范围内有效
+	/*
+	var a =1;
+	let b =2;
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	// console.log(d);
+	var c=3;
+	let d = 4;
+	if(true){
+		var e = 5;
+		let f = 6;
+	}
+	//可以把if和console.log在window的一个函数中,所以e有值
+	console.log("e::",e);
+	console.log("f::",f);
+	*/
+
+	function show(){
+		var a = 111
+		let b = 222
+		console.log('show a',a)//111
+		console.log('show b',b)//222
+		function fn(){
+			console.log('fn a',a)//111
+			//let定义的还是可以通过作用域链拿到
+			console.log('fn b',b)//222
+		}
+		fn()
+	}
+	show()
+</script>
+</html>
