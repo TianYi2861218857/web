@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的拓展运算</title>
+</head>
+<body>
+	<ul>
+		<li>li01</li>
+		<li>li02</li>
+		<li>li03</li>
+		<li>li04</li>
+		<li>li05</li>
+		<li>li06</li>
+		<li>li07</li>
+		<li>li08</li>
+		<li>li09</li>
+		<li>li10</li>
+	</ul>
+</body>
+<script>
+	//数组的拓展运算就是把一个数组转为用逗号分隔的参数序列
+	/*
+	let arr = [11,22,33]
+	console.log(arr)
+	console.log(...arr) //11,22,33
+	*/
+
+	// 函数调用时使用把数组转换为参数列表
+	function add(n1,n2){
+	    return n1+n2;
+	}
+	let arr = [11,22];
+	console.log(add(...arr)); //33
+</script>
+</html>

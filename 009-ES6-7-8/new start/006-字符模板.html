@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符模板</title>
+</head>
+<body>
+	<button id="btn">添加</button>
+	<div id="content"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn')
+	var oCont = document.getElementById('content')
+	var arr = ['echo','tom','leo','array']
+	oBtn.onclick = function(){
+		var html = '<ul>'
+			for(let i=0;i<arr.length;i++){
+				// html += '<li>'+arr[i]+'</li>'
+				//语法:   `字符 ${javascript表达式}`    (注意: ` 字符是Esc按键下的那个)
+				html += `<li>${arr[i]}</li>`
+			}
+		html += '</ul>'
+		oCont.innerHTML = html
+	}
+</script>
+</html>
