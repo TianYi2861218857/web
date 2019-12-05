@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr=[22,11,77,22,44,11];
+	//ES6之前
+	/*
+	function queryArr1(arr){
+		let result = [];
+		for(let i=0;i<arr.length;i++){
+			if(result.indexOf(arr[i],0) == -1){
+				result.push(arr[i])
+			}
+		}
+		return result;
+	}
+	console.log('result',queryArr1(arr));
+	console.log('arr:',arr);
+	*/
+	//键值唯一:
+	function queryArr2(arr){
+		let result=[];
+		let obj={};
+		for(let i=0;i<arr.length;i++){
+			obj[arr[i]] = '';
+		}
+		console.log(obj);
+		for(let key in obj){
+			result.push(key)
+		}
+		return result;
+	}
+	queryArr2(arr);
+</script>
+</html>
