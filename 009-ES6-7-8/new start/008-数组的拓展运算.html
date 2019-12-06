@@ -5,18 +5,6 @@
 	<title>数组的拓展运算</title>
 </head>
 <body>
-	<ul>
-		<li>li01</li>
-		<li>li02</li>
-		<li>li03</li>
-		<li>li04</li>
-		<li>li05</li>
-		<li>li06</li>
-		<li>li07</li>
-		<li>li08</li>
-		<li>li09</li>
-		<li>li10</li>
-	</ul>
 </body>
 <script>
 	//数组的拓展运算就是把一个数组转为用逗号分隔的参数序列
@@ -46,8 +34,53 @@
 	}
 	console.log(array(11,22,33,44));
 	*/
+
 	//求数组的最大值
-	let arr1=[33,11,77,44];
+	/*
+	//方式一:
+	console.log(Math.max(33,11,77,44))
+	let arr=[33,11,77,44];
+	//方式二:   apply不仅可以改变 this指向,还可以调用函数,传入一个数组当做参数
+	console.log(Math.max.apply(null,arr))
+	//方式三:
+	console.log(Math.max(...arr)) 
+	*/
+
+	//浅拷贝
+	/*
+	let arr=[33,11,77,44];  //arr 是引用数据类型
+	var arr2 = arr;  //浅拷贝:  复制的是指针,指的是同一个堆内存;
+	arr2.push(100);
+	console.log('arr::',arr);  //33,11,77,44,100
+	console.log('arr2::',arr2);  //33,11,77,44,100
+	*/
+
+	
+	let arr=[33,11,77,44]; 
+	//通过遍历完成数组拷贝
+	let arr2=[];
+	for(let i=0;i<arr.length;i++){
+		arr2.push(arr[i]);
+	}
+	arr2.push(200)
+	
+	//concat通过数组的拼接(concat后不传入数组)
+	let arr3 = arr.concat();
+	arr3.push(300);
+
+	//slice截取
+	let arr4 = arr.slice()
+	arr4.push(400);
+
+	//ES6--拓展运算
+	let arr5 = [...arr];
+	arr5.push(500)
+
+	console.log('arr::',arr);
+	console.log('arr2::',arr2);
+	console.log('arr3::',arr3);
+	console.log('arr4::',arr4);
+	console.log('arr5::',arr5);
 	
 </script>
 </html>
