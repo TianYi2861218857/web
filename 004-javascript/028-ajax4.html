@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax1.html</title>
+</head>
+<body>
+	<button id="btn">POST请求</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){  //类比 打次电话
+		//第一步:(类似于拿到电话)  
+		var oAjax = new XMLHttpRequest();
+		//第二步:(拨号)   
+		//使用POST请求
+		oAjax.open('POST',"http://127.0.0.1:3000/",true);
+		//设置请求头(可选步骤) (属性名,值)
+		oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		//第三步:(拔出号码)  
+		oAjax.send('{"name":"leo","age":22}');
+		//第四步:(等待对方回复)  
+		oAjax.onreadystatechange =function(){
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					console.log(oAjax.responseText);
+					var obj = JSON.parse(oAjax.responseText);
+					console.log("对象",obj);
+					console.log("obj.name:",obj.name);
+				}
+			}
+		}
+	}
+</script>
+</html>

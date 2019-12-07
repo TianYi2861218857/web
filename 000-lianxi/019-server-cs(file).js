@@ -8,6 +8,7 @@ const server = http.createServer(function(req,res){
 	// console.log(req.url);
 	const urlStr = req.url;
 	const filePath = './'+urlStr;
+	//data是读取到的数据
 	fs.readFile(filePath,function(err,data){
 		if(!err){
 			res.end(data)

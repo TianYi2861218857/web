@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax的基本使用</title>
+</head>
+<body>
+	<button id="btn">获取数据</button>
+</body>
+<script>
+	const oBtn = document.getElementById('btn');
+	oBtn.onclick =function(){
+		//第一步:拿到电话
+		const oAjax = new XMLHttpRequest();
+		//第二步:拨打电话
+		//请求方法,请求地址,是否异步
+		oAjax.open('GET',"http://127.0.0.1:3000/020-data.json",true);
+		//第三步:拨出   send发送,后面结(数据)
+		oAjax.send();
+		//第四步:等待回应
+		oAjax.onreadystatechange=function(){
+			if(oAjax.readyState == 4){
+				if (oAjax.status== 200){
+					const obj = JSON.parse(oAjax.responseText);
+					console.log(obj);
+				}
+			}
+		}
+	}
+</script>
+</html>

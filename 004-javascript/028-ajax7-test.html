@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax简单应用案例</title>
+</head>
+<body>
+	<button id="btn">ajax应用</button>
+</body>
+<script>
+	function ajax(method,url,data,fnSucc,fnFail){
+		var oAjax = new XMLHttpRequest();
+		if(method.toUpperCase() == 'POST'){
+			oAjax.open(method,url,true);
+			oAjax.send(data);	
+		}else if(method.toUpperCase() == 'GET'){
+			if (data){
+				url += '?'+data;
+			}
+			oAjax.open(method,url,true);
+			oAjax.send(); 
+		}
+		oAjax.onreadystatechange =function(){
+			if(oAjax.readyState == 4){
+				try{
+					if(oAjax.status == 200){
+						var obj = JSON.parse(oAjax.responseText);
+						typeof fnSucc == 'function' && fnSucc(obj);
+					}
+				}catch(e){ 
+					typeof fnFail == 'function' && fnFail(e);
+				}
+			}
+		}	
+	}
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){  
+		//读取文件
+		ajax('get',
+			'http://127.0.0.1:3000/029-data(test).json',
+			'',
+			function(arr){
+			   // console.log("数据:",obj);
+			   const oUl = document.createElement('ul'); 
+			   for(let i=0;i<arr.length;i++){
+			   		const oLi = document.createElement('li');
+			   		oLi.innerHTML = '姓名:'+arr[i].name+' 年龄:'+arr[i].age;
+
+			   		oUl.appendChild(oLi);
+			   }
+			   document.body.appendChild(oUl);
+		    },
+		    function(err){
+		    	console.log('失败:',err);
+		    }
+		)
+	}
+</script>
+</html>

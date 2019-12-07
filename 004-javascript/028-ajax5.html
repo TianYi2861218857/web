@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax1.html</title>
+</head>
+<body>
+	<button id="btn">GET请求</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){  //类比 打次电话
+		//第一步:(类似于拿到电话)  
+		var oAjax = new XMLHttpRequest();
+		//第二步:(拨号)   
+		oAjax.open('GET',"http://127.0.0.1:3000/?name=tom",true);
+		//第三步:(拔出号码)  
+		oAjax.send();
+		//第四步:(等待对方回复)  
+		oAjax.onreadystatechange =function(){
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					// console.log(oAjax.responseText);
+					//JSON转js对象
+					var obj = JSON.parse(oAjax.responseText);
+					console.log("对象",obj);
+					console.log("obj.name:",obj.name);
+				}
+			}
+		}
+	}
+</script>
+</html>

@@ -26,5 +26,5 @@ const server = http.createServer(function(req,res){
 
 //  127.0.0.1  是本机地址
 server.listen(3000,'127.0.0.1',function(){
-	console.log('server is running at http://127.0.0.1:3000/');
+	console.log('server running at http://127.0.0.1:3000/');
 })

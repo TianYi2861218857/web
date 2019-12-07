@@ -1,3 +1,4 @@
+//读取文件
 const http = require('http');
 
 //fs模块上有个readFile方法,获取文件
@@ -7,6 +8,9 @@ const server = http.createServer(function(req,res){
 	//通过req.url  拿到前台要请求的文件
 	// console.log(req.url);
 	var urlStr = req.url;
+	if(urlStr == './favicon.ico'){
+		res.end('favicon.ico')
+	}
 	//访问文件路径(在当前文件下访问请求的文件)
 	var filePath = './'+urlStr;
 	//readFile接受两个参数,第一个是访问文件路径,第二个是函数
@@ -24,5 +28,5 @@ const server = http.createServer(function(req,res){
 
 //  127.0.0.1  是本机地址
 server.listen(3000,'127.0.0.1',function(){
-	console.log('server is running at http://127.0.0.1:3000');
+	console.log('server running at http://127.0.0.1:3000');
 })

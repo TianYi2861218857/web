@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装函数</title>
+</head>
+<body>
+	<button id="btn">封装函数</button>
+</body>
+<script>
+	//请求方式,请求地址,参数(post发送的参数),成功时的函数,失败时的函数
+	function ajax(method,url,data,fnSucc,fnFail){
+		var oAjax = new XMLHttpRequest();
+		//.toUpperCase()转大写的方法,使得大小写的get请求都有效
+		if(method.toUpperCase() == 'POST'){
+			oAjax.open(method,url,true);
+			// oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			oAjax.send(data);	
+		}else if(method.toUpperCase() == 'GET'){
+			if (data){
+				url += '?'+data;
+			}
+			oAjax.open(method,url,true);
+			oAjax.send(); 
+		}
+		oAjax.onreadystatechange =function(){
+			if(oAjax.readyState == 4){
+				//成功时
+				try{
+					if(oAjax.status == 200){
+						var obj = JSON.parse(oAjax.responseText);
+						//只有当fnSucc为函数时执行
+						typeof fnSucc == 'function' && fnSucc(obj);
+					}
+				}catch(e){  //失败时
+					typeof fnFail == 'function' && fnFail(e);
+				}
+			}
+		}	
+	}
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){  
+		/*
+		ajax('POST',
+			'http://127.0.0.1:3000',
+			'{"name":"leo","age":22}',
+			function(obj){
+			   console.log("数据:",obj);
+		    },
+		    function(err){
+		    	console.log('失败:',err);
+		    }
+		)
+		*/
+		ajax('GET',
+			'http://127.0.0.1:3000',
+			'name=tom',
+			function(obj){
+			   console.log("数据:",obj);
+		    },
+		    function(err){
+		    	console.log('失败:',err);
+		    }
+		)
+	}
+</script>
+</html>

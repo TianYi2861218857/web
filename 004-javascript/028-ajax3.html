@@ -24,7 +24,6 @@
 			/*  //类似于电话接通后的喂
 			 console.log('连接成功!!!');
 			*/
-			// console.log(oAjax.readyState);
 			/* 
 			0 还没初始化 
 			1 启动
@@ -34,7 +33,7 @@
 			if(oAjax.readyState == 4){
 				//200 状态码,表示连接成功
 				if(oAjax.status == 200){
-					console.log('连接成功!!!');
+					console.log(oAjax.readyState);
 					//返回的数据在ajax对象.responseText中, JSON数据是字符串
 					//转化
 					var obj = JSON.parse(oAjax.responseText);

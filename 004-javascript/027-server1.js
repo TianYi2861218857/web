@@ -3,6 +3,7 @@
 	每次更改之后都要在控制台重启服务
 */
 
+//requie ===> 引入模块
 //调用require函数,传入参数http,得到一个对象  
 const http = require('http');
 
