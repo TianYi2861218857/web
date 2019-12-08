@@ -37,7 +37,7 @@
 	oBtn.onclick = function(){  
 		//读取文件
 		ajax('get',
-			'http://127.0.0.1:3001/029-data(test).json',
+			'http://127.0.0.1:3000/029-data(test).json',
 			'',
 			function(arr){
 			   // console.log("数据:",obj);
@@ -52,7 +52,6 @@
 		    },
 		    function(err){
 		    	console.log('失败:',err);
-
 		    }
 		)
 	}
