@@ -6,6 +6,7 @@ const url = require('url');
 const server = http.createServer(function(req,res){
 	var urlStr = req.url;
 	if(req.method == 'POST'){
+		//处理POST请求
 		var body = '';
 		req.on('data',function(chunk){
 			body += chunk;

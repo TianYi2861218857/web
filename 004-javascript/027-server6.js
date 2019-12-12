@@ -15,9 +15,12 @@ const server = http.createServer(function(req,res){
 			res.end(body);
 		})
 	}else if( req.method == 'GET'){
+		//GET请求传参
+		//search方法  在字符串中搜索(因为?是特色字符,所以需要转义),如果等于 -1代表没有(?)
 		if(urlStr.search(/\?/) != -1){
+			//url模块(也就是个对象)上有个parse方法, parse方法上有个query属性,query的值就是传入的值(即对象{name:'tom'})
 			var parm = url.parse(urlStr,true).query;
-			console.log(parm)  
+			console.log(parm)   //对象: {name: tom}
 			var json = JSON.stringify(parm);
 			res.end(json);
 		}
@@ -25,6 +28,8 @@ const server = http.createServer(function(req,res){
 			res.end('favicon.ico')
 		}
 		var filePath = './'+urlStr;
+		//readFile接受两个参数,第一个是访问文件路径,第二个是函数
+	   //函数内用两个参数(错误,数据)
 		fs.readFile(filePath,function(err,data){
 			if(!err){
 				res.end(data);

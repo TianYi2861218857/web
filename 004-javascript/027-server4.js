@@ -27,6 +27,8 @@ const server = http.createServer(function(req,res){
 			res.end('favicon.ico')
 		}
 		var filePath = './'+urlStr;
+		//readFile接受两个参数,第一个是访问文件路径,第二个是函数
+		//函数内用两个参数(错误,数据)
 		fs.readFile(filePath,function(err,data){
 			if(!err){
 				res.end(data);
