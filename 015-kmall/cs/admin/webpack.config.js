@@ -1,12 +1,7 @@
-/*
-* @Author: Chen
-* @Date:   2019-11-25 19:16:58
-* @Last Modified by:   Chen
-* @Last Modified time: 2019-12-06 15:18:41
-*/
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");  //css单独打包
 
 module.exports = {
 	//指定开发环境
@@ -32,9 +27,17 @@ module.exports = {
 		//配置静态资源路径
 		publicPath:'/' 
 	},
+	//配置别名
+    resolve:{
+        alias:{
+            pages:path.resolve(__dirname,'./src/pages'),//
+            util:path.resolve(__dirname,'./src/util'),
+        }
+    },
 	module: {
 	    rules: [
-	    	//处理CSS
+	      //处理CSS
+	      /*
 	      {
 	        test: /\.css$/,
 	        use: [
@@ -42,6 +45,18 @@ module.exports = {
 	          'css-loader'
 	        ]
 	      },
+	      */
+	      {
+            test: /\.css$/,
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                }
+              },
+              "css-loader"
+            ]
+          },
 	      //处理图片资源
 	      {
 			test: /\.(png|jpg|gif)$/i,
@@ -63,13 +78,33 @@ module.exports = {
 			        options: {
 			            // presets: ['env', 'react'],
 			            presets: ['env','es2015','react','stage-3'],
-			            plugins: [["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]]
+			            plugins: [["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]]
 			        }
 			    }               
-			}
+			},
+			//自定义主题
+			{
+                test: /\.less$/,
+                use: [{
+                    loader: 'style-loader',
+                }, 
+                {
+                    loader: 'css-loader', // translates CSS into CommonJS
+                }, {
+                    loader: 'less-loader', // compiles Less to CSS
+                    options: {
+                        modifyVars: {
+                            'primary-color': '#1890ff',
+                            'link-color': '#1890ff',
+                            'border-radius-base': '2px',
+                        },
+                        javascriptEnabled: true,
+                    },
+                }],
+            }
 	    ]
 	 },
-	plugins:[
+	plugins:[ 
 		//自动生成HTML
 	    new htmlWebpackPlugin({
 	        template:'./src/index.html',//模板文件
@@ -79,11 +114,13 @@ module.exports = {
 	        chunks:['index','common']
 	    }),
 	    //自动清理多余文件
-	    new CleanWebpackPlugin()
+	    new CleanWebpackPlugin(),
+	    //css单独打包
+	    new MiniCssExtractPlugin({})
 	],
 	devServer:{
 	    contentBase: './dist',//内容的目录
-	    port:8090,//服务运行的端口,
+	    port:3001,//服务运行的端口,
 	   	historyApiFallback:true,//h5路由刷新页面不向后台请求数据
 	}
 }
