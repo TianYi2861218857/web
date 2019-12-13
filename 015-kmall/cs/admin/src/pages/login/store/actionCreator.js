@@ -1,35 +1,43 @@
 import axios from 'axios'
 import * as types from './actionTypes.js'
+import { message } from 'antd'
+import {saveUsername} from 'util'
 
-export const getChangeItemAction = (val)=>({
-	type:types.CHANGE_ITEM,
-	payload:val
+const getLoginStartAction = () =>({
+	type:types.LOGIN_REQUEST_START
 })
-export const getAddItemAction = ()=>({
-	type:types.ADD_ITEM
-})
-export const getDeleteItemAction = (index)=>({
-	type:types.DEL_ITEM,
-	payload:index
+const getLoginDoneAction = () =>({
+	type:types.LOGIN_REQUEST_DONE
 })
 
-
-
-
-const getLoadInitAction = (data) =>({
-	type:types.LOAD_DATA,
-	payload:data
-})
-
-export const getRequestLoadDataAction = ()=>{
+export const getLoginAction = (values)=>{
 	return (dispatch,getState)=>{
-		axios.get('http://127.0.0.1:3000')
+		//发送请求前显示loading
+		dispatch(getLoginStartAction())
+		values.role = 'admin'
+		axios({
+			method: 'post',
+			url: 'http://127.0.0.1:3000/sessions/users',
+			data: values
+		})
 		.then(result=>{
-			//派发action
-			dispatch(getLoadInitAction(result.data))
+			console.log(result)
+			const data = result.data
+			if(data.code == 0){ //登录成功
+				//1.保存用户信息(将用户信息保存在前台,因为发送的是ajax请求,而不是刷新页面来请求)
+				saveUsername(data.data.username)
+				//2.返回后台首页
+				window.location.href = '/' 
+			}else{  //登录失败
+				message.error(data.message)
+			}
 		})
 		.catch(err=>{
-			console.log(err)
+			message.error('请求失败,请稍后再试')
+		})
+		.finally(()=>{
+			//请求完毕后loading取消
+			dispatch(getLoginDoneAction())
 		})
 	}
 }

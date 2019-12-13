@@ -17,34 +17,37 @@ class NormalLoginForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+      	//登录验证通过
+        // console.log('Received values  of form: ', values);
+        this.props.handleLogin(values)
       }
     });
   };
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const { getFieldDecorator } = this.props.form
+    const {isFecthing} = this.props
     return (
-    	<div className="Login">
+    	<div className="Login"> 
 	      <Form className="login-form">
 	        <Form.Item>
 	          {getFieldDecorator('username', {
-	            rules: [{ required: true, message: 'Please input your username!' }],
-	          })(
+	            rules: [{ required: true, message: '请输入用户名!' },{pattern:/^[a-z][0-9a-z]{2,5}$/i,message:'用户名必须是以字母开头的3-6位字符'}]	
+	          })( 
 	            <Input
 	              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-	              placeholder="Username"
+	              placeholder="用户名"
 	            />,
 	          )}
 	        </Form.Item>
 	        <Form.Item>
 	          {getFieldDecorator('password', {
-	            rules: [{ required: true, message: 'Please input your Password!' }],
+	            rules: [{ required: true, message: '请输入密码!' },,{pattern:/^\w{3,6}$/i,message:'密码必须是3-6位任意字符'}],
 	          })(
 	            <Input
 	              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
 	              type="password"
-	              placeholder="Password"
+	              placeholder="密码 "
 	            />,
 	          )}
 	        </Form.Item>
@@ -53,6 +56,7 @@ class NormalLoginForm extends Component {
 	            type="primary" 
 	            className="login-form-button btn-submit"
 	            onClick={this.handleSubmit} 
+	            loading={isFecthing}
 	          >
 	            登录
 	          </Button>
@@ -68,13 +72,15 @@ const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLogin
 //将属性映射到组件中
 const mapStateToProps = (state)=>{
 	return {
-		
+		isFecthing:state.get('login').get('isFecthing')
 	}
 }
 //将方法映射到组件
 const mapDispatchToProps = (dispatch)=>{
 	return {
-		
+		handleLogin:(values) => {
+			dispatch(actionCreator.getLoginAction(values))
+		}
 	}
 }
 
