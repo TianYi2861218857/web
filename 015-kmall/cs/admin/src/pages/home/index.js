@@ -9,7 +9,12 @@ import Layout from 'common/layout'
 
 //容器组件
 class Home extends Component{
-	// constructor(props){}
+	constructor(props){
+		super(props)
+	}
+	componentDidMount(){
+		this.props.handleCount()
+	}
 	render(){
 		const{ usernum,ordernum,productnum } =this.props
 		return(
@@ -57,7 +62,9 @@ const mapStateToProps = (state)=>{
 //将方法映射到组件
 const mapDispatchToProps = (dispatch)=>{
 	return {
-		
+		handleCount:()=>{
+			dispatch(actionCreator.getCountAction())
+		}
 	}
 }
 

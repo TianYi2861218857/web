@@ -3,7 +3,7 @@ import { Layout, Menu,Dropdown,Breadcrumb,Icon } from 'antd'
 import './index.css'
 import { getUsername,removeUsername } from 'util'
 import axios from 'axios'
-// import api from 'api'
+import api from 'api'
 const { SubMenu } = Menu;
 const { Header } = Layout;
 
@@ -14,7 +14,6 @@ class AdminHeader extends Component{
   }
   handleLogout(){
     //发送请求清除后台session
-    /*
     api.logout()
     .then(result=>{
       if(result.data.code == 0){
@@ -27,7 +26,7 @@ class AdminHeader extends Component{
     .catch(err=>{
       console.log(err)
     })
-    */
+    /*
     axios({
       method:'delete',
       url:'http://127.0.0.1:3000/sessions/users'
@@ -43,6 +42,7 @@ class AdminHeader extends Component{
     .catch(err=>{
       console.log(err)
     })
+    */
   }
   render(){
     const menu = (

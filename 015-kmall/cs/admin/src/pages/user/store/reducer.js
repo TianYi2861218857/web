@@ -1,5 +1,13 @@
 import { fromJS } from 'immutable'
 const defaultState = fromJS({
+	list:[{
+		key:0,
+		username:'admin',
+		isAdmin:'是',
+		email:'2861218857@qq.com',
+		phone:18737646837, 
+		createdAt:'2019-12-14 17:04:20'
+	}],
 	usernum:0,
 	ordernum:0,
 	productnum:0
