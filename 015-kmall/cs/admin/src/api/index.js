@@ -17,12 +17,21 @@ const getApiObj = (API_CONFIG)=>{
 const request = (url,method,data) =>{
 	// console.log(url,method,data)
 	return new Promise((resolve,reject)=>{
-		axios({
+		const options={
 			method: method,
 			url: url,
-			withCredentials:true,
-			data: data
-		})
+			withCredentials:true
+		}
+		//携带参数
+		switch(method.toUpperCase()){
+			case 'GET':
+			case 'DELETE':
+				options.params = data
+				break
+			default :
+				options.data = data
+		}
+		axios(options)
 		.then(result=>{
 			console.log(result)
 			if(result.data.code == 10){

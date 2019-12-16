@@ -12,6 +12,8 @@ import {getUsername} from 'util'
 import Login from 'pages/login'
 import Home from 'pages/home'
 import User from 'pages/user'
+import Category from 'pages/category'
+import Product from 'pages/product'
 import Err from 'common/err'
 
 import api from 'api'
@@ -45,6 +47,8 @@ class App extends Component{
 					<Switch>
 						<HomeRoute exact path='/' component={Home} />
 						<HomeRoute path='/user' component={User} />
+						<HomeRoute path='/category' component={Category} />
+						<HomeRoute path='/product' component={Product} />
 						<LoginRoute path='/login' component={Login} />
 						<Route component={Err} />
 					</Switch>

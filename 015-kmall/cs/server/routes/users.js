@@ -25,14 +25,15 @@ const router = Router();
 // })
 
 /*
+//添加注册用户
 router.get('/init',(req,res)=>{
 	const users = []
-	for(let i = 0;i<500;i++){
+	for(let i = 0;i<50;i++){
 		users.push({
 			username:'test'+i,
 			password:hmac('test'+i),
 			email:'test'+i+"@kuazhu.com",
-			phone:13212345+i
+			phone:13212345+ i
 		})
 	}
 	UserModel.insertMany(users)

@@ -14,37 +14,11 @@ class User extends Component{
 		super(props)
 	}
 	componentDidMount(){
-		this.props.handlePage(1)
+
 	}
 	render(){
 		const columns = [
-		  {
-		    title: '用户名',
-		    dataIndex: 'username',
-		    key: 'username',
-		    render: text => <a>{text}</a>,
-		  },
-		  {
-		    title: '是否是管理员',
-		    dataIndex: 'isAdmin',
-		    key: 'isAdmin',
-		    render:(isAdmin)=>(isAdmin ? '是' : '否')
-		  },
-		  {
-		    title: 'email',
-		    dataIndex: 'email',
-		    key: 'email',
-		  },
-		  {
-		    title: '电话',
-		    key: 'phone',
-		    dataIndex: 'phone',
-		  },
-		  {
-		    title: '创建时间',
-		    key: 'createdAt',
-		    dataIndex: 'createdAt',
-		  },
+		  
 		]
 		const{ list,current,pageSize,total,handlePage,isFecthing } =this.props	
 		const dataSource = list.map((user)=>{
@@ -112,4 +86,4 @@ const mapDispatchToProps = (dispatch)=>{
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(User)
+export default connect(mapStateToProps,mapDispatchToProps)(CategoryLiat)

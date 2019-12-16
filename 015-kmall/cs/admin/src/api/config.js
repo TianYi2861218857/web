@@ -4,4 +4,5 @@ export const API_CONFIG ={
 	login:             ['/sessions/users','post'],
 	logout:            ['/sessions/users','delete'],
 	getCounts:         ['/counts','get'],
+	getUserList:       ['/users/list','get'],
 }
