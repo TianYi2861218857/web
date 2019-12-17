@@ -33,7 +33,7 @@ const request = (url,method,data) =>{
 		}
 		axios(options)
 		.then(result=>{
-			console.log(result)
+			// console.log(result)
 			if(result.data.code == 10){
 				//后台session过期或者通过别的途径把他清除掉了,为了保持状态统一
 				//应该前台返回登录页面

@@ -3,22 +3,47 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import './index.css'
-import { Breadcrumb,Table} from 'antd'
+import { Breadcrumb,Table,Button} from 'antd'
+import {
+  Link,
+} from "react-router-dom"
 
 import {actionCreator} from './store/index.js'
 import Layout from 'common/layout'
 
 //容器组件
-class User extends Component{
+class CategoryList extends Component{
 	constructor(props){
 		super(props)
 	}
 	componentDidMount(){
-
+		this.props.handlePage(1)
 	}
 	render(){
 		const columns = [
-		  
+		  {
+		    title: '分类名称',
+		    dataIndex: 'name',
+		    key: 'name',
+		    render: text => <a>{text}</a>,
+		  },
+		  {
+		    title: '手机分类名称',
+		    dataIndex: 'mobileName',
+		    key: 'mobileName',
+		    render: text => <a>{text}</a>,
+		  },
+		  {
+		    title: '是否显示',
+		    dataIndex: 'isShow',
+		    key: 'isShow',
+		    render:(isShow)=>(isShow ? '是' : '否')
+		  },
+		  {
+		    title: '排序',
+		    dataIndex: 'order',
+		    key: 'order',
+		  },
 		]
 		const{ list,current,pageSize,total,handlePage,isFecthing } =this.props	
 		const dataSource = list.map((user)=>{
@@ -32,12 +57,16 @@ class User extends Component{
 			}
 		}).toJS()
 		return(
-			<div className='User'>
+			<div className='CategoryList'>
 				<Layout>
 					<Breadcrumb style={{margin: '16px 0'}}>
 						<Breadcrumb.Item> 首页 </Breadcrumb.Item>
-						<Breadcrumb.Item> 用户列表 </Breadcrumb.Item>
+						<Breadcrumb.Item> 分类管理</Breadcrumb.Item>
+						<Breadcrumb.Item> 分类列表 </Breadcrumb.Item>
 					</Breadcrumb>
+					<div className='btn'>
+						<Link to='/category/add'><Button type="primary" className='add-btn'>新增分类</Button></Link>
+					</div>
 					<div className='content'>
 						<Table 
 							columns={columns} 
@@ -69,11 +98,11 @@ class User extends Component{
 //将属性映射到组件中
 const mapStateToProps = (state)=>{
 	return {
-		list:state.get('user').get('list'),
-		current:state.get('user').get('current'),
-		pageSize:state.get('user').get('pageSize'),
-		total:state.get('user').get('total'),
-		isFecthing:state.get('user').get('isFecthing')
+		list:state.get('category').get('list'),
+		current:state.get('category').get('current'),
+		pageSize:state.get('category').get('pageSize'),
+		total:state.get('category').get('total'),
+		isFecthing:state.get('category').get('isFecthing')
 	}
 }
 //将方法映射到组件
@@ -86,4 +115,4 @@ const mapDispatchToProps = (dispatch)=>{
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(CategoryLiat)
+export default connect(mapStateToProps,mapDispatchToProps)(CategoryList)
