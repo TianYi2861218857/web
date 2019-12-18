@@ -45,7 +45,14 @@ class CategoryList extends Component{
 		    key: 'order',
 		  },
 		]
-		const{ list,current,pageSize,total,handlePage,isFecthing } =this.props	
+		const{ 
+			list,
+			current,
+			pageSize,
+			total,
+			handlePage,
+			isFecthing 
+		} =this.props	
 		const dataSource = list.map((user)=>{
 			return {
 				key:user.get('_id'),

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的基本使用</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+//当页面DOM结构加载完毕后执行回调函数 
+// jQuery(document).ready() 即DOM结构加载完毕
+	/*   方式一
+		// 代码1和代码2都会执行,不会覆盖
+		// 不会覆盖的原因是jQuery函数是一个闭包,传递进去的函数都有自己的作用域
+    jQuery(document).ready(function(){
+       console.log(1) //代码1
+    })
+    jQuery(document).ready(function(){
+      console.log(2)  //代码2
+    })
+    
+		// jQuery(document).ready()与window.onload的区别:
+		// window.onload必须是页面全部加载完毕然后执行,并且只能执行一次
+		// jQuery(document).ready()只需DOM结构加载完毕就执行,且可以执行多次
+    //只会打印"nihaao2",不会打印"nihao1"
+    window.onload = function(){
+		console.log('nihao1');
+	}
+	window.onload = function(){
+		console.log('nihao2');
+	}
+	*/
+
+	/*  方式二 
+	//$和jQuery是jQuery框架通过window对象暴露出来的全局变量,并且$=jQuery
+	// jQuery内部实现:window.jQuery = window.$ = jQuery;
+	// 用$代表jQuery是为了提高效率
+	$(document).ready(function(){
+       console.log(1) //jq代码1... 
+    });
+    $(document).ready(function(){
+       console.log(2) //jq代码2...
+    }); 
+    */
+
+
+    //方法三是方法二的简写形式
+	// 方法三中的$可以用jQuery代替
+    $(function(){
+       console.log(1)//jq代码1... 
+    });
+    $(function(){
+       console.log(2)//jq代码2...
+    }); 
+</script>
+</html>

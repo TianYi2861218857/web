@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$冲突解决</title>
+</head>
+<body>
+	
+</body>
+<script>
+	window.onload = function(){
+		alert('test...')
+	}
+</script>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	/*
+	//方法一:  在使用jQuery前释放jQuery的$使用权,用jQuery来代替$
+	jQuery.noConflict();
+	jQuery(function(){
+	   alert('aaa...')
+	});
+	*/
+
+	//方法二: 在使用jQuery前释放jQuery的$使用权的同时自定义自己的符号,用自定义符号来代替$
+	const cs = jQuery.noConflict();
+	cs(function(){
+	   alert('aaa...')
+	});
+</script>
+</html>

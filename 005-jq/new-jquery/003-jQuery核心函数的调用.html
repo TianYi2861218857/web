@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery核心函数的调用</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid orange;
+		}
+	</style>
+</head>
+<body>
+	<button>变色</button>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	//  $() =>  jQuery的核心函数
+	console.log('$():::',$());
+	// (伪数组)
+	console.log('$(function(){}):::',$(function(){}));  //接收一个函数,返回一个包含了document的jQuery对象
+	console.log("$('button'):::",$('button'));  //字符串为选择器时,返回一个包含了DOM元素的jQuery对象
+	console.log("$('<div>5</div>'):::",$('<div>5</div>')); //字符串为HTML代码片段时,返回一个包含了DOM元素的jQuery对象
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery体验1</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid orange;
+		}
+	</style>
+</head>
+<body>
+	<button>变色</button>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   $('button').click(function(){
+	   		$('div').css({
+	   			backgroundColor : 'red'
+	   		})
+	   })
+	});
+</script>
+</html>
