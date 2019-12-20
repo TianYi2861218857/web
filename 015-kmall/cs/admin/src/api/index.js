@@ -5,8 +5,8 @@ const getApiObj = (API_CONFIG)=>{
 	const apiObj = {}
 	for(let key in API_CONFIG){
 		apiObj[key] = (data)=>{
-			let url = SERVER + API_CONFIG[key][0]
-			let method = API_CONFIG[key][1]
+			let url = SERVER + API_CONFIG[key][0] || '/'
+			let method = API_CONFIG[key][1] || 'get'
 			//发送请求 
 			return request(url,method,data)
 		}

@@ -3,8 +3,9 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");  //css单独打包
 
-const getHtmlConfit = (name)=>({
+const getHtmlConfit = (name,title)=>({
 	template:'./src/views/'+name+'.html',//模板文件
+	title:title,
     filename:name+'.html',//输出的文件名
    	// inject:'head',//脚本写在那个标签里,默认是true(在body结束后)
     hash:true,//给生成的js/css文件添加一个唯一的hash
@@ -22,9 +23,12 @@ module.exports = {
 	// entry: "./src/index.js",
 	//多入口
 	entry:{
-		common:'./src/pages/common',
-		index:'./src/pages/index',
-		list:'./src/pages/list'
+		'common':'./src/pages/common',
+		'index':'./src/pages/index',
+		'list':'./src/pages/list',
+		'user-login':'./src/pages/user-login',
+		'user-register':'./src/pages/user-register',
+		'result':'./src/pages/result',
 	},
 	//输出
 	output: {// webpack 如何输出结果的相关选项
@@ -44,20 +48,13 @@ module.exports = {
             util:path.resolve(__dirname,'./src/util'),
             common:path.resolve(__dirname,'./src/common'),
             api:path.resolve(__dirname,'./src/api'),
+            node_modules:path.resolve(__dirname,'./node_modules'),
+            // service:path.resolve(__dirname,'./src/service'),
         }
     },
 	module: {
 	    rules: [
 	      //处理CSS
-	      /*
-	      {
-	        test: /\.css$/,
-	        use: [
-	          'style-loader',
-	          'css-loader'
-	        ]
-	      },
-	      */
 	      {
             test: /\.css$/,
             use: [
@@ -71,12 +68,13 @@ module.exports = {
           },
 	      //处理图片资源
 	      {
-			test: /\.(png|jpg|gif)$/i,
+			test: /\.(png|jpg|gif|eot|svg|ttf|woff|woff2)\??.*$/i,
 				use: [
 			  		{
 			    		loader: 'url-loader',
 			    			options: {
-			      			limit: 10
+			      			limit: 400,
+			      			name:'resource/[name].[ext]'
 			    		}
 			  		}
 				]
@@ -97,8 +95,11 @@ module.exports = {
 	 },
 	plugins:[ 
 		//自动生成HTML
-	    new htmlWebpackPlugin(getHtmlConfit('index')),
-	    new htmlWebpackPlugin(getHtmlConfit('list')),
+	    new htmlWebpackPlugin(getHtmlConfit('index','首页')),
+	    new htmlWebpackPlugin(getHtmlConfit('list','列表页')),
+	    new htmlWebpackPlugin(getHtmlConfit('user-login','用户登录')),
+	    new htmlWebpackPlugin(getHtmlConfit('user-register','用户注册')),
+	    new htmlWebpackPlugin(getHtmlConfit('result','结果页')),
 	    //自动清理多余文件
 	    new CleanWebpackPlugin(),
 	    //css单独打包
@@ -109,5 +110,10 @@ module.exports = {
 	devServer:{
 	    contentBase: './dist',//内容的目录
 	    port:3002,//服务运行的端口,
+	    // 解决前台用户登录及注册的跨域问题
+	    proxy: [{
+	      	context: ['/sessions','/users'],//以xx('/sessions')开始的地址全部代理到target下的地址
+	      	target: 'http://127.0.0.1:3000',
+	    }]
 	}
 }
