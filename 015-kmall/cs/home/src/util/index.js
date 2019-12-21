@@ -29,5 +29,20 @@ module.exports = {
 	},
 	goLogin:function(){
 		window.location.href = '/user-login.html'
-	}
+	},
+	getParamsFormUrl:function(key){
+		var query = window.location.search.substr(1)
+		//type=register
+		//type=register&name=tom
+		//name=tom&type=register
+		//name=tom&type=register&age=18
+		var reg = new RegExp('(^|&)'+key+'='+'([^&]*)($|&)')
+		var result = query.match(reg)
+		return result ? decodeURIComponent(result[2]) : null
+	},
+	// render:function(tpl,data){
+	// 	var template = Hogan.compile(tpl);
+	// 	var html = template.render(data)
+	// 	return html
+	// }
 }

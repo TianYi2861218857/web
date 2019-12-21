@@ -29,6 +29,7 @@ module.exports = {
 		'user-login':'./src/pages/user-login',
 		'user-register':'./src/pages/user-register',
 		'result':'./src/pages/result',
+		'user-center':'./src/pages/user-center',
 	},
 	//输出
 	output: {// webpack 如何输出结果的相关选项
@@ -100,6 +101,7 @@ module.exports = {
 	    new htmlWebpackPlugin(getHtmlConfit('user-login','用户登录')),
 	    new htmlWebpackPlugin(getHtmlConfit('user-register','用户注册')),
 	    new htmlWebpackPlugin(getHtmlConfit('result','结果页')),
+	    new htmlWebpackPlugin(getHtmlConfit('user-center','个人中心')),
 	    //自动清理多余文件
 	    new CleanWebpackPlugin(),
 	    //css单独打包

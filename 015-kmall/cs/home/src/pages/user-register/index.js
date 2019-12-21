@@ -27,24 +27,6 @@ var page = {
 	},
 	bindEvent:function(){
 		var _this = this
-		/*
-		$('[name="username"]').on('blur',function(){
-			var username = $(this).val();
-			if(!_util.validate(username,'require')){
-				return;
-			}
-			if(!_util.validate(username,'username')){
-				return;
-			}			
-			_user.checkUsername(username,function(){
-				//该用户名没有注册
-				formErr.hide();
-			},function(message){
-				//该用户名已经注册
-				formErr.show(message);
-			})
-		})
-		*/
 		$('#btn-submit').on('click',function(){
 			_this.submit()
 		})
@@ -53,6 +35,28 @@ var page = {
 			if(ev.keyCode == 13){
 				_this.submit()
 			}
+		})
+		//监听用户失去焦点判断用户名是否存在
+		$('[name="username"]').on('blur',function(){
+			var username = $.trim($(this).val())
+			//如果没有输入用户名或者用户名验证不合法则不需要向后台发送请求
+			if(!_util.validate(username,'required')){
+				return 
+			}
+			if(!_util.validate(username,'username')){
+				return 
+			}
+			api.checkUsername({
+				data:{
+					username:username
+				},
+				success:function(data){
+					formErr.hide()
+				},
+				error:function(msg){
+					formErr.show(msg)
+				}
+			})
 		})
 	},
 	submit:function(){
@@ -81,7 +85,7 @@ var page = {
 			api.register({
 				data:formData,
 				success:function(data){
-					window.location.href = '/result.html'
+					window.location.href = '/result.html?type=register'
 					// console.log('注册用户:',data)
 				},
 				error:function(msg){
