@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>each方法</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	var arr1 = [5,3,1,8,0];  //数组
+	var likeArr = {0:"aaa",1:"bbb",2:"ccc",length:3};  //伪数组
+	console.log('数组:',arr1);
+	console.log('伪数组:',likeArr);
+	var arr = arr1;
+	arr.forEach(function(value,index){
+		console.log('forEach:',value,index)
+	})
+	//遍历数组或者伪数组,返回被变遍历的数组
+	$.each(arr,function(index,value){
+		console.log('each:',index,value)
+	})
+</script>
+</html>
