@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器与基本过滤器</title>
+</head>
+<body>
+	<div class="father1">
+		<div class="box1">div1</div>
+		<div class="box2">div2</div>
+	</div>
+	<div class="father2">
+		<div class="box3">div3</div>
+		<div class="box4">div4</div>
+		<div class="box5">div5</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   //规则同css选择器
+	   console.log($('.father1 div'))
+	   //$('选择器:eq(index)') 选择索引对应的DOM元素,索引可以是负数
+	   console.log($('div:eq(-2)'));
+	});
+	/*
+	内容过滤器
+		$('选择器:empty')                选择的元素中没有文本内容和子元素的
+		$('选择器:parent')               选择的元素中有文本内容或者子元素的
+		$('选择器:contains(文本内容)')    选择的元素中包含有指定内容的
+		$('选择器:has(选择器)')           选择的元素中有指定的选择器的
+	过滤方法
+		jQuery对象.eq(index)    选择索引对应的DOM元素
+		jQuery对象.siblings()    jQuery对象中包含元素之外的兄弟元素
+	可见性过滤
+		$('选择器:hidden')    匹配所有不可见元素
+		$('选择器:visible')    匹配所有可见元素
+	查找   jQuery对象.find('CSS选择器')    查找jQuery对象中DOM元素的后代中符合选择器规则的元素
+	注意:以上方法都返回jQuery对象
+	*/
+</script>
+</html>

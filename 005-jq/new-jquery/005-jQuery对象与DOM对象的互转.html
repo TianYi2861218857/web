@@ -13,17 +13,19 @@
 </body>
 <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 <script>
+	//DOM 对象转化为 jQuery对象
 	// $(function(){
 	// 	$('div').css({color:'red'})
 	// 	console.log($('div').css({color:'red'}))
 	// })
+
 	var aDiv = document.getElementsByTagName('div');
+	$(aDiv).css({
+		color:'red'
+	})
 	// console.log(aDiv);
 	// console.log($(aDiv));
-	console.log(aDiv[0]);
-	for(var i=0;i<aDiv.length;i++){
-		console.log('for',$(aDiv).get(i));
-	}
+	// console.log(aDiv[0]);
 	// console.log($(aDiv).get(2));
 </script>
 </html>

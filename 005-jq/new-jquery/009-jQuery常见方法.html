@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery常见方法</title>
+</head>
+<body>
+	<div>1</div>
+	<div >2</div>
+	<div id="o3">3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   //jQuery对象.index() --> 获取当前jQuery对象的索引
+	   console.log('index():',$('div').index($('#o3')))
+	   //jQuery对象.each(function(index,element){}),遍历jQuery对象中的DOM元素,注意回调函数中的this是DOM对象
+	   // $('div').each(function(index,element){
+	   // 	   // console.log('each::',index,element)
+	   // 	   console.log('this::',this)
+	   // 	   $(this).css({
+	   // 	   	   color: 'red'
+	   // 	   })
+	   // })
+	});
+</script>
+</html>

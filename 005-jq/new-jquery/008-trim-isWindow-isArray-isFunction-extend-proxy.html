@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery静态方法trim-isWindow-isArray-isFunction-extend-proxy</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	var oString = "   q w "
+	console.log('oString::',oString)
+	//  $.trim(string)  去除字符串两端的空格
+	console.log('trim:::::',$.trim(oString))
+
+	console.log('isWindow(空)::',$.isWindow())
+	//判断是否是window对象
+	console.log('isWindow(window)::',$.isWindow(window))
+
+	var arr1 = {0:'aa',1:'bb',length:2}
+	var arr2 = []
+	var arr3 = ['cc','dd']
+	console.log('isArray伪数组::',$.isArray(arr1))
+	console.log('isArray空数组::',$.isArray(arr2))
+	console.log('isArray数组::',$.isArray(arr3))
+	/*
+	$.extend()
+	   $.extend(obj1, obj2);//合并 obj1 和 obj2,修改并返回 obj1。
+	   $.extend({},obj1, obj2);//合并 obj1 和 obj2,返回合并后的对象,不修改obj1。
+	$.proxy(函数,内部this)
+	   改变函数的内部this指向
+	*/
+</script>
+</html>

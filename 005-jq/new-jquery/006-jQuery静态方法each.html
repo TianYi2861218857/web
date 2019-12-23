@@ -13,13 +13,15 @@
 	var likeArr = {0:"aaa",1:"bbb",2:"ccc",length:3};  //伪数组
 	console.log('数组:',arr1);
 	console.log('伪数组:',likeArr);
-	var arr = arr1;
-	arr.forEach(function(value,index){
-		console.log('forEach:',value,index)
-	})
+	var arr = likeArr;
 	//遍历数组或者伪数组,返回被变遍历的数组
 	$.each(arr,function(index,value){
 		console.log('each:',index,value)
 	})
+	
+	arr.forEach(function(value,index){
+		console.log('forEach:',value,index)
+	})
+	
 </script>
 </html>

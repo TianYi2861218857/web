@@ -1,0 +1,37 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-jQuery的常见方法data-is.html</title>
+</head>
+<body>
+	<div class="box1" data-key="adf--box1"></div>
+	<!-- <div class="box1" data-key="adf--box1"></div> -->
+	<div class="box2" data-key="adf--box2"></div>
+	<div class="box2" data-key="adf--box2"></div>
+	<div class="box3" data-key="adf--box3"></div>
+	<div class="box3" data-key="adf--box3"></div>
+	<div class="box" data-key="adf--box"></div>
+	<p class="box"></p>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){	
+		/*
+		jQuery对象.data([key],[value])
+			当参数只有一个key的时候,为读取该jQuery对象对应DOM中存储的key对应的值
+			当参数为两个时,为该jQuery对象对应的DOM中存储key-value键值对的数据
+		注意点
+				DOM元素添加数据可以用jQuery对象.data()方法,也可以在DOM节点上使用data-*属性添加
+				以上两种方法添加的数据都可以用jQuery对象.data()方法获取
+		*/
+	   console.log($('.box1').data('key'));
+	   console.log($('.box1').data('key1','abcd'));
+	   console.log($('.box1').data());
+
+	   //jQuery对象.is(选择器) ,检测jQuery对象中是否有匹配元素
+	   console.log($('div').is('.box4'))
+	});
+</script>
+</html>
