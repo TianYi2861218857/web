@@ -21,8 +21,8 @@ router.post('/register', (req, res) => {
 		}else{//该用户名可以插入
 			UserModel.insertMany({
 				username:username,
-				password:hmac(password)  //密码加密
-				// isAdmin:true    //是否为管理员
+				password:hmac(password),  //密码加密
+				// isAdmin: true    //是否为管理员
 			})
 			.then(result=>{
 				res.json({
