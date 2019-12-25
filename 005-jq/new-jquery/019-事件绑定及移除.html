@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定及移除</title>
+	<style>
+		div{
+			width: 200px;
+			height: 30px;
+			border: 1px solid red;
+			background-color: skyblue;
+			margin-top: 10px;
+			text-align: center;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">我是盒子精1</div>
+	<div class="box2">我是盒子精2</div>
+	<div class="box3">我是盒子精3</div>
+	<div class="box4">我是盒子精4</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   //方法一:
+	   $('.box1').click(function(){
+	      alert("click")
+	   })
+
+	   //方法二:
+	   $('.box2').on('click',function(){
+	      alert("onclick...")
+	   })
+	   $('.box3').one('click',function(){   //一次性的事件处理函数
+	      alert("one...")
+	   })
+	   //方法一部分事件jQuery没有实现,方法二中可以写js中所有的事件,但绑定的事件都会不会覆盖
+
+	   //jQuery对象.hover(鼠标移入时执行函数,鼠标移出时执行函数)
+	   $('.box4').hover(
+	   	    function(){  
+	          console.log("hover1...")
+	        },
+	   	    function(){   
+	          console.log("over...")
+	        }
+	   )
+
+	   $('.box4').on('click',function(){
+	      alert("onclick...")
+	   })
+	    //jQuery对象.off() 移除所有的事件
+		//jQuery对象.off('事件名') 移除所有事件名对应的事件
+		//jQuery对象.off('事件名',函数名) 移除事件名对应的函数名的相关事件
+	});
+</script>
+</html>

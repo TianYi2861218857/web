@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作代码/文本/值</title>
+	<style>
+		div{
+			width: 200px;
+			height: 30px;
+			border: 1px solid red;
+			background-color: skyblue;
+			margin-top: 10px;
+			text-align: center;
+			line-height: 30px;
+		}
+		span{
+			color: red;
+		}
+		input{
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">我是盒子精1</div>
+	<div class="box2">我是盒子精2</div>
+	<div class="box3">我是盒子精3</div>
+	<div class="box4">我是盒子精4</div>
+	<div class="box5">我是盒子精5</div>
+	<input type="text" class="box6" value="aaa">
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+		//设置或者获取元素中的HTML,相当于innerHTML
+	   $('.box1').html(["innerHTML1"])   //省略 中括号[] 也可以
+	   console.log( $('.box1').html())
+	   $('.box2').html('<span>我是span</span>')
+	   //设置或者获取元素中的HTML,相当于innerText
+	   $('.box3').text("innerText2")
+	   $('.box4').text('<span>我是span</span>')
+	   // html和text的区别: HTML内容包括标签和文本, 而文本内容只包括标签里的文本
+
+	   //设置或获取元素value属性的值
+	 	$('.box6').val("测试")  
+	});
+</script>
+</html>

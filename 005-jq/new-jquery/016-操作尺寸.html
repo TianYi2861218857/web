@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作尺寸</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			padding: 20px;
+			border: 10px solid #000;
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   //设置或获取元素的宽高
+	   $('div').height(80)
+	   console.log($('div').width())
+	   //设置或获取元素的宽高,包含内边距
+	   console.log($('div').innerWidth())
+	   //设置或获取元素的宽高,包含边框和内边距
+	   console.log($('div').outerWidth())
+	});
+</script>
+</html>

@@ -11,16 +11,21 @@
 </body>
 <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 <script>
+	$('input').attr('value','abc');
+    $('input').prop('name','abc');
 	$(function(){
-		
-	   console.log($('input').eq(2).attr('checked'))
-	   console.log($('input').eq(2).prop('checked'))
-	   
-	   $('input').attr('value','abc');
-	   $('input').prop('name','abc');
-	   $('input').removeAttr('name')
-	   $('input').removeProp("name")
-	   console.log($('input').removeProp("name"));	
+		//获取属性
+	   // console.log($('input').eq(2).attr('checked'))   //checked
+	   // console.log($('input').eq(2).prop('checked'))   //true
+	   //attr和prop的区别: (记忆点2) https://www.cnblogs.com/Showshare/p/different-between-attr-and-prop.html
+	   //(记忆点1) 属性节点的值具有true和false时(如checked,selected,disabled),如果没有添加该属性时,attr会返回undefined,prop返回true,因此,属性节点的值具有true和false时用prop,其他的用attr  
+	   // 设置属性
+	   // $('input').attr('value','abc');  
+	   // $('input').prop('name','abc');
+	   //删除属性
+	   // $('input').removeAttr('checked')
+	   // $('input').removeProp("checked")
+	   console.log($('input').removeAttr("checked"));		
 	});
 </script>
 </html>

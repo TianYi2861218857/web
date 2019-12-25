@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作css</title>
+	<style>
+		div{
+			width: 200px;
+			height: 30px;
+			border: 1px solid red;
+			background-color: skyblue;
+			margin-top: 10px;
+			text-align: center;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">我是盒子精1</div>
+	<div class="box2">我是盒子精2</div>
+	<div class="box3">我是盒子精3</div>
+	<div class="box4">我是盒子精4</div>
+	<div class="box5 box">我是盒子精5</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+		//获取
+	    console.log($('.box1').css("border-color"));
+	    //设置
+	    $('.box2').css("border-color","yellow")  //单个
+	    $('.box3').css("color","red").css("border-color","green")  //多个
+	    $('.box4').css({
+	    	color : "red",
+	    	borderColor : "green"
+	    })  //多个
+	    //判断类 (判断jquery是否存在该类名)
+	    console.log("判断类",$('.box5').hasClass("box")) //true
+	    console.log("判断类",$('.box5').hasClass("box7"))  //false
+	});
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作class</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+		}
+		.box2{
+			color: red;
+		}
+		.box3{
+			background-color: skyblue;
+		}
+		.box4{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1 box2 box3" id="div1">我是div1</div>
+	<div class="box1" id="div2">我是div2</div>
+	<div class="box1" id="div3">我是div3</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   $('#div2').attr('class','box2 box3')
+	   //添加
+	   $('#div3').addClass("box2 box3")
+	   //删除
+	   $('#div2').removeClass("box2 box3")
+	   //切换   存在就删除 不存在就添加
+	   $('#div3').toggleClass("box2 box3 box4")
+	});
+</script>
+</html>

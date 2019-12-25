@@ -9,6 +9,7 @@
 </body>
 <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 <script>
+	/*
 	var oString = "   q w "
 	console.log('oString::',oString)
 	//  $.trim(string)  去除字符串两端的空格
@@ -24,6 +25,7 @@
 	console.log('isArray伪数组::',$.isArray(arr1))
 	console.log('isArray空数组::',$.isArray(arr2))
 	console.log('isArray数组::',$.isArray(arr3))
+	*/
 	/*
 	$.extend()
 	   $.extend(obj1, obj2);//合并 obj1 和 obj2,修改并返回 obj1。
@@ -31,5 +33,14 @@
 	$.proxy(函数,内部this)
 	   改变函数的内部this指向
 	*/
+	function show(){
+		console.log(this)
+	}
+	var obj1 = {
+		"name": "leo",
+	}
+	console.log(obj1)
+	show();
+	$.proxy(show,{name:"tom"})();
 </script>
 </html>
