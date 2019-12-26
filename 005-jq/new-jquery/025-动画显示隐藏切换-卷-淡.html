@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画显示隐藏切换</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 60px;
+			height: 30px;
+			margin-right: 10px;
+			margin-bottom: 20px;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			border: 2px solid #ccc;
+			border-radius: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<button>切换</button>
+	<div></div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+		
+	   $('button').eq(0).on('click',function(){
+	   		$('div').show(800,function(){
+	   			console.log('show...')
+	   		})
+	   })
+	   $('button').eq(1).on('click',function(){
+	   		$('div').hide(800,function(){
+	   			console.log('hide...')
+	   		})
+	   })
+	   $('button').eq(2).on('click',function(){
+	   		$('div').toggle(800,function(){
+	   			console.log('toggle...')
+	   		})
+	   })
+		
+		/*
+		卷入卷出和切换
+		jQuery对象.slideDown(时长,回调) 
+		jQuery对象.slideUp(时长,回调)
+		jQuery对象.slideToggle(时长,回调)});
+
+		淡入淡出和切换
+		jQuery对象.fadeIn(时长,回调) 
+		jQuery对象.fadeOut(时长,回调) 
+		jQuery对象.fadeTo(时长,淡入到值,回调)
+		jQuery对象.fadeToggle(时长,回调) 
+		*/
+	})
+</script>
+</html>

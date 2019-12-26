@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插入节点</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		button{
+			width: 100px;
+			height: 30px;
+		}
+		li{
+			width: 80px;
+			height: 30px;
+			background-color: skyblue;
+			margin:20px 0;
+			border-radius: 15px;
+			text-align: center;
+			line-height: 30px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button>添加</button>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+	</ul>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   let i=2
+	   $('button').eq(0).on('click',function(){
+	        // var oLi = document.createElement('li')
+			i+=1
+			// oLi.innerHTML='新加'+i
+			// console.log(oLi)
+			// console.log($('<li>我是新建的</li>'))
+			var oLi = $('<li>新加'+i+'</li>')
+
+			//将子节点插入到父节点内部后面
+			// $('ul').append(oLi)
+			// oLi.appendTo($('ul'))
+
+			//将子节点插入到父节点内部前面
+			// $('ul').prepend(oLi)
+			oLi.prependTo($('ul'))
+	    })
+	}) 
+</script>
+</html>

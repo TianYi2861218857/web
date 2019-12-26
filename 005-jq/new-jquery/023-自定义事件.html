@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义事件</title>
+</head>
+<body>
+	<div>测试</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   //  $(jQuery对象).on(事件名,function(event,参数){})
+	   //  然后使用trigger来触发
+	   //  $(jQuery对象).triggerr(事件名,[参数])
+	   $('div').on('numberAdd',function(ev,arr1,arr2){
+	   	   console.log("="+arr1+arr2)
+	   })
+	   $('div').trigger('numberAdd',[5,6])
+	});
+</script>
+</html>

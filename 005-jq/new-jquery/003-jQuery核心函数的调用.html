@@ -25,6 +25,7 @@
 	// (伪数组)
 	console.log('$(function(){}):::',$(function(){}));  //接收一个函数,返回一个包含了document的jQuery对象
 	console.log("$('button'):::",$('button'));  //字符串为选择器时,返回一个包含了DOM元素的jQuery对象
+	console.log("$('button'):::",$('button')[0]); //打印button按键
 	console.log("$('<div>5</div>'):::",$('<div>5</div>')); //字符串为HTML代码片段时,返回一个包含了DOM元素的jQuery对象
 
 </script>
