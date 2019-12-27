@@ -1,9 +1,18 @@
-//封装函数
+//简单跨域
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
 
 const server = http.createServer(function(req,res){
+	//设置允许访问的源  ('请求头','源(请求地址)')
+	// res.setHeader('Access-Control-Allow-Origin','ttp://127.0.0.1:3000')
+	// res.setHeader('Access-Control-Allow-Origin','*')
+
+	//设置允许访问响应头信息
+	res.setHeader('Access-Control-Expose-Headers','Date,Connection')
+
+	//设置响应头信息
+	res.setHeader('Content-Type','application/x-www-form-urlencoded');
 	var urlStr = req.url;
 	if(req.method == 'POST'){
 		//处理POST请求

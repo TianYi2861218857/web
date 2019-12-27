@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>删除节点</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		father
+		<p>son</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   $('div').on('click',function(){
+			alert('aaa...')
+	    })
+	   /*   jQuery对象.xxx()
+		remove 同时删除节点和事件
+		empty  只删除节点的内容,节点还在
+		detach 删除节点但保留事件
+	   */
+	   // var dom = $('div').remove()
+	   var dom = $('div').empty()
+	   // var dom = $('div').detach()
+	   console.log(dom)
+	   $('body').append(dom)	
+	}) 
+</script>
+</html>

@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>ajax简单跨域</title>
+	<title>ajax复杂跨域</title>
 </head>
 <body>
-	<button id="btn">简单跨域</button>
+	<h2>ajax复杂跨域解决方案</h2>
+	<button id="btn">复杂跨域</button>
 </body>
 <script>
 	function ajax(method,url,data,fnSucc,fnFail){
@@ -20,16 +21,23 @@
 			}
 			oAjax.open(method,url,true);
 			oAjax.send(); 
+		}else{//发送其他请求
+			//2.建立连接(拨号)
+			oAjax.open(method,url,true);
+			//3.发送消息(拔出号码)
+			oAjax.send();
 		}
 		oAjax.onreadystatechange =function(){
 			if(oAjax.readyState == 4){
-				try{
-					if(oAjax.status == 200){
-						var obj = JSON.parse(oAjax.responseText);
-						typeof fnSucc == 'function' && fnSucc(obj);
+				if(oAjax.status == 200){
+					try{
+						// var obj = JSON.parse(oAjax.responseText);
+						typeof fnSucc == 'function' && fnSucc(oAjax.responseText);
+					}catch(e){ 
+						typeof fnFail == 'function' && fnFail(e);
 					}
-				}catch(e){ 
-					typeof fnFail == 'function' && fnFail(e);
+				}else{
+					typeof fnErr == "function" && fnFail(oAjax.status);
 				}
 			}
 		}
@@ -45,19 +53,11 @@
 	var oBtn = document.getElementById('btn');
 	oBtn.onclick = function(){  
 		//读取文件
-		ajax('get',
-			'http://127.0.0.1:3001/029-data(test).json',
+		ajax('PUT', //更新数据
+			'http://127.0.0.1:3001/edmit',
 			'',
 			function(arr){
-			   // console.log("数据:",obj);
-			   const oUl = document.createElement('ul'); 
-			   for(let i=0;i<arr.length;i++){
-			   		const oLi = document.createElement('li');
-			   		oLi.innerHTML = '姓名:'+arr[i].name+' 年龄:'+arr[i].age;
-
-			   		oUl.appendChild(oLi);
-			   }
-			   document.body.appendChild(oUl);
+			   console.log(arr)
 		    },
 		    function(err){
 		    	console.log('失败:',err);

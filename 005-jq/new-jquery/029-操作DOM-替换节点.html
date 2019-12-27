@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作DOM-替换节点</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			text-align: center;
+			border: 2px solid #ccc;
+			font-size: 24px;
+			margin-top: 10px;
+		}
+		.son1{color: red;}
+		.son2{color: green;}
+	</style>
+</head>
+<body>
+	<div class="father1">
+		father1
+		<p class="son1">我是son1</p>
+	</div>
+	<div class="father2">
+		father2
+		<p class="son2">我是son2</p>
+	</div>
+	<div>
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+		<span>5</span>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+
+	   $('.father1').replaceWith($('.father2'))
+	   // $('.father1').replaceWith('<h1>我是h</h1>')
+	   // $('.son2').replaceAll('span')
+
+	   //替换后原来的对象也不存在
+	});
+</script>
+</html>

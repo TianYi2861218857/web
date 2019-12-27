@@ -26,7 +26,8 @@
 	</style>
 </head>
 <body>
-	<button>添加</button>
+	<button>添加li</button>
+	<button>添加p</button>
 	<ul>
 		<li>1</li>
 		<li>2</li>
@@ -44,6 +45,8 @@
 			// console.log($('<li>我是新建的</li>'))
 			var oLi = $('<li>新加'+i+'</li>')
 
+			//内部插入
+
 			//将子节点插入到父节点内部后面
 			// $('ul').append(oLi)
 			// oLi.appendTo($('ul'))
@@ -52,6 +55,19 @@
 			// $('ul').prepend(oLi)
 			oLi.prependTo($('ul'))
 	    })
+	   $('button').eq(1).on('click',function(){
+	   		i+=1
+	   		var oP = $('<li>新加P'+i+'</li>')
+
+	   		//外部插入
+	   		//$(jquery对象1).xxx(jquery对象2)
+
+	   		//after 对象节点后插入
+	   		// $('ul').after(oP)
+	   		//before 对象节点前插入
+	   		$('ul').before(oP)
+
+	   })
 	}) 
 </script>
 </html>
