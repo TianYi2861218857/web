@@ -13,7 +13,8 @@
 		var oAjax = new XMLHttpRequest();
 		if(method.toUpperCase() == 'POST'){
 			oAjax.open(method,url,true);
-			oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			// oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			oAjax.setRequestHeader('Kuazhu-Test','Kuazhu-Test-Content');
 			oAjax.send(data);	
 		}else if(method.toUpperCase() == 'GET'){
 			if (data){
@@ -53,9 +54,9 @@
 	var oBtn = document.getElementById('btn');
 	oBtn.onclick = function(){  
 		//读取文件
-		ajax('PUT', //更新数据
+		ajax('POST',  //PUT更新数据
 			'http://127.0.0.1:3001/edmit',
-			'',
+			'{"name":"tom"}',
 			function(arr){
 			   console.log(arr)
 		    },
