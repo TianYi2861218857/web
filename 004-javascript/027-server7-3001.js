@@ -10,7 +10,7 @@ const server = http.createServer(function(req,res){
 
 	//设置允许访问响应头信息
 	res.setHeader('Access-Control-Expose-Headers','Date,Connection')
-
+	
 	//设置响应头信息
 	res.setHeader('Content-Type','application/x-www-form-urlencoded');
 	var urlStr = req.url;
