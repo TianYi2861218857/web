@@ -9,10 +9,17 @@
 		<tr>
 			<th>name</th>
 			<th>age</th>
+			<th>score</th>
+			<th>grade</th>
 		</tr>
 		<tr v-for="student in students">
 			<td>{{student.name}}</td>
 			<td>{{student.age}}</td>
+			<td>{{student.score}}</td>
+			<td v-if="student.score>=90">优秀</td>
+			<td v-else-if="student.score>=80">良好</td>
+			<td v-else-if="student.score>=60">及格</td>
+			<td v-else>不及格</td>
 		</tr>
 	</table>
 </body>
@@ -22,9 +29,9 @@
 		el:'#app',
 		data:{
 			students:[
-				{name:"echo",age:12},
-				{name:"tom",age:19},
-				{name:"leo",age:20},
+				{name:"echo",age:12,score:87,},
+				{name:"tom",age:19,score:99,},
+				{name:"leo",age:20,score:55,},
 			]
 		}
 	})
