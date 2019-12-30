@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>直接引入</title>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	console.log(Vue)  //构造函数
+	var app = new Vue({  //生成一个实例对象
+		el:'#app', //选择挂载的DOM节点
+		data:{
+			message: 'Hello Vue!!!'
+		}
+	})
+	console.log("app:",app)
+</script>
+</html>

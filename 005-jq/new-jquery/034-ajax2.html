@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装接口</title>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+	   $('button').on('click',function(){
+	   	/*
+	   		$.get(url[,参数][,回调函数][,返回数据类型])//发送GET请求 
+			$.post(url[,参数][,回调函数][,返回数据类型]) //发送POST请求
+			$.getJSON(url[,回调函数]) //获取JSON数据
+	    */
+	    	/*
+	    	$.get('032-data.json',{},function(data,status,jqXHR){ 
+		    	console.log("data:  ",data)
+		    	console.log("status:  ",status)
+		    	console.log("jqXHR:  ",jqXHR)
+			    },'json'
+			)
+			*/
+			/*
+			$.post('./',{name:"amy",age:38},function(data,status,jqXHR){
+	   			console.log(data)
+	   			console.log(status)
+	   			console.log(jqXHR)
+	   			},'text'
+	   		)
+	   		*/
+	   		$.getJSON('032-data.json',function(data,status,jqXHR){ 
+		    	console.log("data:  ",data)
+		    	console.log("status:  ",status)
+		    	console.log("jqXHR:  ",jqXHR)
+			    }
+			)
+	   })
+	});
+</script>
+</html> 

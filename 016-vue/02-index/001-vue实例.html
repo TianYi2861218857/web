@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue实例</title>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//vm  (ViewModel 的缩写)
+	var vm = new Vue({  
+		el:'#app',
+		data:{
+			message: 'Hello Vue!!!'
+		}
+	})
+	console.log("vm.$data::",vm.$data)  
+	console.log(vm.$el)   //根节点
+	console.log(vm.$el===document.getElementById('app'))   //true
+</script>
+</html>
