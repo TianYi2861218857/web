@@ -1,0 +1,56 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>watch</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="fullName">
+		<p>first:: {{firstName}}</p>
+		<p>last::  {{LastName}}</p>
+		<p>Full::  {{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			firstName: 'Liu',
+			LastName: 'shijie'
+		},
+		//自定义方法
+		methods:{
+			
+		},
+		//计算属性
+		computed:{
+			fullName:{
+				//数据获取
+				get:function(){
+					return this.firstName +' '+this.LastName
+				},
+				//数据改变(数据改变时自动触发)
+				set:function(newValue){
+					//分隔字符串 split
+					let Names = newValue.split(' ')
+					this.firstName = Names[0]
+					this.LastName = Names[Names.length-1]
+				}	
+			}
+		},
+		//观察Vue实例变化
+		watch:{
+			fullName:function(){
+				console.log('fullName--change...')
+			}
+		}
+	})
+	//两者效果相同
+	vm.$watch('fullName',function(){
+		console.log('change...')
+	})
+</script>
+</html>

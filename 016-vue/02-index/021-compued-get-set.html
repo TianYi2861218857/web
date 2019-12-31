@@ -1,0 +1,47 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>computed-get-set</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="fullName">
+		<p>first:: {{firstName}}</p>
+		<p>last::  {{LastName}}</p>
+		<p>Full::  {{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			firstName: 'Liu',
+			LastName: 'shijie'
+		},
+		methods:{
+			
+		},
+		//计算属性
+		computed:{
+			fullName:{
+				//数据获取
+				get:function(){
+					return this.firstName +' '+this.LastName
+				},
+				//数据改变(数据改变时自动触发)
+				//set的第一个参数就是改变后的数据, 名字newval, newvalues等等都行
+				set:function(newValue){
+					//分隔字符串 split
+					let Names = newValue.split(' ')
+					this.firstName = Names[0]
+					this.LastName = Names[Names.length-1]
+					console.log(newValue)
+				}	
+			}
+		}
+	})
+</script>
+</html>

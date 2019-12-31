@@ -6,20 +6,35 @@
 </head>
 <body>
 	<div id="app">
-		{{message}}
+		<p ref="p1">{{message}}</p>
+		<span ref="p2">{{name}}</span>
 	</div>
 </body>
 <script src="js/vue.js"></script>
 <script>
 	//vm  (ViewModel 的缩写)
 	var vm = new Vue({  
-		el:'#app',
-		data:{
-			message: 'Hello Vue!!!'
+		el:'#app',  //el:  根DOM 元素
+		data:{  //Vue实例观察的数据对象,Vue实例代理了对其data对象属性的访问
+			message: 'Hello Vue!!!',
+			name: 'echo'
 		}
 	})
-	console.log("vm.$data::",vm.$data)  
-	console.log(vm.$el)   //根节点
-	console.log(vm.$el===document.getElementById('app'))   //true
+	//实例
+	// console.log("vm.$data::",vm.$data)  
+	// console.log(vm.$el)   //根DOM 元素
+	// console.log(vm.$el===document.getElementById('app'))   //true
+	
+	//一个对象，持有注册过 ref 特性 的所有 DOM 元素和组件实例。
+	// console.log(vm.$refs)
+	// console.log(vm.$refs.p1)   //拿到DOM节点
+	
+	//观察Vue实例变化的表达式或者计算属性函数(类似监听事件)
+	vm.$watch('message',function(){
+		console.log('message has been change')
+	})
+	
+	//完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器。
+	// vm.$destroy()
 </script>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-bind</title>
+</head>
+<body>
+	<div id="app">
+		<span v-bind:title="message">
+			鼠标停留几秒浏览绑定的动态信息
+		</span>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',
+		data:{
+			message: '页面加载于 ' + new Date().toLocaleString()
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,38 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>computed计算属性基础</title>
+</head>
+<body>
+	<div id="app">
+		<p>first:: {{firstName}}</p>
+		<p>last::  {{LastName}}</p>
+		<p>getFull::  {{getFullName()}}</p>
+		<!-- 计算属性 -->
+		<p>Full::  {{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			firstName: 'Liu',
+			LastName: 'shijie'
+		},
+		methods:{
+			getFullName:function(){
+				return this.firstName +'  '+this.LastName
+			}
+		},
+		//计算属性
+		computed:{
+			fullName:function(){
+				return this.firstName +'  '+this.LastName
+			}
+		}
+	})
+</script>
+</html>

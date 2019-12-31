@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条件渲染</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="message">
+		<p>你的成绩是: {{message}}</p>
+		<span v-if="message>=90">优秀</span>
+		<span v-else-if="message>=80">良好</span>
+		<span v-else-if="message>=60">及格</span>
+		<span v-else="message<60">不及格</span>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',
+		data:{
+			message: '',
+		}
+	})
+</script>
+</html><strong></strong>

@@ -6,9 +6,21 @@
 </head>
 <body>
 	<div id="app">
-		{{message}}
+		<!-- 插入方式1: -->
+		<p ref="p1">{{message}}</p>
+		
+		<!-- 插入方式2: -->
+		<!-- v-test(输出文本) 最后都用双引号 -->
+		<p v-text="message"></p>
+		
+		<!-- 插入方式3: -->
+		<!-- 执行一次性地插值,当数据改变时，插值处的内容不会更新 -->
+		<p v-once>{{message}}</p>
+		
+		<!-- 插入方式4: -->
+		<!-- 输出html(能够解析html结构代码) -->
+		<p v-html="rawHtml"></p>
 	</div>
-	<span >{{name}} </span>
 	<!-- <div v-text="message"></div> -->
 </body>
 <script src="js/vue.js"></script>
@@ -18,7 +30,7 @@
 		el:'#app',
 		data:{
 			message: 'Hello Vue!!!',
-			name: 'tom'
+			rawHtml: '<h2>world</h2>'
 		},	
 	})
 </script>

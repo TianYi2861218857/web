@@ -1,0 +1,51 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止冒泡</title>
+	<style>
+		#large-box{
+			width: 300px;height: 300px;background-color: skyblue;
+		}
+		#big-box{
+			width: 100px;height: 100px;background-color: green;
+		}
+		#small-box{
+			width: 50px;height: 50px;background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div id="large-box" @click="onLargeBox()">
+			<div id="big-box" @click="onBigBox()">
+				<!-- vue中传入原生js的event对象需要加  $ -->
+				<div id="small-box" @click="onSmallBox('echo',$event)"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			
+		},
+		methods:{
+			onLargeBox:function(){
+				console.log("LargeBox")
+			},
+			onBigBox:function(){
+				console.log("BigBox")
+			},
+			onSmallBox:function(name,ev){
+				//利用原生的js方法来阻止冒泡
+				ev.stopPropagation()
+				console.log("SmallBox")	
+			}
+		}
+	})
+</script>
+</html>

@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="app">
-		{{message}}
+		<p ref="p1">{{message}}</p>
 	</div>
 </body>
 <script src="js/vue.js"></script>
@@ -16,28 +16,40 @@
 		data:{
 			message: 'Hello'
 		},
-		beforeCreate(){
+		beforeCreate(){   //初始化
 			console.log("beforeCreate::")
+			console.log("this.$el::",this.$el)   //undefined
+			console.log("this.$data::",this.$data)   //undefined
+			console.log("this.$refs::",this.$refs)   //{}
 		},
-		created(){
+		created(){   //初始化之后
 			console.log("created::")
+			console.log("this.$el::",this.$el)   //undefined
+			console.log("this.$data::",this.$data)   //obj
+			console.log("this.$refs::",this.$refs)   //{}
 		},
-		beforeMount(){
+		beforeMount(){   //挂载之前
 			console.log("beforeMount::")
+			console.log("this.$el::",this.$el)   //obj
+			console.log("this.$data::",this.$data)   //obj
+			console.log("this.$refs::",this.$refs)   //{}
 		},
-		mounted(){
+		mounted(){   //挂载完毕
 			console.log("mounted::")
+			console.log("this.$el::",this.$el)   //obj
+			console.log("this.$data::",this.$data)   //obj
+			console.log("this.$refs::",this.$refs)   //obj
 		},
-		beforeUpdate(){
+		beforeUpdate(){   //数据更新之前
 			console.log("beforeUpdate::")
 		},
-		updated(){
+		updated(){   //数据更新之后
 			console.log("updated::")
 		},
-		beforeDestroy(){
+		beforeDestroy(){   //销毁(实例)之前--
 			console.log("beforeDestroy::")
 		},
-		destroyed(){
+		destroyed(){   //销毁完毕
 			console.log("destroyed::")
 		}
 	})

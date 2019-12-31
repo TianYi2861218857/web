@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-show-条件渲染</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="message">
+		<p>你的成绩是: {{message}}</p>
+		<!-- v-show的所有节点都在页面结构中,(不符合的dispaly:none) -->
+		<span v-show="message>=60">及格</span>
+		<span v-show="message<60">不及格</span>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',
+		data:{
+			message: '',
+		}
+	})
+</script>
+</html><strong></strong>

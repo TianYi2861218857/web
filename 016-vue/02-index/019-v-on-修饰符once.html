@@ -1,0 +1,50 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>once</title>
+	<style>
+		#large-box{
+			width: 300px;height: 300px;background-color: skyblue;
+		}
+		#big-box{
+			width: 100px;height: 100px;background-color: green;
+		}
+		#small-box{
+			width: 50px;height: 50px;background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 自身事件只触发一次,冒泡不会停止 -->
+		<!-- 冒泡触发的也是自身的事件 -->
+		<div id="large-box" @click="onLargeBox()">
+			<div id="big-box" @click.once="onBigBox()">
+				<div id="small-box" @click="onSmallBox()"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			
+		},
+		methods:{
+			onLargeBox:function(){
+				console.log("LargeBox")
+			},
+			onBigBox:function(){
+				console.log("BigBox")
+			},
+			onSmallBox:function(){
+				console.log("SmallBox")	
+			}
+		}
+	})
+</script>
+</html>

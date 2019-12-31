@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>双向绑定</title>
+	<title>双向绑定(修饰符)</title>
 </head>
 <body>
 	<div id="app">
 		<input type="text" v-model="message">
+		<input type="text" v-model.lazy="message">
+		<input type="text" v-model.number="message">
+		<input type="text" v-model.trim="message">
 		<p>{{message}}</p>
 	</div>
 </body>
@@ -19,4 +22,4 @@
 		}
 	})
 </script>
-</html>
+</html><strong></strong>

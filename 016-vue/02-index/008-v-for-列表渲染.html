@@ -12,6 +12,7 @@
 			<th>score</th>
 			<th>grade</th>
 		</tr>
+		<!-- 使用 in 和 of 都行 -->
 		<tr v-for="student in students">
 			<td>{{student.name}}</td>
 			<td>{{student.age}}</td>
@@ -29,9 +30,9 @@
 		el:'#app',
 		data:{
 			students:[
-				{name:"echo",age:12,score:87,},
-				{name:"tom",age:19,score:99,},
-				{name:"leo",age:20,score:55,},
+				{name:"echo",age:12,score:87},
+				{name:"tom",age:19,score:99},
+				{name:"leo",age:20,score:55},
 			]
 		}
 	})

@@ -1,0 +1,29 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止默认行为</title>
+</head>
+<body>
+	<div id="app">
+		<a href="https://www.mi.com" @click="goBaidu($event)">小米</a>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			
+		},
+		methods:{
+			goBaidu:function(ev){
+				//利用原生的js方法来阻止默认行为
+				ev.preventDefault() 
+				console.log('雷军...')
+			}
+		}
+	})
+</script>
+</html>

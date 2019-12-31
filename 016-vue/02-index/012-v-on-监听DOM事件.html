@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-on-监听DOM</title>
+</head>
+<body>
+	<div id="app">
+		<!-- 监听 DOM 事件 -->
+		<button v-on:click="count++">{{count}}</button>
+		<!-- v-on:缩写为@ -->
+		<button @click="count++">{{count}}</button>
+		<!-- 方法 -->
+		<button @click="addCount">{{count}}</button>
+		<!-- 后加小括号可以进行传参 -->
+		<button @click="sayName('tom')">{{count}}</button>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			count: 0,
+		},
+		//自定义的方法
+		methods:{
+			addCount:function(){
+				this.count++
+			},
+			sayName:function(name){
+				console.log(name+"进行了点击")
+			}
+		}
+	})
+</script>
