@@ -1,0 +1,43 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件-注册全局组件</title>
+</head>
+<body>
+	<div id="app">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+	<div id="app2">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// Vue.component 注册一个名为button-counter的全局组件
+	//全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生
+	//命名:推荐使用羊肉串;kebab-case(羊肉串)和PascalCase(首字母大写)
+	Vue.component('button-counter',{
+		// 组件的data选项必须是一个函数
+		data(){
+			return {count: 0}
+		},
+		template:'<button v-on:click="count++">点击了{{count}}次</button>'
+	})
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			
+		}
+	})
+	var vm2 = new Vue({
+		el:'#app2',  
+		data:{ 
+			
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,52 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件-注册局部组件</title>
+</head>
+<body>
+	<div id="app">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+	<div id="app2">
+		<!-- 局部组件,其他部分不可用 -->
+		<!-- <button-counter></button-counter> -->
+		<!-- <button-counter></button-counter> -->
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//注册一个名为button-counter的全局组件
+	/*
+	Vue.component('button-counter',{
+		data(){
+			return {count: 0}
+		},
+		template:'<button v-on:click="count++">点击了{{count}}次</button>'
+	})
+	*/
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			
+		},
+		//局部组件(只能在当前Vue根实例的模板中使用)
+		components:{
+			'button-counter':{
+				data(){
+					return {count: 0}
+				},
+				template:'<button v-on:click="count++">点击了{{count}}次</button>'
+			},
+		}
+	})
+	var vm2 = new Vue({
+		el:'#app2',  
+		data:{ 
+			
+		}
+	})
+</script>
+</html>

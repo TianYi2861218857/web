@@ -1,0 +1,66 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件-定义父子组件</title>
+</head>
+<body>
+	<div id="app">
+		<todo-item></todo-item>
+	</div>
+	<template id="todo-item" >
+		<div>
+			我是
+			<task></task>
+			<dateline ></dateline>
+		</div>
+	</template>
+	<template id="task" >
+		<div>{{tag}}</div>
+	</template>
+	<template id="dateline" >
+		<div>{{tag}}</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//1.定义组件--使用Vue.extend
+	var Task =Vue.extend({
+		data(){
+			return{
+				tag: '数据'
+			}
+		},
+		template:'#task',
+	})
+	var DateLine =Vue.extend({
+		data(){
+			return{
+				tag: '任务'
+			}
+		},
+		template:'#dateline',
+	})
+	var TodoItem=Vue.extend({
+		data(){
+			return{}
+		},
+		template:'#todo-item',
+		components:{
+			task : Task,
+			dateline: DateLine
+		}
+	})
+	//2.注册
+	Vue.component('todo-item',TodoItem)
+	
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			
+		},
+		
+	})
+</script>
+</html>
