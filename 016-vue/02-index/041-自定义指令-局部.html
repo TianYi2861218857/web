@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义指令-局部</title>
+		
+</head>
+<body>
+	<div id="app">
+		<input v-focus type="text">
+	</div>
+	<div id="app2">
+		<input type="text">
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+		directives:{
+			//注册局部指令 `v-focus`
+			'focus':{
+				inserted:(el)=>{
+					el.focus();
+				}				
+			}
+		}
+	})
+	var vm2 = new Vue({
+		el:'#app2',
+		data:{
+			
+		},
+	})
+</script>
+</html>

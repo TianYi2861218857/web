@@ -1,0 +1,41 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态组件</title>
+</head>
+<body>
+	<div id="app">
+		<button @click="currentComponent = 'tab-home'">home</button>
+		<button @click="currentComponent = 'tab-article'">article</button>
+		<component :is="currentComponent"></component>
+	</div>
+	<!-- <template> 需要定义在 Vue 所属的 DOM 元素外。-->
+	<template id="tab-home">
+		<div>tab-home</div>
+	</template>
+	<template id="tab-article">
+		<div>tab-article</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var Home=Vue.extend({
+		template:'#tab-home'
+	})
+	var Article=Vue.extend({
+		template:'#tab-article'
+	})
+	//2.注册
+	Vue.component('tab-home',Home)
+	Vue.component('tab-article',Article)
+	
+	var vm = new Vue({  
+		el:'#app',  
+		data:{ 
+			currentComponent:'tab-home'
+		}
+	})
+</script>
+</html>

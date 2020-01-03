@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器-全局</title>
+		
+</head>
+<body>
+	<div id="app">
+		<!-- v-bind中使用使用 -->
+		<p :title="price | formatPrice">{{price | formatPrice}}</p>
+	</div>
+	<div id="app2">
+		<!-- 双花括号中使用 -->
+		<p>{{price | formatPrice}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//全局过滤器
+	Vue.filter('formatPrice',price=>{
+		return "¥"+price.toFixed(2);
+	})
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			price:10
+		},
+		
+	})
+	var vm2 = new Vue({
+		el:'#app2',
+		data:{
+			price:88
+		},
+	})
+</script>
+</html>
