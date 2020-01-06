@@ -1,0 +1,82 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>路由-重定向</title>
+	<style>
+		*{
+			margin: 0;padding: 0;
+		}
+		#view{
+			width: 200px;
+			height: 50px;
+			margin-top: 20px;
+			border: 4px solid #87CEEB;
+			border-radius: 20px;
+			text-align: center;
+			line-height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div>
+			<!-- 使用 router-link 组件来导航. -->
+			<!-- 通过传入 `to` 属性指定链接. -->
+			<!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+			<router-link to="/home">Home</router-link>
+			<router-link to="/article">Article</router-link>
+			<router-link to="/list">List</router-link>
+		</div>
+		<div id="view">
+			<!-- 路由出口 -->
+			<!-- 路由匹配到的组件将渲染在这里 -->
+			<router-view></router-view>
+		</div>
+	</div>
+	<template id="home" >
+		<span>home page</span>
+	</template>
+	<template id="article" >
+		<span>article page</span>
+	</template>
+	<template id="list" >
+		<span>list page</span>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+	// 1. 定义 (路由) 组件。
+	var Home = { template: '#home' }
+	var Article = { template: '#article' }
+	var List = { template: '#list' }
+	// 2. 定义路由
+	// 每个路由应该映射一个组件。 其中"component" 可以是
+	// 通过 Vue.extend() 创建的组件构造器，
+	// 或者，只是一个组件配置对象。
+	var routes = [
+	  { path: '/home', component: Home },
+	  { path: '/article', component: Article },
+	  { path: '/list', component: List },
+	  //路由重定向   路由重定向就是当匹配到对应路由跳转到指定路由
+	  // { path: '/', component: Home }  //方法可以使用,但不推荐
+	  { path: '/', redirect: '/home' }   //根路由直接跳转 home
+	]
+	// 3. 创建 router 实例，然后传 `routes` 配置
+	var router = new VueRouter({
+	  routes // (缩写) 相当于 routes: routes
+	})
+	var vm = new Vue({  
+		el:'#app', 
+		// 4. 创建和挂载根实例。
+		// 记得要通过 router 配置参数注入路由，
+		// 从而让整个应用都有路由功能
+		router,
+		data:{ 
+			
+		},
+	})
+</script>
+</html>
