@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>TodoList</title>
+    <title>Kmall</title>
   </head>
   <body>
     <noscript>
@@ -15,3 +15,16 @@
     <!-- built files will be auto injected -->
   </body>
 </html>
+<script>
+(function(win, doc) {
+    var oRoot = doc.getElementsByTagName('html')[0];
+
+    function calcFs() {
+        var clientWidth = doc.documentElement.clientWidth || doc.body.clientWidth;
+        var fontSize = clientWidth / 10;
+        oRoot.style.fontSize = fontSize + 'px';
+    }
+    win.addEventListener('resize', calcFs, false);
+    doc.addEventListener('DOMContentLoaded', calcFs, false);
+})(window, document);
+</script>
