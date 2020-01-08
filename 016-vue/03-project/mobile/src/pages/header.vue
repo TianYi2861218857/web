@@ -1,82 +1,57 @@
 <!-- 模板 -->
 <template>
-	<div id="header" class="clearfix">
-			<h1>todolist</h1>
-		<input 
-			type="text" 
-			:placeholder="prompt"
-			v-model="task"
-			@keyup.enter="handleAdd()"
-		>
-		<button>新增</button>
-	</div>
+    <div id="Header">
+        <h1>TodoList</h1>
+        <input 
+            type="text"
+            placeholder="请输入任务" 
+            v-model="task"
+            @keyup.enter="handleAdd()"
+        >
+    </div>
 </template>
-
 <!-- 逻辑 -->
 <script>
-
-//导出组件
-export default {
-	name: 'Header',
-	data(){
-		return {
-			prompt:"请输入相关信息",
-   		task:''
-		}
-	},
-	props:{
-		handleTodo:Function,
-	},
-	methods:{
-		handleAdd(){
-			//1.校验数据
-			const val = this.task.trim()
-			if(!val){
-				alert('请输入新增信息')
-				return 
-			}
-			//2.生成数据对象
-			const todo = {
-				msg:val,
-				done:false
-			}
-			//3.将数据对象插入到顶层App数据数组中
-			this.handleTodo(todo);
-			this.task()
-		}
-	}
-}
+    export default{
+        name:'Header',
+        data(){
+            return {
+                task:''
+            }
+        },
+        props:{
+            addTodo:Function,
+        },
+        methods:{
+            handleAdd:function(){
+                //1.校验数据
+                var task = this.task.trim()
+                if(!task){
+                    alert('请输入任务')
+                    return 
+                }
+                //2.封装任务对象
+                var todo = {
+                    task,
+                    done:false
+                }
+                //3.将任务对象添加到任务数组中
+                this.addTodo(todo)
+                //4.清空输入框值
+                this.task = ''
+            }
+        }
+    }
 </script>
-
 <!-- 样式 -->
 <style scoped>
-	.clearfix:after{
-		clear: both;
-		display: block;
-		content: "";
-		height: 0;
-		visibility: hidden;
-	}
-	.clearfix{
-		*zoom: 1;
-	}
-	h1{
-		font-size: 20px;
-		text-align:center;
-	}
-	input{
-		float: left;
-		width: 90%;
-		height: 30px;
-		padding-left: 10px;
-		box-sizing: border-box;
-		outline: none;
-	}
-	button{
-		float: left;
-		width: 10%;
-		height: 30px;
+  	#Header{
 		text-align: center;
-		line-height: 30px;
-	}
+  	}
+  	input{
+  		width: 100%;
+  		height: 34px;
+  		padding-left: 15px;
+  		box-sizing: border-box;
+  	}
 </style>
